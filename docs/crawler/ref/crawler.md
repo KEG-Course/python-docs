@@ -37,6 +37,159 @@ html = response.text
 
 除了`requests`库外，还可以使用`urllib.request`等其它模块发起请求。
 
+### 快速获取网页列表
+在爬新闻的时候我们常常会先获取所有新闻网页的链接，再逐个爬取单个新闻的详细信息。下面介绍两种获取网页列表的方法。
+
+#### 直接提取网页内容
+多数网页的展示内容位于所爬取的内容中，可以直接提取。以豆瓣片单为例，获取某片单所在网址的内容：
+
+```python
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0",
+}
+params = {'start': 0, 'sort': 'time', 'playable': 0}
+print(requests.get('https://www.douban.com/doulist/669101', params=params, headers=headers).text)
+```
+
+此处我们发起GET请求。由于豆瓣是分页展示内容，要获取多页内容需要传入请求参数，此处设置起始位置为0。得到的部分内容如下：
+```html
+<div id="item4174711" class="doulist-item" >
+   <div class="mod">
+      <div class="hd"></div>
+      <div class="bd doulist-subject">
+         ...
+         <div class="title">
+            <a href="https://movie.douban.com/subject/1295399/" target="_blank">
+            <img style="width: 16px; vertical-align: text-top;" src="https://img1.doubanio.com/f/sns/5741f726dfb46d89eb500ed038833582c9c9dcdb/pics/sns/doulist/ic_play_web@2x.png"/>
+            七武士 七人の侍
+            </a>
+         </div>
+         ...
+      </div>
+      ...
+   </div>
+</div>
+<div id="item4174709" class="doulist-item" >
+   <div class="mod">
+      <div class="hd">
+      </div>
+      <div class="bd doulist-subject">
+         ...
+         <div class="title">
+            <a href="https://movie.douban.com/subject/1292215/" target="_blank">
+            <img style="width: 16px; vertical-align: text-top;" src="https://img1.doubanio.com/f/sns/5741f726dfb46d89eb500ed038833582c9c9dcdb/pics/sns/doulist/ic_play_web@2x.png"/>
+            天使爱美丽 Le fabuleux destin d&#39;Amélie Poulain
+            </a>
+         </div>
+         ...
+      </div>
+      ...
+   </div>
+</div>
+...
+```
+之后即可用下文将要介绍的数据清洗工具提取网页列表。
+
+#### API获取列表
+部分网页难以直接通过直接请求页面内容大量获得列表信息，比如将数据存入JQuery而非HTML中，或者需要通过下滑等方式让浏览器额外请求得到。一种解决方法是用Selenium等工具模拟浏览器行为以获取数据，可参考后文Selenium相关资料；除此之外，还可以寻找获取网站数据的API，直接请求格式化的数据。在上网时，浏览器所获得的一切数据都需要通过网络请求得到，请求结果不仅包含网页主体的HTML代码，还包含其它形式的数据，比如JavaScript代码、json等，它们通常已经被格式化，可以被直接使用。如果找到这类请求数据接口的域名、参数等信息，就可以向这些接口直接请求获得数据。
+
+浏览器的网络行为可以用开发者工具查看，通过按F12调出，在顶部选择“网络”项即可查看本页面发送的请求。
+
+![](asset/crawler_inspect_1.png)
+
+这些请求会返回多种数据，包括json、图片、js等。
+
+还是以豆瓣为例，豆瓣提供了一个页面用于根据类别查看电影列表：[https://movie.douban.com/explore](https://movie.douban.com/explore)，我们要爬取华语电影类别。但该页面单次显示的条目较少，我们希望自动获得大量的条目。通过点击网页中的“加载更多”按钮可以显示更多的条目，我们用开发者工具查看点击该按钮时，浏览器发出了什么请求。我们一般关注json形式的请求，因为它常被用于发送数据；我们可以仅查看XHR以只查看json之类的数据：
+
+![](asset/crawler_inspect_2.png)
+
+找到某一请求返回了json类型数据，且数据内容恰好是新加载的列表内容，这个接口就是我们要找的数据API。
+
+查看该请求的各部分，其url为`https://m.douban.com/rexxar/api/v2/movie/recommend`，各项参数如下：
+
+```
+params = {
+    'refresh': 0,
+    'start': 20,
+    'count': 20,
+    'selected_categories': '{"地区":"华语"}',
+    'uncollect': False,
+    'tags': '
+}
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0',
+    'Cookie': 'viewed="26341814"; bid=nZ1MLIzaMYw; ll="108288"; douban-fav-remind=1; ap_v=0,6.0',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Referer': 'https://movie.douban.com/explore',
+    'Origin': 'https://movie.douban.com',
+    'Connection': 'keep-alive',
+    'Cookie': 'viewed="26341814"; bid=nZ1MLIzaMYw; ll="108288"; douban-fav-remind=1; ap_v=0,6.0',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-site',
+}
+```
+
+我们基于这一套参数，在Python中发送一个请求：
+
+```python
+# 去掉了部分无用参数
+params = {
+    'start': 20,
+    'count': 20,
+    'selected_categories': '{"地区":"华语"}',
+    'tags': '华语'
+}
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0',
+    'Referer': 'https://movie.douban.com/explore',
+}
+response = requests.get('https://m.douban.com/rexxar/api/v2/movie/recommend', params=params, headers=headers)
+response.encoding = 'UTF-8'
+response.json()['items']
+```
+
+输出的大致内容如下：
+
+```
+[{...
+  'year': '2023',
+  'card_subtitle': '2023 / 中国大陆 / 剧情 喜剧 / 大鹏 / 黄渤 王一博',
+  'id': '35556001',
+  'title': '热烈',
+  'tags': [{'name': '2023最值得期待的影视',
+    'uri': 'douban://douban.com/subject_collection/ECGM6JFQI?category=movie&rank_type=year&type=rank'},
+   {'name': '中国大陆 喜剧 搞笑',
+    'uri': 'douban://douban.com/movie/recommend_tag?tag=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%2C%E5%96%9C%E5%89%A7%2C%E6%90%9E%E7%AC%91&type=tags'}],
+  'uri': 'douban://douban.com/movie/35556001',
+  'episodes_info': '',
+  'item_type': 'movie'},
+ {...
+  'year': '2018',
+  'card_subtitle': '2018 / 美国 中国大陆 / 剧情 喜剧 音乐 传记 / 彼得·法雷里 / 维果·莫腾森 马赫沙拉·阿里',
+  'id': '27060077',
+  'title': '绿皮书',
+  'tags': [{'name': '豆瓣电影Top250',
+    'uri': 'douban://douban.com/subject_collection/movie_top250'},
+   {'name': '美国 种族 温情',
+    'uri': 'douban://douban.com/movie/recommend_tag?tag=%E7%BE%8E%E5%9B%BD%2C%E7%A7%8D%E6%97%8F%2C%E6%B8%A9%E6%83%85&type=tags'},
+   {'name': '金球奖 最佳男配角 获奖作品', 'uri': 'douban://douban.com/doulist/111730341'}],
+  'uri': 'douban://douban.com/movie/27060077',
+  'episodes_info': '',
+  'item_type': 'movie'},
+  ...
+]
+```
+
+即为我们需要的列表。观察到列表中的每一项有一个字段'uri'，其以一串数字结尾；再随便打开一个电影的网页，其链接为`https://movie.douban.com/subject/27060077/`，结尾恰好为uri结尾的数字，故可以根据列表中的信息找到对应的页面链接。
+
+### Selenium
+有时候我们不仅要直接从网页获取信息，还要和网页进行主动交互，比如输入信息、下滑窗口等，这需要在网页中执行操作。一种可用的工具是Selenium，它是一个用于控制浏览器行为的自动化测试框架，可以模拟用户在浏览器中的操作。
+
+Selenium的基础操作可以参考GeeksforGeeks教程[Selenium Python Tutorial - GeeksforGeeks](https://www.geeksforgeeks.org/selenium-python-tutorial)，在[科协暑培教程](https://summer23.net9.org/backend/crawler/#32-selenium-webdriver)中也有示例代码，同学们可以参考。
+
 ## 数据清洗
 通过网络请求我们可以得到大量的数据，然而数据常常以前端代码、格式混乱的文本等形式存在，要让其变成高质量、可用的信息还需要细致的清洗。接下来我们将学习网页数据的常见形式HTML，以及抽取数据的一系列工具。
 
