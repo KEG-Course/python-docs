@@ -2,25 +2,12 @@
 
 * 安装transformers, gradio, torch等依赖包
 
-# 预训练语言模型
-
-## 预训练数据集
-
-* 数据来源：https://github.com/loyalpartner/jywxFenxi
-* 数据集介绍：我们选用了公开的金庸的部分武侠小说进行预训练。
-
 ## 预训练模型
 
 * 模型介绍：https://github.com/loyalpartner/jywxFenxi
 * 模型参数：layer=6，hidden size=512
 
 # 有监督微调模型（SFT）
-
-## 数据集介绍
-
-## 构造SFT数据集
-
-* 参考给定的20条SFT数据集，用ChatGLM API蒸馏数据。
 
 # 模型部署与运行
 
