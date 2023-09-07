@@ -27,6 +27,7 @@
   * Rouge是通过将模型生成的回答（Y）与参考答案（X）进行比较计算，得到对应的得分。
   * Rouge-L利用最长公共子序列进行计算，注意子序列不一定连续，但是有词的顺序。
   * Rouge-L的计算方式如下：
+  
   $$
   \text{Rouge-L(lcs)} = \frac{(1+\beta^2)R_{lcs}P_{lcs}}{R_{lcs} + \beta^2P_{lcs}}
   $$
