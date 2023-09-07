@@ -24,11 +24,6 @@ nav:
   - 实验二：MiniGLM:
     - 实验概述: MiniGLM/index.md
     - 语言模型微调的知识补充: MiniGLM/beckground.md
-    # - 环境部署: MiniGLM/pipeline.md
-    # - 数据集和预处理介绍: MiniGLM/dataset.md
-    # - 模型推理与评估: MiniGLM/deploy_eval.md
-    # - 评分标准: MiniGLM/requirements.md
-    # - FAQ: MiniGLM/faq.md
 
 
 theme:
