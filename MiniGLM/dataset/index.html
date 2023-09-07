@@ -13,17 +13,13 @@
       
       
       
-        <link rel="prev" href="../pipeline/">
-      
-      
-        <link rel="next" href="../deploy_eval/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>数据集和预处理介绍 - 程序设计训练（Python）</title>
+        <title>Dataset - 程序设计训练（Python）</title>
       
     
     
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据集和预处理介绍
+              Dataset
             
           </span>
         </div>
@@ -501,16 +497,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
       
       
       
@@ -519,7 +515,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           实验二：MiniGLM
@@ -548,166 +544,6 @@
     <li class="md-nav__item">
       <a href="../beckground/" class="md-nav__link">
         语言模型微调的知识补充
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pipeline/" class="md-nav__link">
-        环境部署
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          数据集和预处理介绍
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        数据集和预处理介绍
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    数据集和预处理介绍
-  </a>
-  
-    <nav class="md-nav" aria-label="数据集和预处理介绍">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    预训练数据集
-  </a>
-  
-    <nav class="md-nav" aria-label="预训练数据集">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    数据集介绍：
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    数据处理流程
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    微调数据集构建
-  </a>
-  
-    <nav class="md-nav" aria-label="微调数据集构建">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    数据集介绍
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deploy_eval/" class="md-nav__link">
-        模型推理与评估
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../requirements/" class="md-nav__link">
-        评分标准
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        FAQ
       </a>
     </li>
   
@@ -820,16 +656,16 @@
                   
 
 
-  <h1>数据集和预处理介绍</h1>
+  <h1>Dataset</h1>
 
 <h2 id="_1">数据集和预处理介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">预训练数据集<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>预训练的目的是为了让模型能够“记住”数据中的内容，所以一般选用互联网、知识库或者书籍数据进行训练。预训练数据的形式一般为可阅读的文本、文章等。</p>
-<h5 id="_3">数据集介绍：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<h4 id="_3">数据集介绍：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——金庸武侠语言模型。我们选取了金庸的部分武侠小说（共15部，大小约25M）作为训练集进行预训练，大家可以选取部分进行使用。</p>
 <p>​   <em>数据来源</em>：https://github.com/loyalpartner/jywxFenxi</p>
-<h5 id="_4">数据处理流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
-<p>数据处理流程的主要目标是将原始文本数据编码为模型可以理解的标记序列，并将其分成训练集和验证集以供后续的模型训练和评估使用。在本次作业中，我们使用 <code>tiktoken</code> 库来处理文本数据。最终，编码后的数据以二进制格式保存在文件中，以供后续的机器学习模型使用。主要包括以下流程：</p>
+<h4 id="_4">数据处理流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>数据处理流程的主要目标是将原始文本数据编码为模型可以理解的标记序列，并将其分成训练集和验证集以供后续的模型训练和评估使用。在本次作业中，我们使用 <code>tiktoken</code> 库来处理文本数据。最终，编码后的数据以二进制格式保存在文件中，以供学习模型使用。主要包括以下流程：</p>
 <ol>
 <li>获取文本编码器：</li>
 <li>使用 <code>tiktoken.get_encoding("gpt2")</code> 获取用于编码文本的编码器。在此示例中，选择了 GPT-2 模型的编码器。</li>
