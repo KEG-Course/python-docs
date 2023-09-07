@@ -20,16 +20,14 @@ MiniGLM
 │   ├── fetch_data.py # 获取数据
 │   ├── prepare.py # 准备预训练数据 <TODO>
 │   └── prepare_sft.py # 准备微调数据 <TODO>
-├── data_utils.py # 
-├── evaluations.py 
-├── model.py
-├── sample.py
-├── sample_gradio.py
-├── train.py
-└── visualize.py
+├── data_utils.py # 构造每一个训练步骤中要输入模型的数据 <TODO>
+├── evaluations.py # 实现模型评估相关指标，辅助观察模型效果 <TODO>
+├── model.py # 底层模型实现
+├── sample.py # 使用训练好的模型进行推理，
+├── sample_gradio.py # 使用 gradio 来进行和模型交互的可视化 <TODO> 也可以选用非 gradio 的其他实现
+├── train.py # 模型训练实现
+└── visualize.py # 模型训练 loss 曲线/评估指标等可视化 <TODO>
 ```
-
-
 
 # 模型训练
 

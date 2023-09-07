@@ -21,8 +21,10 @@ nav:
       - 数据可视化: crawler/ref/visualize.md
     - 评分标准: crawler/requirements.md
     - FAQ: crawler/faq.md
-  - 实验二：（待发布）:
-    - 实验概述: unknown.md
+  - 实验二：MiniGLM:
+    - 实验概述: MiniGLM/index.md
+    - 语言模型微调的知识补充: MiniGLM/beckground.md
+
 
 theme:
   name: material
