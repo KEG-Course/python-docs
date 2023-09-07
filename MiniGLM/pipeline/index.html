@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../beckground/">
+      
+      
+        <link rel="next" href="../dataset/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
@@ -497,16 +501,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -515,7 +519,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           实验二：（待发布）
@@ -528,8 +532,102 @@
   
   
     <li class="md-nav__item">
-      <a href="../../unknown/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         实验概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beckground/" class="md-nav__link">
+        语言模型微调的知识补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        环境部署
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataset/" class="md-nav__link">
+        数据集和预处理介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_eval/" class="md-nav__link">
+        模型推理与评估
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requirements/" class="md-nav__link">
+        评分标准
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        FAQ
       </a>
     </li>
   
@@ -580,56 +678,42 @@
 <ul>
 <li>安装transformers, gradio, torch等依赖包</li>
 </ul>
-<h1 id="_2">预训练语言模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<h2 id="_3">预训练数据集<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>pip install transformers gradio torch
+</code></pre></div>
+<p>在提供的服务器环境中，默认已经配置好所有依赖的包。</p>
+<h1 id="miniglm">MiniGLM 文件目录介绍<a class="headerlink" href="#miniglm" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>MiniGLM
+├──<span class="w"> </span>README.md<span class="w"> </span>
+├──<span class="w"> </span>config
+│<span class="w">   </span>└──<span class="w"> </span>train_config.py<span class="w"> </span><span class="c1"># 模型参数文件</span>
+├──<span class="w"> </span>configurator.py
+├──<span class="w"> </span>data
+│<span class="w">   </span>├──<span class="w"> </span>fetch_data.py<span class="w"> </span><span class="c1"># 获取数据</span>
+│<span class="w">   </span>├──<span class="w"> </span>prepare.py<span class="w"> </span><span class="c1"># 准备预训练数据 &lt;TODO&gt;</span>
+│<span class="w">   </span>└──<span class="w"> </span>prepare_sft.py<span class="w"> </span><span class="c1"># 准备微调数据 &lt;TODO&gt;</span>
+├──<span class="w"> </span>data_utils.py<span class="w"> </span><span class="c1"># 构造每一个训练步骤中要输入模型的数据 &lt;TODO&gt;</span>
+├──<span class="w"> </span>evaluations.py<span class="w"> </span><span class="c1"># 实现模型评估相关指标，辅助观察模型效果 &lt;TODO&gt;</span>
+├──<span class="w"> </span>model.py<span class="w"> </span><span class="c1"># 底层模型实现</span>
+├──<span class="w"> </span>sample.py<span class="w"> </span><span class="c1"># 使用训练好的模型进行推理，</span>
+├──<span class="w"> </span>sample_gradio.py<span class="w"> </span><span class="c1"># 使用 gradio 来进行和模型交互的可视化 &lt;TODO&gt; 也可以选用非 gradio 的其他实现</span>
+├──<span class="w"> </span>train.py<span class="w"> </span><span class="c1"># 模型训练实现</span>
+└──<span class="w"> </span>visualize.py<span class="w"> </span><span class="c1"># 模型训练 loss 曲线/评估指标等可视化 &lt;TODO&gt;</span>
+</code></pre></div>
+<h1 id="_2">模型训练<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>模型训练包括<code>预训练</code>和<code>微调</code>两个阶段。</p>
+<h2 id="pretraing">预训练模型（pretraing）<a class="headerlink" href="#pretraing" title="Permanent link">&para;</a></h2>
 <ul>
-<li>数据来源：https://github.com/loyalpartner/jywxFenxi</li>
-<li>数据集介绍：我们选用了公开的金庸的部分武侠小说进行预训练。</li>
+<li>模型大小：包含 54M 参数，大约</li>
+<li>模型共包含 6 层transfomer，隐藏层包含 512 个单元。</li>
 </ul>
-<h2 id="_4">预训练模型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>模型介绍：https://github.com/loyalpartner/jywxFenxi</li>
-<li>模型参数：layer=6，hidden size=512</li>
-</ul>
-<h1 id="sft">有监督微调模型（SFT）<a class="headerlink" href="#sft" title="Permanent link">&para;</a></h1>
-<h2 id="_5">数据集介绍<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h2 id="sft_1">构造SFT数据集<a class="headerlink" href="#sft_1" title="Permanent link">&para;</a></h2>
-<ul>
-<li>参考给定的20条SFT数据集，用ChatGLM API蒸馏数据。</li>
-</ul>
-<h1 id="_6">模型部署与运行<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
-<h1 id="_7">评价指标<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
-<h2 id="_8">传统指标<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ul>
-<li>训练loss</li>
-<li>Perlexity</li>
-<li>Rouge-L</li>
-</ul>
-<h2 id="_9">生成速度<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<ul>
-<li>正常</li>
-</ul>
-<h2 id="_10">质量评价<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<ul>
-<li>流畅度：没有乱码，没有重复内容</li>
-<li>没有截断，即没有生成完整的一句话</li>
-<li>相关度：回答内容与问题相关</li>
-<li>文本：生成有效的最长的文本</li>
-</ul>
-<h1 id="_11">服务器资源<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
-<p>注意事项：</p>
-<ul>
-<li>每位同学只能在分配的自己的机器及GPU卡上运行程序，不得使用别人的GPU卡。</li>
-<li>每位同学每次只能运行一个程序。</li>
-<li>每张GPU卡可以同时运行两个任务。</li>
-</ul>
+<h2 id="supervised-finetuning">有监督微调模型（Supervised finetuning）<a class="headerlink" href="#supervised-finetuning" title="Permanent link">&para;</a></h2>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月6日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月7日</span>
       
     
   </small>
@@ -646,7 +730,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:1071102546@qq.com'>dawnzzhang</a></span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (70.73%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (29.27%)</span>
       </small>
     </div>
   

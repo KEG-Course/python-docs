@@ -13,21 +13,21 @@
       
       
       
-        <link rel="prev" href="../crawler/">
+        <link rel="prev" href="../dataset/">
       
       
-        <link rel="next" href="../analysis/">
+        <link rel="next" href="../requirements/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Web系统设计 - 程序设计训练（Python）</title>
+        <title>模型推理与评估 - 程序设计训练（Python）</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -62,7 +62,7 @@
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -73,7 +73,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#web" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -104,7 +104,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="程序设计训练（Python）" class="md-header__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+    <a href="../.." title="程序设计训练（Python）" class="md-header__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Web系统设计
+              模型推理与评估
             
           </span>
         </div>
@@ -208,7 +208,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="程序设计训练（Python）" class="md-nav__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+    <a href="../.." title="程序设计训练（Python）" class="md-nav__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -239,7 +239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         课程概述
       </a>
     </li>
@@ -252,16 +252,16 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
       
       
       
@@ -270,7 +270,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           实验一：爬虫与信息系统
@@ -283,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../crawler/" class="md-nav__link">
         实验概述
       </a>
     </li>
@@ -295,16 +295,16 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
       
       
       
@@ -313,7 +313,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           实验内容
@@ -326,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crawler/" class="md-nav__link">
+      <a href="../../crawler/project/crawler/" class="md-nav__link">
         爬虫
       </a>
     </li>
@@ -338,114 +338,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Web系统设计
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../crawler/project/web/" class="md-nav__link">
         Web系统设计
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    首页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    新闻列表页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    新闻正文页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    分类页与分类列表页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    搜索和搜索结果页
-  </a>
-  
-    <nav class="md-nav" aria-label="搜索和搜索结果页">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    搜索页
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    搜索结果页
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    注意事项
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -457,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analysis/" class="md-nav__link">
+      <a href="../../crawler/project/analysis/" class="md-nav__link">
         数据分析
       </a>
     </li>
@@ -507,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/crawler/" class="md-nav__link">
+      <a href="../../crawler/ref/crawler/" class="md-nav__link">
         爬虫
       </a>
     </li>
@@ -521,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/django/" class="md-nav__link">
+      <a href="../../crawler/ref/django/" class="md-nav__link">
         Web系统设计
       </a>
     </li>
@@ -535,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/analysis/" class="md-nav__link">
+      <a href="../../crawler/ref/analysis/" class="md-nav__link">
         自然语言处理与信息检索
       </a>
     </li>
@@ -549,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/visualize/" class="md-nav__link">
+      <a href="../../crawler/ref/visualize/" class="md-nav__link">
         数据可视化
       </a>
     </li>
@@ -570,7 +467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../requirements/" class="md-nav__link">
+      <a href="../../crawler/requirements/" class="md-nav__link">
         评分标准
       </a>
     </li>
@@ -584,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../crawler/faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -604,16 +501,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -622,7 +519,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           实验二：（待发布）
@@ -635,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         实验概述
       </a>
     </li>
@@ -649,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/beckground/" class="md-nav__link">
+      <a href="../beckground/" class="md-nav__link">
         语言模型微调的知识补充
       </a>
     </li>
@@ -663,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/pipeline/" class="md-nav__link">
+      <a href="../pipeline/" class="md-nav__link">
         环境部署
       </a>
     </li>
@@ -677,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/dataset/" class="md-nav__link">
+      <a href="../dataset/" class="md-nav__link">
         数据集和预处理介绍
       </a>
     </li>
@@ -689,11 +586,106 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../MiniGLM/deploy_eval/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          模型推理与评估
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         模型推理与评估
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    模型推理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    模型评估
+  </a>
+  
+    <nav class="md-nav" aria-label="模型评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    传统指标
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    生成速度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    质量评价
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    服务器资源
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    服务器的使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -705,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/requirements/" class="md-nav__link">
+      <a href="../requirements/" class="md-nav__link">
         评分标准
       </a>
     </li>
@@ -719,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../MiniGLM/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -760,58 +752,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    概述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    首页
+    模型推理
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    新闻列表页
+    模型评估
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    新闻正文页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    分类页与分类列表页
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    搜索和搜索结果页
-  </a>
-  
-    <nav class="md-nav" aria-label="搜索和搜索结果页">
+    <nav class="md-nav" aria-label="模型评估">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    搜索页
+  <a href="#_4" class="md-nav__link">
+    传统指标
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    搜索结果页
+  <a href="#_5" class="md-nav__link">
+    生成速度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    质量评价
   </a>
   
 </li>
@@ -822,9 +793,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    注意事项
+  <a href="#_7" class="md-nav__link">
+    服务器资源
   </a>
+  
+    <nav class="md-nav" aria-label="服务器资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    服务器的使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -844,104 +828,113 @@
                   
 
 
-<h1 id="web">Web系统设计<a class="headerlink" href="#web" title="Permanent link">&para;</a></h1>
-<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>使用爬取到的信息设计一个网站，用来浏览和查询爬取的新闻信息。
-网站需要包含以下页面（功能）：</p>
-<ol>
-<li>
-<p>首页</p>
-</li>
-<li>
-<p>新闻列表页</p>
-</li>
-<li>
-<p>新闻正文页</p>
-</li>
-<li>
-<p>分类页与分类列表页</p>
-</li>
-<li>
-<p>搜索和搜索结果页</p>
-</li>
-</ol>
-<h2 id="_2">首页<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li>系统首页含两个功能：搜索与随机新闻展示</li>
-<li>搜索：包含一个文本框、一个单选框、一个多选框与搜索按钮（见搜索功能说明）</li>
-<li>随机新闻展示：在首页<u><strong>随机</strong></u>选择20条新闻组成列表进行展示：<ul>
-<li>列表中每个条目至少显示：新闻标题、作者ID、正文前若干字符、新闻基本信息（创建时间、阅读数量、点赞收藏数量等）、评论数量（见新闻正文页说明）</li>
-<li>点击列表中的条目可跳转到该新闻的正文页</li>
-<li>页面适当位置添加一个更新按钮，要求点击按钮或刷新页面后随机展示另一批新闻</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">新闻列表页<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li>新闻列表页通过分页方式列出系统中的所有新闻<ul>
-<li>分页控件至少包含：首页尾页、页码按钮跳转、输入页码跳转</li>
-</ul>
-</li>
-<li>列表页中的每个条目需显示的内容与首页的要求一致。</li>
-<li>点击列表页中的条目可以跳转到对应的新闻正文页。</li>
-</ul>
-<h2 id="_4">新闻正文页<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>系统为每个爬取到的新闻创建一个页面，显示新闻正文与其他信息。<ul>
-<li>爬取到的新闻信息需全部显示在此页中，同时显示新闻的分类（见下页）</li>
-<li>页面适当位置添加到原新闻的超链接</li>
-<li>文本格式与图片排版可与原页面不同，但内容不可存在差异</li>
-</ul>
-</li>
-<li>实现评论功能：<ul>
-<li>在新闻正文页底部添加评论文本输入框和按钮，以支持用户对新闻提交评论</li>
-<li>提交的评论文本以列表形式显示在新闻页底部，且持久保存，每个条目显示评论正文和评论时间，条目按时间倒序排列（最新评论显示在顶部）</li>
-<li>为每个评论条目添加删除按钮，点击后可删除该条评论</li>
-<li>注：评论功能不需设计用户系统，删除评论也不考虑用户权限问题。</li>
-</ul>
-</li>
-</ul>
-<h2 id="_5">分类页与分类列表页<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>新闻分类：所有新闻按照合理的标准分类（类别数大于等于3）<ul>
-<li>分类可以按照：新闻时间、新闻来源、新闻主题等</li>
-</ul>
-</li>
-<li>分类页：展示上述所有分类（含“其他”），显示分类名称与该分类下的新闻数量，点击某分类后可跳转到该分类下的列表页。</li>
-<li>分类详情页：分页展示该分类下的所有新闻，其余要求与新闻列表页相同。</li>
-</ul>
-<h2 id="_6">搜索和搜索结果页<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<h3 id="_7">搜索页<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li>搜索功能包括一个搜索栏、一个单选框、一个多选框和一个搜索按钮。</li>
-<li>搜索栏输入一个关键词或一段文本（50字符以内），需要搜索标题或正文中包含该文本的新闻。（仅考虑精确搜索即可）</li>
-<li>单选框包含两项：按时间排序（由新到旧）和按热度排序（由高到低），决定搜索结果的排序顺序。<ul>
-<li>默认选项为按时间排序（由新到旧）。</li>
-</ul>
-</li>
-<li>多选框为前述分类，表示只搜索勾选中分类下的新闻。<ul>
-<li>无选项被勾选与所有选项被勾选均视为搜索所有分类下的新闻，默认设置为无选项被勾选。</li>
-</ul>
-</li>
-<li>点击搜索按钮后跳转到搜索详情页，展示符合搜索要求的所有新闻。</li>
-</ul>
-<h3 id="_8">搜索结果页<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>搜索结果页用于展示搜索功能得出的所有新闻，以分页形式展示。</li>
-<li>搜索结果页中的每个条目应以类似列表页中的条目形式展示，点击可跳转到相应信息页。</li>
-<li>搜索结果页需要显示搜索结果数量和搜索花费的时间（后端计时）。</li>
-<li>尽量优化搜索算法使得搜索速度不至于太慢。</li>
-</ul>
-<h2 id="_9">注意事项<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h1 id="_1">模型推理与评估<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">模型推理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在本次作业中，我们需要将训练好的模型能够在本地正常运行起来。调试可以通过命令行输出观察模型效果。在进行展示时，要求大家以可视化的界面（网页）进行展示与模型的对话，便于实验的测试与验收。推荐使用 <a href="https://www.gradio.app/guides/quickstart">Gradio</a> 来进行实现。</p>
+<h2 id="_3">模型评估<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>我们将采用以下三方面的指标进行评价模型训练的结果。这些指标旨在高效地指导模型拟合数据分布，同时使人客观地评价模型生成文本的质量。</p>
+<h3 id="_4">传统指标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>网站各个页面之间应可以完全通过点击页面中的控件来跳转，不允许输入URL与浏览器后退前进操作来跳转。</p>
+<p>设置合理的损失函数。在本次实验中，训练损失函数即为单个词预测的交叉熵损失（cross-entropy loss）的平均。</p>
 </li>
 <li>
-<p>检索算法优化：建议对查询功能通过各种技术（建立索引等）进行优化，根据查询算法和查询时间会有性能分数的区分。</p>
+<p>困惑度</p>
 </li>
 <li>
-<p>美观度：建议对网页使用CSS和JS进行美化，网页设计效果会有少量分数考量。</p>
+<p>困惑度（Perlexity）是刻画语言模型预测一个语言文本的能力，表示模型预测某一个句子出现的合理程度。一般用模型预测一个句子中所有词出现的概率来计算。在测试集上，困惑度值越低，说明建模的效果越好。</p>
+</li>
+<li>困惑度的计算方式如下：</li>
+</ul>
+<p>$$
+  \begin{split}
+  \text{Perlexity(S)} &amp;= p(w_1, w_2, w_3, \cdots, w_m)^{-1/m}\
+  &amp;=[p(w_1)p(w_2|w_1)...p(w_m|w_1,...,w_{m-1})]^{(-1/m)}
+  \end{split}
+  $$</p>
+<p>其中，<span class="arithmatex">\(m\)</span>是句子的长度。</p>
+<ul>
+<li>Rouge-L</li>
+<li>Rouge是通过将模型生成的回答（Y）与参考答案（X）进行比较计算，得到对应的得分。</li>
+<li>Rouge-L利用最长公共子序列进行计算，注意子序列不一定连续，但是有词的顺序。</li>
+<li>Rouge-L的计算方式如下：</li>
+</ul>
+<p>$$
+  \text{Rouge-L(lcs)} = \frac{(1+\beta^2)R_{lcs}P_{lcs}}{R_{lcs} + \beta^2P_{lcs}}
+  $$</p>
+<p>$$
+  R_{(lcs)} = \frac{LCS(X, Y)}{m}
+  $$</p>
+<p>$$
+  P_{(lcs)} = \frac{LCS(X, Y)}{n}
+  $$</p>
+<p>其中，<span class="arithmatex">\(\beta\)</span>是超参数句子的长度，m和n各是X和Y的长度。</p>
+<h3 id="_5">生成速度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>生成速度正常，评价指标是每秒内生成文本的长度不少于40字。</li>
+<li>生成速度提升可以获得适度加分。</li>
+</ul>
+<h3 id="_6">质量评价<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>流畅度：</li>
+<li>没有乱码<ul>
+<li>例如，不会生成类似看不懂的文本，“のて72[UNK]1904屹”。</li>
+</ul>
+</li>
+<li>没有重复内容<ul>
+<li>例如，不会生成类似“2021等2021等2021等2021等2021等”这样的文本。</li>
+</ul>
+</li>
+<li>没有空白，即回答为空  </li>
+<li>没有截断，即没有生成完整的一句话</li>
+<li>例如，不会生成类似“今天，我们讲 ”这样的文本。</li>
+<li>相关度，即回答内容与问题相关</li>
+<li>例如，不会出现类似样例。即问题是“《倚天屠龙记》有哪些主角？”，答案是“《三国演义》是四大名著之一”。</li>
+<li>文本：生成有效的最长的文本</li>
+<li>正确样例如下：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>问题是“《倚天屠龙记》有哪些主角？”
+答案是“《倚天屠龙记》是金庸先生所著的武侠小说，主要讲述了元朝末年武林中的故事。这部小说的主角包括：
+1. 张无忌：男主角，明教教主，拥有屠龙刀和倚天剑，是武林中备受关注的人物。  
+2. 赵敏：女主角之一，绍敏郡主，喜欢张无忌，敢爱敢恨，为了爱情可以勇往直前。  
+3. 周芷若：女主角之一，峨嵋派第四代掌门人，张无忌的妻子，与张无忌之间有着深厚的感情纠葛。  
+4. 小昭：女主角之一，明教护教法王黛绮丝之女，喜欢张无忌，最后成为张无忌的义女。  
+此外，还有其他重要角色如谢逊、成昆、杨逍、范遥等。这些人物共同构成了《倚天屠龙记》丰富的故事情节。”。
+</code></pre></div>
+<h2 id="_7">服务器资源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>为了让大家能够顺利完成作业。避免硬件资源限制，我们会为大家提供服务器资源供大家使用。</p>
+<ul>
+<li>
+<p>每台服务器有8张24G的显卡。每次程序运行大约需要10G显存，理论上一张显卡最多可以跑2个程序</p>
+</li>
+<li>
+<p>平均11人使用一台服务器。建议尽量平均使用资源</p>
+</li>
+</ul>
+<h5 id="_8">服务器的使用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<p>要使用服务器进行开发，需要通过 ssh 连接到服务器上，使用命令行进行操作</p>
+<ul>
+<li>使用 ssh 连接服务器</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mac：ssh &lt;账号&gt;@ip -p &lt;port&gt;
+
+windows：使用 xshell 等支持 ssh 的软件
+</code></pre></div>
+<ul>
+<li>
+<p>激活 conda 环境。我们在服务器上为大家配置了共享 conda 环境，登入服务器后环境会自动激活。由于环境为服务器上所有同学共享，请大家不要随意通过 pip 安装 package。</p>
+</li>
+<li>
+<p>需要的代码和数据可以放在个人目录下进行 <code>/home/&lt;学号&gt;</code></p>
+</li>
+<li>
+<p>服务器和本地之间的文件传输可以用<code>scp</code>实现。windows 下可以用<code>xftp</code>。</p>
+</li>
+<li>
+<p>可以通过 <code>CUDA_VISIBLE_DEVICES=x</code> 来约束使用哪一张显卡。例如：<code>CUDA_VISIBLE_DEVICES=4 python main.py</code>为使用4号显卡</p>
+</li>
+<li>
+<p>账号通过网络学堂作业下发</p>
 </li>
 </ul>
 
@@ -950,7 +943,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年8月24日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月7日</span>
       
     
   </small>
@@ -967,7 +960,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a></span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (42.59%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (54.63%), <a href='mailto:52482160+xujz18@users.noreply.github.com'>Jiazheng Xu</a> (2.78%)</span>
       </small>
     </div>
   
@@ -1053,13 +1046,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="../../../javascripts/mathjax.js"></script>
+          <script src="../../javascripts/mathjax.js"></script>
         
       
         

@@ -13,13 +13,17 @@
       
       
       
+        <link rel="prev" href="../crawler/faq/">
+      
+      
+        <link rel="next" href="beckground/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Python编程实验：训练一个语言模型MiniGLM - 程序设计训练（Python）</title>
+        <title>实验概述 - 程序设计训练（Python）</title>
       
     
     
@@ -119,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Python编程实验：训练一个语言模型MiniGLM
+              实验概述
             
           </span>
         </div>
@@ -497,16 +501,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -515,7 +519,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           实验二：（待发布）
@@ -526,10 +530,142 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          实验概述
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        实验概述
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    实验目标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    实验概述
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../unknown/" class="md-nav__link">
-        实验概述
+      <a href="beckground/" class="md-nav__link">
+        语言模型微调的知识补充
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pipeline/" class="md-nav__link">
+        环境部署
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dataset/" class="md-nav__link">
+        数据集和预处理介绍
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deploy_eval/" class="md-nav__link">
+        模型推理与评估
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="requirements/" class="md-nav__link">
+        评分标准
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        FAQ
       </a>
     </li>
   
@@ -602,11 +738,11 @@
 <h2 id="_1">实验目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>数据预处理：</li>
-<li>掌握语言模型的输入数据格式</li>
-<li>掌握语言模型的数据处理流程</li>
+<li>掌握输入数据构造</li>
+<li>掌握数据处理流程</li>
 <li>模型训练与微调：</li>
-<li>掌握语言模型的训练过程</li>
-<li>掌握语言模型的有监督微调过程</li>
+<li>实现预训练过程</li>
+<li>实现有监督微调过程</li>
 <li>模型部署与评测：</li>
 <li>实现模型本地部署和运行</li>
 <li>掌握语言模型的评测标准</li>
@@ -632,7 +768,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月6日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月7日</span>
       
     
   </small>
@@ -649,7 +785,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:1071102546@qq.com'>dawnzzhang</a></span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (13.79%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (86.21%)</span>
       </small>
     </div>
   
