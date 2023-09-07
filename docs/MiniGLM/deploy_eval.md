@@ -29,7 +29,7 @@
   * Rouge-L的计算方式如下：
   
   $$
-  \text{Rouge-L(lcs)} = \frac{(1+\beta^2)R_{lcs}P_{lcs}}{R_{lcs} + \beta^2P_{lcs}}
+  \text{Rouge-L(lcs)} = \frac{(1+\beta^2)R\_{lcs}P\_{lcs}}{R\_{lcs} + \beta^2P\_{lcs}}
   $$
 
   $$
