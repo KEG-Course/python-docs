@@ -1061,24 +1061,28 @@
 本次作业也<strong>不涉及对于训练流程以及损失函数等部分的实现及修改</strong>。但是需要同学们参考预训练阶段的数据输入，<strong>修改实现微调阶段的数据输入适配</strong>。</p>
 <h3 id="pretraing">预训练模型（Pretraing）<a class="headerlink" href="#pretraing" title="Permanent link">&para;</a></h3>
 <p>一个模型通过<strong>预训练（pretraining）</strong>来从零开始获取海量数据中的知识，自回归（Auto-regressive），即对一个句子从左到右进行预测，是简单但非常有效的训练方式。</p>
-<p>MiniGLM采用自回归式的预训练及生成范式。在预训练阶段：
-* 给定一段长为<span class="arithmatex">\(N\)</span>的文本token序列。MiniGLM需要预测每一个位置的对应输出。对于位置<span class="arithmatex">\(k\)</span>的token预测基于已给定的前<span class="arithmatex">\(k-1\)</span>个token。
-* 对于模型输出的预测使用交叉熵（见知识补充部分）构建损失函数来进行训练。
-* 对于每条预训练数据的采集，我们从原始数据中随机采样一个起始位置<span class="arithmatex">\(i\)</span>，然后取<span class="arithmatex">\([i, i+N-1]\)</span>这一段序列作为本条预训练数据。
+<p>MiniGLM采用自回归式的预训练及生成范式。在预训练阶段：</p>
+<ul>
+<li>给定一段长为<span class="arithmatex">\(N\)</span>的文本token序列。MiniGLM需要预测每一个位置的对应输出。对于位置<span class="arithmatex">\(k\)</span>的token预测基于已给定的前<span class="arithmatex">\(k-1\)</span>个token。</li>
+<li>对于模型输出的预测使用交叉熵（见知识补充部分）构建损失函数来进行训练。</li>
+<li>对于每条预训练数据的采集，我们从原始数据中随机采样一个起始位置<span class="arithmatex">\(i\)</span>，然后取<span class="arithmatex">\([i, i+N-1]\)</span>这一段序列作为本条预训练数据。
   <div class="highlight"><pre><span></span><code><span class="n">ix</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">block_size</span><span class="p">,</span> <span class="p">(</span><span class="n">batch_size</span><span class="p">,))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">block_size</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">block_size</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ix</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div></li>
+</ul>
 <h3 id="supervised-finetuning">有监督微调模型（Supervised Finetuning）<a class="headerlink" href="#supervised-finetuning" title="Permanent link">&para;</a></h3>
 <p>在已经完成预训练的模型的基础上，我们经常会进行<strong>有监督的微调（Supervised Finetuning, SFT）</strong>，使用高质量的人类标注数据继续训练我们的模型，使得模型能够给出更为符合回答要求与更安全的输出（即提高有用性与无害性）。</p>
 <p>在本次作业中，我们使用如下格式的SFT数据：
 <div class="highlight"><pre><span></span><code>问：《神雕侠侣》中杨过的武功是什么？ 
 答：杨过所学武功博杂，涉猎古墓派武功、独孤求败的剑法、蛤蟆功、打狗棒法、弹指神通、玉箫剑法及一些九阴真经，最终自创黯然销魂掌。
 </code></pre></div></p>
-<p>进行SFT训练的流程与预训练阶段几乎相同，但在<strong>数据预处理</strong>与<strong>损失函数计算位置</strong>的设置上略有不同：
-- <strong>预处理</strong>：对于单条SFT数据，我们将<code>问</code>与<code>答</code>两部分合并，截断或填充至固定长度（block size），来输入模型。本作业需要同学们参照预训练阶段，完成这一预处理的实现。
-- <strong>损失函数</strong>：对于SFT训练的损失，我们只需要计算<code>答</code>部分的序列的预测。这一修改通过调整损失函数的输入参数<code>loss_mask</code>来实现。
-  <code>loss_mask</code>表示需要进行损失计算的位置，是一段长为<span class="arithmatex">\(L\)</span>的0/1序列，其中值为1的位置代表需要计算预测损失的位置。</p>
+<p>进行SFT训练的流程与预训练阶段几乎相同，但在<strong>数据预处理</strong>与<strong>损失函数计算位置</strong>的设置上略有不同：</p>
+<ul>
+<li><strong>预处理</strong>：对于单条SFT数据，我们将<code>问</code>与<code>答</code>两部分合并，截断或填充至固定长度（block size），来输入模型。本作业需要同学们参照预训练阶段，完成这一预处理的实现。</li>
+<li><strong>损失函数</strong>：对于SFT训练的损失，我们只需要计算<code>答</code>部分的序列的预测。这一修改通过调整损失函数的输入参数<code>loss_mask</code>来实现。
+  <code>loss_mask</code>表示需要进行损失计算的位置，是一段长为<span class="arithmatex">\(L\)</span>的0/1序列，其中值为1的位置代表需要计算预测损失的位置。</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
@@ -1102,7 +1106,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (37.14%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (7.14%), <a href='mailto:zhengwd23@mails.tsinghua.edu.cn'>minkowski0125</a> (44.29%), <a href='mailto:zwd18@mails.tsinghua.edu.cn'>zwd</a> (11.43%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (2.78%), <a href='mailto:hzyjuly11@163.com'>think2try</a> (36.11%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (6.94%), <a href='mailto:zhengwd23@mails.tsinghua.edu.cn'>minkowski0125</a> (43.06%), <a href='mailto:zwd18@mails.tsinghua.edu.cn'>zwd</a> (11.11%)</span>
       </small>
     </div>
   
