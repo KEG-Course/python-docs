@@ -28,7 +28,7 @@ nav:
       - 模型训练和微调: MiniGLM/projects/training.md
       - 模型推理与评估: MiniGLM/projects/evaluation.md
     - 实验知识补充:
-      - 语言模型微调的知识补充: MiniGLM/ref/beckground.md
+      - 语言模型微调的知识补充: MiniGLM/ref/background.md
     - 评分标准: MiniGLM/requirements.md
     - FAQ: MiniGLM/faq.md
 
