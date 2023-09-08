@@ -793,17 +793,37 @@
     传统指标（自行评估）
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="传统指标（自行评估）">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    困惑度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rouge-l" class="md-nav__link">
+    Rouge-L
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     质量评价（验收）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     生成速度（验收）
   </a>
   
@@ -815,7 +835,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     服务器资源
   </a>
   
@@ -823,7 +843,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     服务器的使用
   </a>
   
@@ -1008,17 +1028,37 @@
     传统指标（自行评估）
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="传统指标（自行评估）">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    困惑度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rouge-l" class="md-nav__link">
+    Rouge-L
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     质量评价（验收）
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     生成速度（验收）
   </a>
   
@@ -1030,7 +1070,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     服务器资源
   </a>
   
@@ -1038,7 +1078,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     服务器的使用
   </a>
   
@@ -1075,12 +1115,8 @@
 <h2 id="_3">模型评估<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>我们将采用以下三方面的指标进行评价模型训练的结果。这些指标旨在高效地指导模型拟合数据分布，同时使人客观地评价模型生成文本的质量。</p>
 <h3 id="_4">传统指标（自行评估）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
 <p>设置合理的损失函数。在本次实验中，训练损失函数即为单个词预测的交叉熵损失（cross-entropy loss）的平均。</p>
-</li>
-<li>
-<p>困惑度</p>
+<h4 id="_5">困惑度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>困惑度（Perlexity）是刻画语言模型预测一个语言文本的能力，表示模型预测某一个句子出现的合理程度。一般用模型预测一个句子中所有词出现的概率来计算。在测试集上，困惑度值越低，说明建模的效果越好。</li>
 <li>困惑度的计算方式如下：</li>
@@ -1092,9 +1128,7 @@
 \end{split}
 \]</div>
 <p>其中，<span class="arithmatex">\(m\)</span>是句子的长度。</p>
-</li>
-<li>
-<p>Rouge-L</p>
+<h4 id="rouge-l">Rouge-L<a class="headerlink" href="#rouge-l" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Rouge是通过将模型生成的回答（Y）与参考答案（X）进行比较计算，得到对应的得分。</li>
 <li>Rouge-L利用最长公共子序列进行计算，注意子序列不一定连续，但是有词的顺序。</li>
@@ -1110,13 +1144,9 @@ R_{(lcs)} = \frac{LCS(X, Y)}{m}
 P_{(lcs)} = \frac{LCS(X, Y)}{n}
 \]</div>
 <p>其中，<span class="arithmatex">\(\beta\)</span>是超参数，表示句子的长度，m和n各是X和Y的长度。</p>
-</li>
-</ul>
-<h3 id="_5">质量评价（验收）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_6">质量评价（验收）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>流畅度：</p>
-<ul>
+<li>流畅度：<ul>
 <li>没有乱码<ul>
 <li>例如，不会生成类似看不懂的文本，“のて72[UNK]1904屹”。</li>
 </ul>
@@ -1128,17 +1158,12 @@ P_{(lcs)} = \frac{LCS(X, Y)}{n}
 <li>没有空白，即回答为空  </li>
 </ul>
 </li>
-<li>
-<p>没有截断，即没有生成完整的一句话</p>
-<ul>
+<li>没有截断，即没有生成完整的一句话<ul>
 <li>例如，不会生成类似“今天，我们讲 ”这样的文本。</li>
 </ul>
 </li>
-<li>
-<p>文本：生成有效的最长的文本（注意</p>
-<ul>
-<li>正确样例如下：</li>
-</ul>
+<li>文本：生成有效的最长的文本（注意<ul>
+<li>正确样例如下：
 <div class="highlight"><pre><span></span><code>问题是“《倚天屠龙记》有哪些主角？”
 答案是“《倚天屠龙记》是金庸先生所著的武侠小说，主要讲述了元朝末年武林中的故事。这部小说的主角包括：
 1. 张无忌：男主角，明教教主，拥有屠龙刀和倚天剑，是武林中备受关注的人物。  
@@ -1146,11 +1171,10 @@ P_{(lcs)} = \frac{LCS(X, Y)}{n}
 3. 周芷若：女主角之一，峨嵋派第四代掌门人，张无忌的妻子，与张无忌之间有着深厚的感情纠葛。  
 4. 小昭：女主角之一，明教护教法王黛绮丝之女，喜欢张无忌，最后成为张无忌的义女。  
 此外，还有其他重要角色如谢逊、成昆、杨逍、范遥等。这些人物共同构成了《倚天屠龙记》丰富的故事情节。”。
-</code></pre></div>
+</code></pre></div></li>
+</ul>
 </li>
-<li>
-<p>相关度，即回答内容与问题相关</p>
-<ul>
+<li>相关度，即回答内容与问题相关<ul>
 <li>例如，不会出现类似样例。即问题是“《倚天屠龙记》有哪些主角？”，答案是“《三国演义》是四大名著之一”。</li>
 </ul>
 </li>
@@ -1159,12 +1183,12 @@ P_{(lcs)} = \frac{LCS(X, Y)}{n}
 </ul>
 </li>
 </ul>
-<h3 id="_6">生成速度（验收）<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">生成速度（验收）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>生成速度正常，评价指标是每秒内生成文本的长度不少于20字。</li>
 <li>生成速度提升可以获得适度加分。</li>
 </ul>
-<h2 id="_7">服务器资源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">服务器资源<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>为了让大家能够顺利完成作业。避免硬件资源限制，我们会为大家提供服务器资源供大家使用。</p>
 <ul>
 <li>
@@ -1174,7 +1198,7 @@ P_{(lcs)} = \frac{LCS(X, Y)}{n}
 <p>平均11人使用一台服务器。建议尽量平均使用资源</p>
 </li>
 </ul>
-<h5 id="_8">服务器的使用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h5>
+<h5 id="_9">服务器的使用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
 <p>要使用服务器进行开发，需要通过 ssh 连接到服务器上，使用命令行进行操作</p>
 <ul>
 <li>使用 ssh 连接服务器，所有机器通过端口<code>12272</code>访问</li>
@@ -1226,7 +1250,7 @@ windows：使用 xshell 等支持 ssh 的软件
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (35.9%), <a href='mailto:hzyjuly11@163.com'>think2try</a> (46.15%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (17.95%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (41.59%), <a href='mailto:hzyjuly11@163.com'>think2try</a> (41.59%), <a href='mailto:1071102546@qq.com'>dawnzzhang</a> (16.81%)</span>
       </small>
     </div>
   
