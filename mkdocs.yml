@@ -23,7 +23,14 @@ nav:
     - FAQ: crawler/faq.md
   - 实验二：MiniGLM:
     - 实验概述: MiniGLM/index.md
-    - 语言模型微调的知识补充: MiniGLM/beckground.md
+    - 实验内容:
+      - 数据集和预处理介绍: MiniGLM/projects/dataset.md
+      - 模型训练和微调: MiniGLM/projects/training.md
+      - 模型推理与评估: MiniGLM/projects/evaluation.md
+    - 实验知识补充:
+      - 语言模型微调的知识补充: MiniGLM/ref/background.md
+    - 评分标准: MiniGLM/requirements.md
+    - FAQ: MiniGLM/faq.md
 
 
 theme:
