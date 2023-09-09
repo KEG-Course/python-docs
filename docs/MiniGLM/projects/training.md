@@ -25,8 +25,8 @@ MiniGLM
 
 本作业**不涉及任何 transformer 模型结构上的实现及修改**。如果你想要了解更多关于transformer或GPT模型结构的知识，可以阅读论文：
 
-* transformers: https://arxiv.org/pdf/1706.03762.pdf
-* GPT2: https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf
+* transformers: [https://arxiv.org/pdf/1706.03762.pdf](https://arxiv.org/pdf/1706.03762.pdf)
+* GPT2: [https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf)
 
 一些模型基本信息：
 
