@@ -92,6 +92,8 @@ $$
 ### 生成速度（验收）
 
 * 生成速度正常，评价指标（CPU / GPU 两者满足其一即可）
+  * 可以在`sample.py`中设置`max_new_tokens`
+  
   * max_new_tokens=256
     * GPU一般2s内输出结果。
     * 本地CPU 50s 内出结果即可（双核CPU测试结果）。
