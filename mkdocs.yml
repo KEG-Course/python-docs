@@ -27,6 +27,7 @@ nav:
       - 数据集和预处理介绍: MiniGLM/projects/dataset.md
       - 模型训练和微调: MiniGLM/projects/training.md
       - 模型推理与评估: MiniGLM/projects/evaluation.md
+      - 聊天机器人竞技场: MiniGLM/projects/chatbot_arena.md
     - 实验知识补充:
       - 语言模型微调的知识补充: MiniGLM/ref/background.md
     - 评分标准: MiniGLM/requirements.md
