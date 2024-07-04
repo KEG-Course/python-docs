@@ -90,43 +90,6 @@ $ python manage.py startapp blog
 这时，你一般需要在 `<project>/settings.py` 中的 `INSTALLED_APPS` 字段中注册该应用。
 
 
-
-#### 路由（Routing）
-
-首先，我们来解决后端收到请求时，后端会将请求交给哪个应用的哪个视图函数处理的问题。和这个功能有关的文件主要包括 `<Project Name>/urls.py` 和 `<app>/urls.py`。
-
-假如我们的后端部署在 `http://localhost:6011/`，我们在访问 `http://localhost:6011/index/blog/1` 时，后端会首先在 `<Project Name>/urls.py` 中以 `index/blog/1` 开始搜索。假设 `<Project Name>/urls.py` 中配置为：
-
-```python
-from django.urls import path, include
-
-urlpatterns = [
-    path('index/', include("blog.urls")),
-]
-```
-
-
-
-我们会匹配掉字符串 `'index/'`，然后将剩下的请求 `restart` 交给 `blog/urls.py` 处理，这也是这里 `include` 的作用，将请求转发给子应用的路由表处理。
-
-然后，假设我们在 `blog/urls.py` 中配置为：
-
-```python
-from django.urls import path, include
-import board.views as views
-
-urlpatterns = [
-    path('blog/<int:id>', views.show_blog),
-    path('comment/<int:id>', views.comment)
-]
-```
-
-这时剩余请求 `blog/1` 匹配到第一条规则后，交由 `board/views.py` 中的 `show_blog(request=request, id=1)` 函数进行处理，即后端会帮助我们调用这个函数，并把请求体（和请求有关的信息，包括请求方法、请求数据等等）作为参数传给这个函数。
-
-此外还有更多和路由有关的功能请阅读[官方文档](https://docs.djangoproject.com/zh-hans/4.1/topics/http/urls/)。
-
-
-
 #### 模型（Model）
 
 模型是用来描述数据的，包含了数据对应的字段和行为，一个模型一般对应数据库中的一张表。如果你对数据库的结构（主键、外键、索引）并不熟悉，可以查看这篇文章（[MySQL 主键、外键、索引 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/64368422)） 。
@@ -264,10 +227,44 @@ def comment(request, id):
 ```
 
 
+#### 路由（Routing）
 
-之后就可以访问http://127.0.0.1:8000/blog/1来查看第一篇博客和提交评论了！
+首先，我们来解决后端收到请求时，后端会将请求交给哪个应用的哪个视图函数处理的问题。和这个功能有关的文件主要包括 `<Project Name>/urls.py` 和 `<app>/urls.py`。
+
+假如我们的后端部署在 `http://localhost:6011/`，我们在访问 `http://localhost:6011/index/blog/1` 时，后端会首先在 `<Project Name>/urls.py` 中以 `index/blog/1` 开始搜索。假设 `<Project Name>/urls.py` 中配置为：
+
+```python
+from django.urls import path, include
+
+urlpatterns = [
+    path('index/', include("blog.urls")),
+]
+```
 
 
+
+我们会匹配掉字符串 `'index/'`，然后将剩下的请求 `restart` 交给 `blog/urls.py` 处理，这也是这里 `include` 的作用，将请求转发给子应用的路由表处理。
+
+然后，假设我们在 `blog/urls.py` 中配置为：
+
+```python
+from django.urls import path, include
+import blog.views as views
+
+urlpatterns = [
+    path('blog/<int:id>', views.show_blog),
+    path('comment/<int:id>', views.comment)
+]
+```
+
+这时剩余请求 `blog/1` 匹配到第一条规则后，交由 `board/views.py` 中的 `show_blog(request=request, id=1)` 函数进行处理，即后端会帮助我们调用这个函数，并把请求体（和请求有关的信息，包括请求方法、请求数据等等）作为参数传给这个函数。
+
+之后就可以访问http://127.0.0.1:8000/index/blog/1来查看第一篇博客和提交评论了！
+
+此外还有更多和路由有关的功能请阅读[官方文档](https://docs.djangoproject.com/zh-hans/4.1/topics/http/urls/)。
+
+
+---
 
 示例代码地址：[python-course / django-example · GitLab (tsinghua.edu.cn)](https://git.tsinghua.edu.cn/python-course/django-example)
 
