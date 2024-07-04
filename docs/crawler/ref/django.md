@@ -6,7 +6,7 @@
 
 
 
-本次大作业的目标是基于python语言的Django框架实现新闻网站的搭建（根据个人兴趣也允许使用Django之外的其他后端框架，但必须基于Python）。Django 是一个免费开源的高级 Python Web 框架，它鼓励快速开发和简洁、实用的设计。
+本次大作业的目标是基于Python语言的Django框架实现新闻网站的搭建（根据个人兴趣也允许使用Django之外的其他后端框架，但必须基于Python）。Django 是一个免费开源的高级 Python Web 框架，它鼓励快速开发和简洁、实用的设计。
 
 
 
@@ -28,7 +28,7 @@ JavaScript：主要实现动态效果。一般是直接用 js 框架，使用比
 
 #### 安装Django
 
-Django的官方发行版可以直接从pip（python包管理器）安装，只需要安装pip后在terminal中运行
+Django的官方发行版可以直接从pip（Python包管理器）安装，只需要安装pip后在terminal中运行
 
 ```shell
 $ pip install Django
