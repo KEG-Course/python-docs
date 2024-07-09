@@ -701,8 +701,14 @@
 <h2 id="_2">预训练数据集<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>预训练的目的是为了让模型能够“记住”数据中的内容，所以一般选用互联网、知识库或者书籍数据进行训练。预训练数据的形式一般为可阅读的文本、文章等。</p>
 <h4 id="_3">数据集介绍：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——金庸武侠语言模型。我们选取了金庸的部分武侠小说作为训练集进行预训练，大家可以自行选取部分进行使用，并在进行演示和实验报告中说明。</p>
-<p>​   <em>数据来源</em>：https://github.com/loyalpartner/jywxFenxi</p>
+<p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——中文wiki百科数据集。我们选取了其中一个子集作为训练集进行预训练，大家可以自行选取部分进行使用，并在进行演示和实验报告中说明。我们的测试集出题范围将被限制在这个子集：</p>
+<p>https://cloud.tsinghua.edu.cn/d/d6f9966d6b684b05a516/</p>
+<p>如果需要使用更多中文wiki预训练语料，可以从以下来源下载：</p>
+<p>https://drive.google.com/file/d/1EdHUZIDpgcBoSqbjlfNKJ3b1t0XIUjbt/view?usp=sharing</p>
+<p>其中，每条数据的内容都是json文件，这是一个例子：</p>
+<div class="highlight"><pre><span></span><code>{&quot;id&quot;: &quot;53&quot;, &quot;url&quot;: &quot;https://zh.wikipedia.org/wiki?curid=53&quot;, &quot;title&quot;: &quot;经济学&quot;, &quot;text&quot;: &quot;经济学\n\n经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。\n\n经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。...&quot;}
+</code></pre></div>
+<p>你也可以自由选用其他数据集作为预训练数据集，并且在演示和实验报告中说明。</p>
 <h4 id="_4">数据处理流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>数据处理流程的主要目标是将原始文本数据编码为模型可以理解的标记序列，并将其分成训练集和验证集以供后续的模型训练和评估使用。在本次作业中，我们使用 <code>tiktoken</code> 库来处理文本数据。最终，编码后的数据以二进制格式保存在文件中，以供学习模型使用。主要包括以下流程：</p>
 <ol>
@@ -726,13 +732,8 @@
 <h2 id="_5">微调数据集构建<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>微调阶段是未来让模型能够利用预训练中“学习”到的知识和内容，来进行问答和对话。微调数据集的形式一般为问答对的形式：</p>
 <div class="highlight"><pre><span></span><code>{
-    &quot;question&quot;: &quot;《倚天屠龙记》有哪些主角？&quot;,
-    &quot;answer&quot;: &quot;《倚天屠龙记》是金庸先生所著的武侠小说，主要讲述了元朝末年武林中的故事。这部小说的主角包括：
-1. 张无忌：男主角，明教教主，拥有屠龙刀和倚天剑，是武林中备受关注的人物。  
-2. 赵敏：女主角之一，绍敏郡主，喜欢张无忌，敢爱敢恨，为了爱情可以勇往直前。  
-3. 周芷若：女主角之一，峨嵋派第四代掌门人，张无忌的妻子，与张无忌之间有着深厚的感情纠葛。  
-4. 小昭：女主角之一，明教护教法王黛绮丝之女，喜欢张无忌，最后成为张无忌的义女。  
-此外，还有其他重要角色如谢逊、成昆、杨逍、范遥等。这些人物共同构成了《倚天屠龙记》丰富的故事情节。&quot;
+    &quot;question&quot;: &quot;微观经济学和宏观经济学分别研究哪些内容？&quot;,
+    &quot;answer&quot;: &quot;微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动；宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。&quot;
 }
 </code></pre></div>
 <h4 id="_6">数据集介绍<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
@@ -769,7 +770,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2023年9月9日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月5日</span>
   </span>
 
     
@@ -780,12 +781,13 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:hzyjuly11@163.com">think2try</a>
+        <a href="mailto:hzyjuly11@163.com">think2try</a>, 
+        <a href="mailto:xuyifan2001@gmail.com">xuyifan-0731</a>
     </nav>
   </span>
 
@@ -804,7 +806,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a></span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (74.6%), <a href='mailto:xuyifan2001@gmail.com'>xuyifan-0731</a> (25.4%)</span>
       </small>
     </div>
   
