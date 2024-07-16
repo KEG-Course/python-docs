@@ -1,4 +1,4 @@
-# Python编程实验：训练一个语言模型MiniGLM
+# Python编程实验：训练一个语言模型MiniGPT
 
 ## 实验目标
 
