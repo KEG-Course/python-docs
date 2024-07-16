@@ -1,15 +1,14 @@
 # 模型训练和微调
 
-## MiniGLM 文件目录介绍
+## MiniGPT 文件目录介绍
 
 ```bash
-MiniGLM
+MiniGPT
 ├── README.md 
 ├── config
 │   └── train_config.py # 模型参数文件
 ├── configurator.py
 ├── data
-│   ├── fetch_data.py # 获取数据
 │   ├── prepare.py # 准备预训练数据 <TODO>
 │   └── prepare_sft.py # 准备微调数据 <TODO>
 ├── data_utils.py # 构造每一个训练步骤中要输入模型的数据 <TODO>
@@ -33,6 +32,7 @@ MiniGLM
 * 模型为解码器（only-decoder）结构。
 * 模型共包含 6 层transfomer，隐藏层包含 512 个单元。
 * 模型总计包含 45M 参数量。
+* 你也可以采用更大的模型结构，但是需要注意模型训练的时间，资源消耗以及更大的模型可能具有不同的训练性质。
 
 ## 模型训练
 
@@ -43,9 +43,9 @@ MiniGLM
 
 一个模型通过**预训练（pretraining）**来从零开始获取海量数据中的知识，自回归（Auto-regressive），即对一个句子从左到右进行预测，是简单但非常有效的训练方式。
 
-MiniGLM采用自回归式的预训练及生成范式。在预训练阶段：
+MiniGPT采用自回归式的预训练及生成范式。在预训练阶段：
 
-* 给定一段长为$N$的文本token序列。MiniGLM需要预测每一个位置的对应输出。对于位置$k$的token预测基于已给定的前$k-1$个token。
+* 给定一段长为$N$的文本token序列。MiniGPT需要预测每一个位置的对应输出。对于位置$k$的token预测基于已给定的前$k-1$个token。
 * 对于模型输出的预测使用交叉熵（见知识补充部分）构建损失函数来进行训练。
 * 对于每条预训练数据的采集，我们从原始数据中随机采样一个起始位置$i$，然后取$[i, i+N-1]$这一段序列作为本条预训练数据。
   ```python
