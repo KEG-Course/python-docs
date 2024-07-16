@@ -701,14 +701,16 @@
 <h2 id="_2">预训练数据集<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>预训练的目的是为了让模型能够“记住”数据中的内容，所以一般选用互联网、知识库或者书籍数据进行训练。预训练数据的形式一般为可阅读的文本、文章等。</p>
 <h4 id="_3">数据集介绍：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——中文wiki百科数据集。我们选取了其中一个子集作为训练集进行预训练，大家可以自行选取部分进行使用，并在进行演示和实验报告中说明。我们的测试集出题范围将被限制在这个子集：</p>
+<p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——中文wiki百科数据集。我们选取了其中一个子集作为训练集进行预训练，大家可以自行选取部分进行使用，并在进行演示和实验报告中说明。</p>
+<p>我们的测试集出题范围将被限制在以下下载链接的wiki-zh-subset-train_subset.jsonl子集：</p>
 <p>https://cloud.tsinghua.edu.cn/d/d6f9966d6b684b05a516/</p>
-<p>如果需要使用更多中文wiki预训练语料，可以从以下来源下载：</p>
-<p>https://drive.google.com/file/d/1EdHUZIDpgcBoSqbjlfNKJ3b1t0XIUjbt/view?usp=sharing</p>
+<p>你也可以使用这个文件夹中的其他子集作为辅助预训练数据集。(Note:请预先估计预训练耗时，不要盲目使用过多数据进行训练)</p>
 <p>其中，每条数据的内容都是json文件，这是一个例子：</p>
 <div class="highlight"><pre><span></span><code>{&quot;id&quot;: &quot;53&quot;, &quot;url&quot;: &quot;https://zh.wikipedia.org/wiki?curid=53&quot;, &quot;title&quot;: &quot;经济学&quot;, &quot;text&quot;: &quot;经济学\n\n经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。\n\n经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。...&quot;}
 </code></pre></div>
-<p>你也可以自由选用其他数据集作为预训练数据集，并且在演示和实验报告中说明。</p>
+<p>此处的中文wiki预训练数据来源于CLUECorpus2020。请仅将此数据集作为学术研究使用。</p>
+<p>你也可以自由选用其他数据集作为预训练数据集，并且在演示和实验报告中说明。以下是推荐的数据集来源：</p>
+<p>https://github.com/CLUEbenchmark/CLUECorpus2020</p>
 <h4 id="_4">数据处理流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>数据处理流程的主要目标是将原始文本数据编码为模型可以理解的标记序列，并将其分成训练集和验证集以供后续的模型训练和评估使用。在本次作业中，我们使用 <code>tiktoken</code> 库来处理文本数据。最终，编码后的数据以二进制格式保存在文件中，以供学习模型使用。主要包括以下流程：</p>
 <ol>
@@ -744,12 +746,13 @@
 <li>训练集和验证集划分。</li>
 <li>处理不同长度的数据</li>
 </ol>
-<p>除提供的微调数据集之外，强烈建议大家通过多种方式构建更多额外的数据用于微调，包括。获取微调数据的途径可以包括：</p>
+<p>除提供的微调数据集之外，强烈建议大家通过多种方式构建更多额外的数据用于微调，获取微调数据的途径可以包括：</p>
 <ol>
 <li>自己和同学一起手写微调数据（问题和答案）</li>
-<li>利用现有 AI 模型进行辅助数据生成。</li>
+<li>利用现有 AI 模型进行辅助数据生成</li>
+<li>使用开源数据集</li>
 </ol>
-<p>也可以观察不同数据量进行微调的模型的效果。</p>
+<p>在报告中需要详细说明使用的微调数据集来源。</p>
 
 
 
@@ -770,7 +773,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月5日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月16日</span>
   </span>
 
     
@@ -806,7 +809,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (74.6%), <a href='mailto:xuyifan2001@gmail.com'>xuyifan-0731</a> (25.4%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (64.71%), <a href='mailto:xuyifan2001@gmail.com'>xuyifan-0731</a> (35.29%)</span>
       </small>
     </div>
   
