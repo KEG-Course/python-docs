@@ -13,6 +13,10 @@
       
       
       
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../training/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Chatbot arena - 程序设计训练（Python）</title>
+        <title>数据集和预处理介绍 - 程序设计训练（Python）</title>
       
     
     
@@ -81,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chatbot-arena" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -117,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chatbot arena
+              数据集和预处理介绍
             
           </span>
         </div>
@@ -598,6 +602,405 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验二：MiniGPT
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            实验二：MiniGPT
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验内容
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            实验内容
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数据集和预处理介绍
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数据集和预处理介绍
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      预训练数据集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预训练数据集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据集介绍：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据处理流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      微调数据集构建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微调数据集构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据集介绍
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型训练和微调
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型推理与评估
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chatbot_arena/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    聊天机器人竞技场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验知识补充
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            实验知识补充
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ref/background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    语言模型微调的知识补充
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    评分标准
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -615,6 +1018,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -623,46 +1028,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#chatbot-arena" class="md-nav__link">
-    <span class="md-ellipsis">
-      聊天机器人竞技场（Chatbot Arena）
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      竞技场界面
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型API部署
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      服务器资源
+      预训练数据集
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="服务器资源">
+    <nav class="md-nav" aria-label="预训练数据集">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      服务器的使用
+      数据集介绍：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据处理流程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      微调数据集构建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微调数据集构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据集介绍
     </span>
   </a>
   
@@ -689,62 +1100,62 @@
                   
 
 
-  <h1>Chatbot arena</h1>
-
-<h2 id="chatbot-arena">聊天机器人竞技场（Chatbot Arena）<a class="headerlink" href="#chatbot-arena" title="Permanent link">&para;</a></h2>
-<p>本部分的主要目标是将你在实验中训练的模型与其他同学的模型运用于一个实时的聊天竞技场中，你需要找到2至3个同学进行组队。</p>
-<h2 id="_1">竞技场界面<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>每个同学</strong>都需要独立实现一个竞技场界面，用来展示不同模型输出的结果方便进行对比。</p>
-<p>实现步骤：
-1. 聊天界面开发：开发一个简单的前端界面，该界面可以允许用户输入问题，并实时展示两个模型的回复内容。推荐基于已实现的前端进行修改及开发。
-2. 模型选择：需要能选择你自己的模型以及其他同学的模型中任两者作为竞技对象。
-3. 流式输出：对于模型输出内容，前端要实现打字机效果进行前端展示。</p>
-<h2 id="api">模型API部署<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
-<p>为了使你的模型能在自己及其他同学的聊天机器人竞技场中运行，你需要将你的聊天机器人模型部署为一个可局域网访问的API。</p>
-<p>实现步骤：
-1. 封装模型：将你训练的模型封装到一个API中，此API接受来自前端的请求（建议包含一些常见模型推理参数设置，如<code>temperature</code>、<code>top-p</code>、<code>max-length</code>等），并返回模型的输出。
-2. 本地测试：在部署之前在本地测试API，确保它能够接受请求并正确返回结果。
-3. 连调测试：与同组同学进行，确保网络访问正常。</p>
-<h2 id="_2">服务器资源<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>为了让大家能够顺利完成作业。避免硬件资源限制，我们会为大家提供服务器资源供大家使用。</p>
-<ul>
-<li>
-<p>每台服务器有8张24G的显卡。每次程序运行大约需要10G显存，理论上一张显卡最多可以跑2个程序</p>
-</li>
-<li>
-<p>平均11人使用一台服务器。建议尽量平均使用资源</p>
-</li>
-</ul>
-<h3 id="_3">服务器的使用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>要使用服务器进行开发，需要通过 ssh 连接到服务器上，使用命令行进行操作</p>
-<p>&lt;...TODO...&gt;</p>
-<ul>
-<li>使用 ssh 连接服务器，所有机器通过端口<code>12272</code>访问</li>
-</ul>
-<div class="highlight"><pre><span></span><code>mac：ssh &lt;账号&gt;@ip -p 12272
-
-windows：使用 xshell 等支持 ssh 的软件
+<h1 id="_1">数据集和预处理介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">预训练数据集<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>预训练的目的是为了让模型能够“记住”数据中的内容，所以一般选用互联网、知识库或者书籍数据进行训练。预训练数据的形式一般为可阅读的文本、文章等。</p>
+<h4 id="_3">数据集介绍：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>​   考虑到模型的大小，本次实验我们旨在训练一个特定领域的小模型——中文wiki百科数据集。我们选取了其中一个子集作为训练集进行预训练，大家可以自行选取部分进行使用，并在进行演示和实验报告中说明。</p>
+<p>我们的测试集出题范围将被限制在以下下载链接的wiki-zh-subset-train_subset.jsonl子集：</p>
+<p>https://cloud.tsinghua.edu.cn/d/d6f9966d6b684b05a516/</p>
+<p>你也可以使用这个文件夹中的其他子集作为辅助预训练数据集。(Note:请预先估计预训练耗时，不要盲目使用过多数据进行训练)</p>
+<p>其中，每条数据的内容都是json文件，这是一个例子：</p>
+<div class="highlight"><pre><span></span><code>{&quot;id&quot;: &quot;53&quot;, &quot;url&quot;: &quot;https://zh.wikipedia.org/wiki?curid=53&quot;, &quot;title&quot;: &quot;经济学&quot;, &quot;text&quot;: &quot;经济学\n\n经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。\n\n经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。...&quot;}
 </code></pre></div>
-<ul>
-<li>
-<p>激活 conda 环境。我们在服务器上为大家配置了共享 conda 环境，登入服务器后环境会自动激活。由于环境为服务器上所有同学共享，请大家不要随意通过 pip 安装 package。</p>
-</li>
-<li>
-<p>需要的代码和数据可以放在个人目录下进行 <code>/home/p y&lt;学号&gt;</code>，不同成员目录禁止相互访问。</p>
-</li>
-<li>
-<p>服务器和本地之间的文件传输可以用<code>scp</code>实现。windows 下可以用<code>xftp</code>。</p>
-</li>
-<li>
-<p>可以通过 <code>CUDA_VISIBLE_DEVICES=x</code> 来约束使用哪一张显卡。例如：<code>CUDA_VISIBLE_DEVICES=4 python main.py</code>为使用4号显卡来运行程序</p>
-</li>
-<li>
-<p>可以利用<code>nvidia-smi</code>查看GPU使用情况</p>
-</li>
-<li>
-<p>账号通过网络学堂作业下发</p>
-</li>
+<p>此处的中文wiki预训练数据来源于CLUECorpus2020。请仅将此数据集作为学术研究使用。</p>
+<p>你也可以自由选用其他数据集作为预训练数据集，并且在演示和实验报告中说明。以下是推荐的数据集来源：</p>
+<p>https://github.com/CLUEbenchmark/CLUECorpus2020</p>
+<h4 id="_4">数据处理流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>数据处理流程的主要目标是将原始文本数据编码为模型可以理解的标记序列，并将其分成训练集和验证集以供后续的模型训练和评估使用。在本次作业中，我们使用 <code>tiktoken</code> 库来处理文本数据。最终，编码后的数据以二进制格式保存在文件中，以供学习模型使用。主要包括以下流程：</p>
+<ol>
+<li>获取文本编码器<ul>
+<li>使用 <code>tiktoken.get_encoding("gpt2")</code> 获取用于编码文本的编码器。在此示例中，选择了 GPT-2 模型的编码器。</li>
 </ul>
+</li>
+<li>文本编码<ul>
+<li>使用获取的编码器对读取的文本数据进行编码。<code>enc.encode_ordinary(data)</code> 将文本转换为标记序列.</li>
+</ul>
+</li>
+<li>训练集和验证集划分<ul>
+<li>将文本数据划分为训练集和验证集（可选）。这种划分方式有助于模型的验证和性能评估。</li>
+</ul>
+</li>
+<li>数据保存<ul>
+<li>使用 NumPy 将编码后的文本数据保存为二进制文件。训练集和验证集分别保存在名为 <code>train.bin</code> 和 <code>val.bin</code> 的文件中。这样的保存方式可使数据在后续训练时更加高效地加载。</li>
+</ul>
+</li>
+</ol>
+<h2 id="_5">微调数据集构建<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>微调阶段是未来让模型能够利用预训练中“学习”到的知识和内容，来进行问答和对话。微调数据集的形式一般为问答对的形式：</p>
+<div class="highlight"><pre><span></span><code>{
+    &quot;question&quot;: &quot;微观经济学和宏观经济学分别研究哪些内容？&quot;,
+    &quot;answer&quot;: &quot;微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动；宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。&quot;
+}
+</code></pre></div>
+<h4 id="_6">数据集介绍<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>本次实验提供20条样例微调数据，作为参考数据集。微调数据也需要经历类似预训练的数据处理流程：</p>
+<ol>
+<li>利用文本编码器对<code>question</code>和<code>answer</code>分别编码，同时进行适当的拼接。</li>
+<li>通过适当标识区分<code>question</code>和<code>answer</code>.</li>
+<li>训练集和验证集划分。</li>
+<li>处理不同长度的数据</li>
+</ol>
+<p>除提供的微调数据集之外，强烈建议大家通过多种方式构建更多额外的数据用于微调，获取微调数据的途径可以包括：</p>
+<ol>
+<li>自己和同学一起手写微调数据（问题和答案）</li>
+<li>利用现有 AI 模型进行辅助数据生成</li>
+<li>使用开源数据集</li>
+</ol>
+<p>在报告中需要详细说明使用的微调数据集来源。</p>
 
 
 
@@ -765,7 +1176,7 @@ windows：使用 xshell 等支持 ssh 的软件
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月16日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月17日</span>
   </span>
 
     
@@ -781,7 +1192,7 @@ windows：使用 xshell 等支持 ssh 的软件
     </span>
     <nav>
       
-        <a href="mailto:hanyullai@outlook.com">瀚宇 赖</a>, 
+        <a href="mailto:hzyjuly11@163.com">think2try</a>, 
         <a href="mailto:xuyifan2001@gmail.com">xuyifan-0731</a>
     </nav>
   </span>
@@ -801,7 +1212,7 @@ windows：使用 xshell 等支持 ssh 的软件
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:hanyullai@outlook.com'>瀚宇 赖</a> (96.36%), <a href='mailto:xuyifan2001@gmail.com'>xuyifan-0731</a> (3.64%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:hzyjuly11@163.com'>think2try</a> (64.71%), <a href='mailto:xuyifan2001@gmail.com'>xuyifan-0731</a> (35.29%)</span>
       </small>
     </div>
   
