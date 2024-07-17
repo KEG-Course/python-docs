@@ -27,12 +27,7 @@ MiniGPT
 * transformers: [https://arxiv.org/pdf/1706.03762.pdf](https://arxiv.org/pdf/1706.03762.pdf)
 * GPT2: [https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf)
 
-一些模型基本信息：
-
-* 模型为解码器（only-decoder）结构。
-* 模型共包含 6 层transfomer，隐藏层包含 512 个单元。
-* 模型总计包含 45M 参数量。
-* 你也可以采用更大的模型结构，但是需要注意模型训练的时间，资源消耗以及更大的模型可能具有不同的训练性质。
+* 你也可以采用不同的模型结构，但是需要注意模型训练的时间，资源消耗以及更大的模型可能具有不同的训练性质。
 
 ## 模型训练
 
