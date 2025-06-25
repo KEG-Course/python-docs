@@ -21,6 +21,7 @@ nav:
       - 数据可视化: crawler/ref/visualize.md
     - 评分标准: crawler/requirements.md
     - FAQ: crawler/faq.md
+    - "附录：本地 Git 安装与配置指南": crawler/git.md
   # - 实验二：MiniGPT:
   #   - 实验概述: MiniGPT/index.md
   #   - 实验内容:
