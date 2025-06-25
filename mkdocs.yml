@@ -1,7 +1,7 @@
 site_name: 程序设计训练（Python）
 site_description: 'Documentation for Crawler Programming Assignment of Programming and Training (Python) Course'
 site_author: '程序设计训练 Python 教学组'
-copyright: 'Copyright &copy; 2023 清华大学程序设计训练 Python 教学组。All Rights Reserved.'
+copyright: 'Copyright &copy; 2023-2025 清华大学程序设计训练 Python 教学组。All Rights Reserved.'
 
 repo_name: 'python-course/python-docs'
 repo_url: 'https://git.tsinghua.edu.cn/python-course/python-docs'
@@ -21,17 +21,17 @@ nav:
       - 数据可视化: crawler/ref/visualize.md
     - 评分标准: crawler/requirements.md
     - FAQ: crawler/faq.md
-  - 实验二：MiniGPT:
-    - 实验概述: MiniGPT/index.md
-    - 实验内容:
-      - 数据集和预处理介绍: MiniGPT/projects/dataset.md
-      - 模型训练和微调: MiniGPT/projects/training.md
-      - 模型推理与评估: MiniGPT/projects/evaluation.md
-      - 聊天机器人竞技场: MiniGPT/projects/chatbot_arena.md
-    - 实验知识补充:
-      - 语言模型微调的知识补充: MiniGPT/ref/background.md
-    - 评分标准: MiniGPT/requirements.md
-    - FAQ: MiniGPT/faq.md
+  # - 实验二：MiniGPT:
+  #   - 实验概述: MiniGPT/index.md
+  #   - 实验内容:
+  #     - 数据集和预处理介绍: MiniGPT/projects/dataset.md
+  #     - 模型训练和微调: MiniGPT/projects/training.md
+  #     - 模型推理与评估: MiniGPT/projects/evaluation.md
+  #     - 聊天机器人竞技场: MiniGPT/projects/chatbot_arena.md
+  #   - 实验知识补充:
+  #     - 语言模型微调的知识补充: MiniGPT/ref/background.md
+  #   - 评分标准: MiniGPT/requirements.md
+  #   - FAQ: MiniGPT/faq.md
 
 
 theme:
