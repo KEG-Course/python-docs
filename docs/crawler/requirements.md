@@ -107,11 +107,11 @@
 
     * 大多数现代编辑器（如 VSCode、PyCharm 等）都集成了格式化与静态检查工具
     * 可以使用 `black` 进行代码自动格式化：
-      - 命令行用法：`black .`
-      - 编辑器用法：在 VSCode 或 PyCharm 设置中启用 black，保存文件时会自动格式化。
+        - 命令行用法：`black .`
+        - 编辑器用法：在 VSCode 或 PyCharm 设置中启用 black，保存文件时会自动格式化。
     * 可以使用 `pylint` 进行代码静态检查：
-      - 命令行用法：`pylint your_code.py`
-      - 编辑器用法：在编辑器安装相关插件或启用检查功能，保存或编辑时自动显示代码警告和建议。
+        - 命令行用法：`pylint your_code.py`
+        - 编辑器用法：在编辑器安装相关插件或启用检查功能，保存或编辑时自动显示代码警告和建议。
 
 !!! 致谢
     “代码规范”一节的内容参考了 [程序设计训练（Rust）课程文档中的对应章节](https://lab.cs.tsinghua.edu.cn/rust/projects/coding_convention/)。转载前已获得授课教师授权。在此对原作者表示感谢。
