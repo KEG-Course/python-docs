@@ -4,27 +4,20 @@
 
 ### 模块目标
 
-本模块目标是实现评测系统的**正确性判断、性能限制控制与评测细节记录**，包括：
-
-* 运行程序时记录运行时间、内存、stderr；
-* 支持评测多个测试点（输入-输出组）；
-* 对输出进行 strict / standard 模式比对；
-* 对运行过程施加资源限制（时间 / 内存）；
-* 所有评测过程输出需记录为日志条目；
-* 支持多测试点按权重得分计算。
+实现评测系统的正确性判断、资源限制和评测日志记录。
 
 ---
 
 ### 前置知识要求
 
-| 技术点    | 学习建议或模块                        |
-| ------ | ------------------------------ |
-| 子进程执行  | `subprocess.run`, `Popen`      |
-| 标准输出捕捉 | stdout/stderr/returncode       |
-| 文件比对   | 输出规范化、strip() + splitlines     |
-| 时间限制   | `time.monotonic`, `timeout` 参数 |
-| 内存限制   | `resource`（仅限类 UNIX 系统）        |
-| 日志结构   | JSON 格式，写入到独立文件                |
+| 技术点         | 推荐学习内容           |
+| -------------- | ---------------------- |
+| 子进程执行      | `subprocess.run`, `Popen` |
+| 标准输出捕捉    | stdout/stderr/returncode |
+| 文件比对        | strip() + splitlines   |
+| 时间限制        | `time.monotonic`, `timeout` |
+| 内存限制        | `resource`（仅UNIX）   |
+| 日志结构        | JSON 格式，写入独立文件 |
 
 ---
 
@@ -57,94 +50,32 @@
 
 ### 任务拆解
 
-#### 任务 1：执行程序并收集信息
+#### 任务 1：程序执行与资源限制
+- 目标：运行用户程序并收集运行时间、内存、stderr等信息。
+- 要点：设置最大执行时间和内存，捕捉所有输出。
+- 建议：可选用 ps 获取 peak memory。
 
-* 运行程序的方式（compile 已完成）：
+#### 任务 2：输出比对与状态判定
+- 目标：对比用户输出与标准输出，判定评测状态。
+- 要点：支持 strict/standard 两种比对模式，状态包括 Accepted、Wrong Answer、TLE、MLE、RE、CE、System Error。
+- 建议：返回结构中记录 status、score、time、memory、stderr、input、expected、actual。
 
-  * 使用 `subprocess.run()` 执行命令；
-  * 设置最大执行时间（time\_limit）；
-  * 设置最大内存（memory\_limit，使用 `resource.setrlimit()`）；
-* 捕捉：
-
-  * stdout, stderr；
-  * returncode；
-  * wall time（`start = time.monotonic()`）；
-  * 运行后内存（可选，用 ps 取 peak memory）；
-
----
-
-#### 任务 2：比对输出并分类状态
-
-* 提供两种对比模式：
-
-  1. `strict`：完全逐字符一致；
-  2. `standard`：忽略末尾空行、行尾空格。
-
-* 判断结果状态：
-
-  * `Accepted`：完全正确
-  * `Wrong Answer`：答案错误
-  * `Time Limit Exceeded`：超时
-  * `Memory Limit Exceeded`：超内存
-  * `Runtime Error`：运行时错误（非 0 退出码）
-  * `Compile Error`：编译错误
-  * `System Error`：系统错误（评测系统异常）
-
-* 返回结构中记录以下字段：
-
-```json
-{
-  "status": "Wrong Answer",
-  "score": 0,
-  "time": 0.381,
-  "memory": 32,
-  "stderr": "...",
-  "input": "...",
-  "expected": "...",
-  "actual": "..."
-}
-```
+#### 任务 3：日志记录
+- 目标：每个测试点记录为一条日志项。
+- 要点：日志文件为 logs/job_{job_id}.log.jsonl，结构化记录所有细节。
+- 建议：每次评测都写完整日志文件，供后续查看。
 
 ---
 
-#### 任务 3：支持多测试点，支持按分计分
+### 能力小结
 
-* 每道题包含多组 input/output；
-* 每组带一个 `score` 字段；
-* 总得分 = 所有测试点通过得分的加权和；
-* 失败测试点得分为 0；
-* 返回最终结果结构中要包含 `score` 总和。
-
----
-
-#### 任务 4：测试点日志写入
-
-* 每个测试点记录为一条日志项，格式如下：
-
-```json
-{
-  "job_id": 42,
-  "test_id": 1,
-  "status": "Accepted",
-  "input": "...",
-  "expected": "...",
-  "actual": "...",
-  "score": 20,
-  "stderr": "...",
-  "time": 0.123,
-  "memory": 22,
-  "create_time": "2025-06-21T10:00:00",
-  "update_time": "2025-06-21T10:00:30"
-}
-```
-
-* 日志文件写入路径应为：
-
-  ```
-  logs/job_{job_id}.log.jsonl
-  ```
-
-* 每次评测都写完整日志文件，供后续查看。
+| 能力项         | 说明                       |
+| -------------- | -------------------------- |
+| 程序执行       | 支持限时限内存安全运行     |
+| 输出比对       | 支持严格/宽松两种比对模式  |
+| 状态分类       | 评测状态结构化、标准化     |
+| 多测试点       | 支持多组测试点与权重计分   |
+| 日志记录       | 结构化日志便于追踪与调试   |
 
 ---
 
