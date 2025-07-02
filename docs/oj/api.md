@@ -13,6 +13,7 @@
    - 2.4 排行榜相关
    - 2.5 日志相关
    - 2.6 数据导出/恢复
+   - 2.7 题目管理相关
 3. 高级功能接口
    - 3.1 Special Judge
    - 3.2 查重系统
@@ -203,6 +204,74 @@
 {"code": 200, "msg": "import success", "data": null}
 ```
 - 异常：400/403/500
+
+---
+
+### 2.7 题目管理相关
+
+#### 查看题目列表
+- 路径：`GET /api/problems/`
+- 权限：公开
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": [
+    {"id": "sum_2", "title": "两数之和"},
+    {"id": "max_num", "title": "最大数"}
+  ]
+}
+```
+
+#### 添加题目
+- 路径：`POST /api/problems/`
+- 参数：题目配置（JSON，字段见下）
+- 权限：仅管理员（或本地开发可不校验）
+- 响应：
+```json
+{"code": 200, "msg": "add success", "data": {"id": "sum_2"}}
+```
+- 异常：400 字段缺失/格式错误 / 409 id 已存在
+
+#### 删除题目
+- 路径：`DELETE /api/problems/{problem_id}`
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "delete success", "data": {"id": "sum_2"}}
+```
+- 异常：404 题目不存在
+
+#### 查看题目信息
+- 路径：`GET /api/problems/{problem_id}`
+- 权限：公开
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "id": "sum_2",
+    "title": "两数之和",
+    "description": "输入两个整数，输出它们的和。",
+    "input_description": "输入为一行，包含两个整数。",
+    "output_description": "输出这两个整数的和。",
+    "samples": [
+      {"input": "1 2\n", "output": "3\n"}
+    ],
+    "test_cases": [
+      {"input": "1 2\n", "output": "3\n"},
+      {"input": "10 20\n", "output": "30\n"}
+    ],
+    "time_limit": 1.0,
+    "memory_limit": 128,
+    "score": 100,
+    "banned_users": []
+  }
+}
+```
+- 异常：404 题目不存在
 
 ---
 
