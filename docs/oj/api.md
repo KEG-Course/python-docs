@@ -5,211 +5,21 @@
 ---
 
 ## 目录
-1. 通用说明
-2. 基础接口
-   - 2.1 评测相关
-   - 2.2 用户相关
-   - 2.3 语言相关
-   - 2.4 排行榜相关
-   - 2.5 日志相关
-   - 2.6 数据导出/恢复
-   - 2.7 题目管理相关
-3. 高级功能接口
-   - 3.1 Special Judge
-   - 3.2 查重系统
-   - 3.3 安全机制
-   - 3.4 前端交互
-4. 状态码与异常
-5. 安全性说明
+1. 题目管理相关接口（Step 1）
+2. 评测相关接口（Step 2 & 4）
+3. 用户管理相关接口（Step 3）
+4. 排行榜与比赛相关接口（Step 5）
+5. 日志与权限管理相关接口（Step 6）
+6. 持久化与安全控制相关接口（Step 7）
+7. 高级功能接口
+8. 状态码与异常
+9. 安全性说明
 
 ---
 
-## 1. 通用说明
-- 所有接口均采用 RESTful 风格，推荐 JSON 作为请求和响应格式。
-- 所有接口响应均包含 `code`（状态码）、`msg`（信息）、`data`（数据，若有）。
-- 所有异常情况需返回合理 HTTP 状态码及结构化错误信息。
-- 权限相关接口建议使用 Cookie/Session 传递用户身份，body 传 role 仅作演示或加分项。
+## 1. 题目管理相关接口（Step 1）
 
----
-
-## 2. 基础接口
-
-### 2.1 评测相关
-
-#### 评测提交
-- 路径：`POST /api/submissions/`
-- 参数：
-  - `problem_id` (int, 必填): 题目编号
-  - `language` (str, 必填): 语言（如 "python"、"c"、"cpp"）
-  - `code` (str, 必填): 用户代码
-- 权限：登录用户
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": {"submission_id": 123, "status": "Pending"}
-}
-```
-- 异常：400 参数错误 / 403 用户被禁用 / 404 题目不存在 / 429 提交频率超限
-
-#### 查询评测结果
-- 路径：`GET /api/submissions/{submission_id}`
-- 权限：仅本人或管理员
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": {"status": "Accepted", "score": 100, "time": 0.23, "memory": 128, "stderr": ""}
-}
-```
-- 异常：404 评测不存在 / 403 权限不足
-
-#### 查询评测列表
-- 路径：`GET /api/submissions/`
-- 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`（均可选）
-- 权限：本人/管理员
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": {"total": 100, "submissions": [{"submission_id": 1, ...}]}
-}
-```
-
-#### 重新评测
-- 路径：`PUT /api/submissions/{submission_id}/rejudge`
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "Pending"}}
-```
-- 异常：404/403
-
----
-
-### 2.2 用户相关
-
-#### 用户注册/登录
-- 路径：`POST /api/users/`
-- 参数：`username` (str, 必填), `password` (str, 必填)
-- 响应：
-```json
-{"code": 200, "msg": "register success", "data": {"user_id": 1}}
-```
-- 异常：400 用户名已存在/参数错误
-
-#### 查询用户信息
-- 路径：`GET /api/users/{user_id}`
-- 权限：仅本人或管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
-```
-- 异常：404/403
-
-#### 用户权限变更
-- 路径：`PUT /api/users/{user_id}/role`
-- 参数：`role` (str, 必填)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "role updated", "data": {"user_id": 1, "role": "admin"}}
-```
-- 异常：404/403
-
-#### 用户列表
-- 路径：`GET /api/users/`，参数：`username`、`role`、`page`、`page_size`（可选）
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"total": 2, "users": [{"user_id": 1, ...}]}}
-```
-
----
-
-### 2.3 语言相关
-
-#### 动态注册新语言
-- 路径：`POST /api/languages/`
-- 参数：`name` (str, 必填), `compile_cmd` (str, 可选), `run_cmd` (str, 必填)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "language registered", "data": {"name": "go"}}
-```
-- 异常：400/403
-
-#### 查询支持语言列表
-- 路径：`GET /api/languages/`
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": [{"name": "python", ...}]}
-```
-
----
-
-### 2.4 排行榜相关
-
-#### 查询排行榜
-- 路径：`GET /api/ranklist/`
-- 参数：`problem_id`、`order`、`tie_breaker`、`page`、`page_size`（可选）
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"total": 2, "ranklist": [{"user_id": 1, ...}]}}
-```
-
----
-
-### 2.5 日志相关
-
-#### 查询评测日志
-- 路径：`GET /api/submissions/{submission_id}/log`
-- 权限：仅本人或管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": [{"test_id": 1, ...}]}
-```
-- 异常：404/403
-
-#### 日志回放/调试
-- 路径：`GET /api/submissions/{submission_id}/replay`，参数：`debug` (bool, 可选)
-- 权限：仅本人或管理员，debug 仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"steps": [...], "debug_info": {...}}}
-```
-- 异常：404/403
-
----
-
-### 2.6 数据导出/恢复
-
-#### 数据导出
-- 路径：`GET /api/export/`，参数：`format` (str, 可选)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
-```
-- 异常：403/500
-
-#### 数据恢复
-- 路径：`POST /api/import/`，参数：`file` (上传)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "import success", "data": null}
-```
-- 异常：400/403/500
-
----
-
-### 2.7 题目管理相关
-
-#### 查看题目列表
+### 查看题目列表
 - 路径：`GET /api/problems/`
 - 权限：公开
 - 响应：
@@ -224,17 +34,17 @@
 }
 ```
 
-#### 添加题目
+### 添加题目
 - 路径：`POST /api/problems/`
-- 参数：题目配置（JSON，字段见下）
 - 权限：仅管理员（或本地开发可不校验）
+- 参数：题目配置（JSON，字段见下）
 - 响应：
 ```json
 {"code": 200, "msg": "add success", "data": {"id": "sum_2"}}
 ```
 - 异常：400 字段缺失/格式错误 / 409 id 已存在
 
-#### 删除题目
+### 删除题目
 - 路径：`DELETE /api/problems/{problem_id}`
 - 权限：仅管理员
 - 响应：
@@ -243,7 +53,7 @@
 ```
 - 异常：404 题目不存在
 
-#### 查看题目信息
+### 查看题目信息
 - 路径：`GET /api/problems/{problem_id}`
 - 权限：公开
 - 响应：
@@ -275,27 +85,303 @@
 
 ---
 
-## 3. 高级功能接口
+## 2. 评测相关接口（Step 2 & 4）
 
-### 3.1 Special Judge
+### 提交评测
+- 路径：`POST /api/submissions/`
+- 参数：
+  - `problem_id` (int, 必填): 题目编号
+  - `language` (str, 必填): 语言（如 "python"、"c"、"cpp"）
+  - `code` (str, 必填): 用户代码
+- 权限：登录用户
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {"submission_id": 123, "status": "Pending"}
+}
+```
+- 异常：400 参数错误 / 403 用户被禁用 / 404 题目不存在 / 429 提交频率超限
+
+### 查询评测结果
+- 路径：`GET /api/submissions/{submission_id}`
+- 权限：仅本人或管理员
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {"status": "Accepted", "score": 100, "time": 0.23, "memory": 128, "stderr": ""}
+}
+```
+- 异常：404 评测不存在 / 403 权限不足
+
+### 查询评测列表
+- 路径：`GET /api/submissions/`
+- 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`（均可选）
+- 权限：本人/管理员
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {"total": 100, "submissions": [{"submission_id": 1, ...}]}
+}
+```
+
+### 重新评测
+- 路径：`PUT /api/submissions/{submission_id}/rejudge`
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "Pending"}}
+```
+- 异常：404/403
+
+---
+
+## 3. 用户管理相关接口（Step 3）
+
+### 用户注册
+- 路径：`POST /api/users/`
+- 参数：`username` (str, 必填), `password` (str, 必填)
+- 响应：
+```json
+{"code": 200, "msg": "register success", "data": {"user_id": 1}}
+```
+- 异常：400 用户名已存在/参数错误
+
+### 查询用户信息
+- 路径：`GET /api/users/{user_id}`
+- 权限：仅本人或管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
+```
+- 异常：404/403
+
+### 用户权限变更
+- 路径：`PUT /api/users/{user_id}/role`
+- 参数：`role` (str, 必填)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "role updated", "data": {"user_id": 1, "role": "admin"}}
+```
+- 异常：404/403
+
+### 用户列表查询
+- 路径：`GET /api/users/`，参数：`username`、`role`、`page`、`page_size`（可选）
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"total": 2, "users": [{"user_id": 1, ...}]}}
+```
+
+---
+
+## 4. 排行榜与比赛相关接口（Step 5）
+
+### 查询排行榜
+- 路径：`GET /api/ranklist/`
+- 参数：`problem_id`、`order`、`tie_breaker`、`page`、`page_size`（可选）
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"total": 2, "ranklist": [{"user_id": 1, ...}]}}
+```
+
+### 查询题目用户提交状态
+- 路径：`GET /api/problems/{problem_id}/status`
+- 参数：
+  - `user_id` (int, 可选)：指定用户，默认当前登录用户
+- 权限：本人或管理员
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "user_id": 1,
+    "problem_id": 1001,
+    "max_score": 100,
+    "passed": true,
+    "submit_count": 3,
+    "last_submit_time": "2024-06-01T12:00:00"
+  }
+}
+```
+- 异常：404 题目不存在 / 403 权限不足
+
+### 比赛管理相关接口
+#### 创建比赛
+- 路径：`POST /api/contests/`
+- 权限：仅管理员
+- 参数：
+  - `name` (str)：比赛名称
+  - `start_time` (str)：起始时间（ISO 格式）
+  - `end_time` (str)：结束时间（ISO 格式）
+  - `problems` (list)：题目编号列表
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "contest created",
+  "data": {"contest_id": 1}
+}
+```
+- 异常：400 参数错误 / 403 权限不足
+
+#### 加入比赛
+- 路径：`POST /api/contests/{contest_id}/join`
+- 权限：登录用户
+- 参数：无
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "joined",
+  "data": {"contest_id": 1, "user_id": 2}
+}
+```
+- 异常：404 比赛不存在 / 409 已加入
+
+#### 查询比赛信息
+- 路径：`GET /api/contests/{contest_id}`
+- 权限：公开
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "contest_id": 1,
+    "name": "春季赛",
+    "start_time": "2024-06-01T10:00:00",
+    "end_time": "2024-06-01T12:00:00",
+    "problems": [1001, 1002],
+    "users": [1, 2, 3]
+  }
+}
+```
+- 异常：404 比赛不存在
+
+#### 查询比赛列表
+- 路径：`GET /api/contests/`
+- 权限：公开
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": [
+    {"contest_id": 1, "name": "春季赛", "start_time": "2024-06-01T10:00:00", "end_time": "2024-06-01T12:00:00"}
+  ]
+}
+```
+
+---
+
+## 5. 日志与权限管理相关接口（Step 6）
+
+### 查询评测日志
+- 路径：`GET /api/submissions/{submission_id}/log`
+- 权限：仅本人或管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": [{"test_id": 1, ...}]}
+```
+- 异常：404/403
+
+### 配置日志/测例可见性
+- 路径：`PUT /api/problems/{problem_id}/log_visibility`
+- 权限：仅管理员
+- 参数：
+  - `public_cases` (bool)：是否允许所有用户查看测例详情
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "log visibility updated",
+  "data": {"problem_id": 1001, "public_cases": true}
+}
+```
+- 异常：404 题目不存在 / 403 权限不足
+
+### 日志访问审计
+- 路径：`GET /api/logs/access/`
+- 权限：仅管理员
+- 参数：
+  - `user_id` (int, 可选)：按用户筛选
+  - `problem_id` (int, 可选)：按题目筛选
+  - `page` (int, 可选)：页码
+  - `page_size` (int, 可选)：每页数量
+- 响应：
+```json
+{
+  "code": 200,
+  "msg": "success",
+  "data": [
+    {"user_id": 1, "problem_id": 1001, "action": "view_log", "time": "2024-06-01T12:00:00"}
+  ]
+}
+```
+- 异常：403 权限不足
+
+---
+
+## 6. 持久化与安全控制相关接口（Step 7）
+
+### 数据导出
+- 路径：`GET /api/export/`，参数：`format` (str, 可选)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
+```
+- 异常：403/500
+
+### 数据恢复
+- 路径：`POST /api/import/`，参数：`file` (上传)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "import success", "data": null}
+```
+- 异常：400/403/500
+
+---
+
+## 7. 高级功能接口
+
+### 动态注册新语言
+- 路径：`POST /api/languages/`
+- 参数：`name` (str, 必填), `compile_cmd` (str, 可选), `run_cmd` (str, 必填)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "language registered", "data": {"name": "go"}}
+```
+- 异常：400/403
+
+### 查询支持语言列表
+- 路径：`GET /api/languages/`
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": [{"name": "python", ...}]}
+```
+
+### Special Judge、查重、前端交互等
 - 上传 SPJ 脚本：`POST /api/problems/{problem_id}/spj`（仅管理员）
 - 删除 SPJ 脚本：`DELETE /api/problems/{problem_id}/spj`（仅管理员）
 - 查询题目评测策略：`GET /api/problems/{problem_id}`
-
-### 3.2 查重系统
 - 发起查重检测：`POST /api/plagiarism/`（仅管理员）
 - 查询查重结果：`GET /api/plagiarism/{task_id}`（仅管理员）
 - 下载查重报告：`GET /api/plagiarism/{task_id}/report`（仅管理员）
 
-### 3.3 安全机制
-- 评测相关接口均需沙箱隔离、资源限制、命令校验，超限返回 TLE/MLE
-
-### 3.4 前端交互
-- 前端所有交互均通过上述 REST API 实现
-
 ---
 
-## 4. 状态码与异常
+## 8. 状态码与异常
 
 | HTTP 状态码 | 说明           | 示例场景           |
 |-------------|----------------|--------------------|
@@ -313,7 +399,7 @@
 
 ---
 
-## 5. 安全性说明
+## 9. 安全性说明
 - 用户身份建议通过 Cookie/Session 传递，避免 body 明文 role。
 - 评测执行需沙箱隔离，防止恶意代码危害系统。
 - 资源限制（如内存、CPU 时间）需严格执行。
