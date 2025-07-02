@@ -1,4 +1,18 @@
-## Advance 2：极简前端交互
+## Advance 2：前端交互（streamlit 版）
+
+---
+
+### 什么是 streamlit？
+
+streamlit 是一个用 Python 快速开发 Web 应用的开源框架。你可以用纯 Python 代码，像写脚本一样写出交互式网页，无需掌握 HTML/CSS/JS。
+
+**streamlit 的特点：**
+- 只用 Python 代码即可生成网页界面
+- 支持表单、按钮、输入框、文件上传等常用交互
+- 适合数据展示、原型开发、与后端 API 对接
+- 一行命令即可本地运行（`streamlit run app.py`）
+
+> 本模块要求你使用 streamlit 实现前端交互，不要求使用传统的 HTML/CSS/JS 三件套。你只需用 Python + streamlit 搭建一个 Web 界面，调用后端 API，完成用户登录、代码提交、结果查询等功能。
 
 ---
 
