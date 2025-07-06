@@ -8,12 +8,10 @@
 1. 题目管理相关接口（Step 1）
 2. 评测相关接口（Step 2 & 4）
 3. 用户管理相关接口（Step 3）
-4. 排行榜与比赛相关接口（Step 5）
-5. 日志与权限管理相关接口（Step 6）
-6. 持久化与安全控制相关接口（Step 7）
-7. 高级功能接口
-8. 状态码与异常
-9. 安全性说明
+4. 日志与权限管理相关接口（Step 6）
+5. 高级功能接口
+6. 状态码与异常
+7. 安全性说明
 
 ---
 
@@ -181,108 +179,7 @@
 
 ---
 
-## 4. 排行榜与比赛相关接口（Step 5）
-
-### 查询排行榜
-- 路径：`GET /api/ranklist/`
-- 参数：`problem_id`、`order`、`tie_breaker`、`page`、`page_size`（可选）
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"total": 2, "ranklist": [{"user_id": 1, ...}]}}
-```
-
-### 查询题目用户提交状态
-- 路径：`GET /api/problems/{problem_id}/status`
-- 参数：
-  - `user_id` (int, 可选)：指定用户，默认当前登录用户
-- 权限：本人或管理员
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": {
-    "user_id": 1,
-    "problem_id": 1001,
-    "max_score": 100,
-    "passed": true,
-    "submit_count": 3,
-    "last_submit_time": "2024-06-01T12:00:00"
-  }
-}
-```
-- 异常：404 题目不存在 / 403 权限不足
-
-### 比赛管理相关接口
-#### 创建比赛
-- 路径：`POST /api/contests/`
-- 权限：仅管理员
-- 参数：
-  - `name` (str)：比赛名称
-  - `start_time` (str)：起始时间（ISO 格式）
-  - `end_time` (str)：结束时间（ISO 格式）
-  - `problems` (list)：题目编号列表
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "contest created",
-  "data": {"contest_id": 1}
-}
-```
-- 异常：400 参数错误 / 403 权限不足
-
-#### 加入比赛
-- 路径：`POST /api/contests/{contest_id}/join`
-- 权限：登录用户
-- 参数：无
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "joined",
-  "data": {"contest_id": 1, "user_id": 2}
-}
-```
-- 异常：404 比赛不存在 / 409 已加入
-
-#### 查询比赛信息
-- 路径：`GET /api/contests/{contest_id}`
-- 权限：公开
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": {
-    "contest_id": 1,
-    "name": "春季赛",
-    "start_time": "2024-06-01T10:00:00",
-    "end_time": "2024-06-01T12:00:00",
-    "problems": [1001, 1002],
-    "users": [1, 2, 3]
-  }
-}
-```
-- 异常：404 比赛不存在
-
-#### 查询比赛列表
-- 路径：`GET /api/contests/`
-- 权限：公开
-- 响应：
-```json
-{
-  "code": 200,
-  "msg": "success",
-  "data": [
-    {"contest_id": 1, "name": "春季赛", "start_time": "2024-06-01T10:00:00", "end_time": "2024-06-01T12:00:00"}
-  ]
-}
-```
-
----
-
-## 5. 日志与权限管理相关接口（Step 6）
+## 4. 日志与权限管理相关接口（Step 6）
 
 ### 查询评测日志
 - 路径：`GET /api/submissions/{submission_id}/log`
@@ -330,29 +227,7 @@
 
 ---
 
-## 6. 持久化与安全控制相关接口（Step 7）
-
-### 数据导出
-- 路径：`GET /api/export/`，参数：`format` (str, 可选)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
-```
-- 异常：403/500
-
-### 数据恢复
-- 路径：`POST /api/import/`，参数：`file` (上传)
-- 权限：仅管理员
-- 响应：
-```json
-{"code": 200, "msg": "import success", "data": null}
-```
-- 异常：400/403/500
-
----
-
-## 7. 高级功能接口
+## 5. 高级功能接口
 
 ### 动态注册新语言
 - 路径：`POST /api/languages/`
@@ -411,7 +286,7 @@
 
 ---
 
-## 8. 状态码与异常
+## 6. 状态码与异常
 
 | HTTP 状态码 | 说明           | 示例场景           |
 |-------------|----------------|--------------------|
@@ -429,7 +304,7 @@
 
 ---
 
-## 9. 安全性说明
+## 7. 安全性说明
 - 用户身份建议通过 Cookie/Session 传递，避免 body 明文 role。
 - 评测执行需沙箱隔离，防止恶意代码危害系统。
 - 资源限制（如内存、CPU 时间）需严格执行。
