@@ -356,13 +356,43 @@
 
 ### 动态注册新语言
 - 路径：`POST /api/languages/`
-- 参数：`name` (str, 必填), `compile_cmd` (str, 可选), `run_cmd` (str, 必填)
+- 参数：
+  - `name` (str, 必填)：语言名称，如 "python"、"cpp"、"go"
+  - `file_ext` (str, 必填)：代码文件扩展名，如 ".py"、".cpp"
+  - `compile_cmd` (str, 可选)：编译命令（如 C++/Go 需编译，Python 可省略）
+  - `run_cmd` (str, 必填)：运行命令，支持变量占位（如 `{src}` 表示源文件，`{exe}` 表示可执行文件）
+  - `source_template` (str, 可选)：代码执行模板（如需包裹用户代码，可用此字段）
+  - `time_limit` (float, 可选)：该语言默认时间限制（秒）
+  - `memory_limit` (int, 可选)：该语言默认内存限制（MB）
 - 权限：仅管理员
 - 响应：
 ```json
 {"code": 200, "msg": "language registered", "data": {"name": "go"}}
 ```
 - 异常：400/403
+
+- 示例：
+```json
+{
+  "name": "cpp",
+  "file_ext": ".cpp",
+  "compile_cmd": "g++ {src} -o {exe} -O2 -std=c++17",
+  "run_cmd": "{exe}",
+  "source_template": "{code}",
+  "time_limit": 1.0,
+  "memory_limit": 128
+}
+```
+```json
+{
+  "name": "python",
+  "file_ext": ".py",
+  "run_cmd": "python3 {src}",
+  "source_template": "{code}",
+  "time_limit": 1.0,
+  "memory_limit": 128
+}
+```
 
 ### 查询支持语言列表
 - 路径：`GET /api/languages/`
