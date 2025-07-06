@@ -21,6 +21,22 @@ nav:
       - 数据可视化: crawler/ref/visualize.md
     - 评分标准: crawler/requirements.md
     - FAQ: crawler/faq.md
+
+    - 实验二：在线评测系统:
+      - 实验概述: oj/index.md
+      - 实验内容:
+        - Step1: oj/project/step1.md
+        - Step2: oj/project/step2.md
+        - Step3: oj/project/step3.md
+        - Step4: oj/project/step4.md
+        - Step5: oj/project/step5.md
+        - Step6: oj/project/step6.md
+        - Advance1: oj/project/advance1.md
+        - Advance2: oj/project/advance2.md
+        - Advance3: oj/project/advance3.md
+        - Advance4: oj/project/advance4.md
+      - 评分标准: oj/requirements.md
+      - FAQ: oj/faq.md
   # - 实验二：MiniGPT:
   #   - 实验概述: MiniGPT/index.md
   #   - 实验内容:
