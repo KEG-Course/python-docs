@@ -1,8 +1,12 @@
 # OJ 系统实验说明
 
+> 本实验作业参考了清华大学韩文弢老师 Rust 程序设计训练 OJ 大作业（[作业背景](https://lab.cs.tsinghua.edu.cn/rust/projects/oj/background/)）。
+
 ## 实验目标
 
 构建一个小型但功能完整的 Online Judge (OJ) 系统，分阶段实现，逐步掌握系统设计、API开发、安全控制等核心能力。
+
+> 快速入门可参考[快速入门文档](https://lab.cs.tsinghua.edu.cn/rust/projects/oj/quick-start/)。
 
 ---
 
@@ -42,7 +46,7 @@
 
 ---
 
-### 学习资源
+## 学习资源
 
 - **技术教程**:
   - [系统设计基础](https://github.com/donnemartin/system-design-primer)
@@ -53,3 +57,7 @@
   - [Codeforces](https://codeforces.com/) - 知名OJ平台
   - [LeetCode](https://leetcode.com/) - 编程练习平台
   - [HackerRank](https://www.hackerrank.com/) - 技术评测平台
+
+## 致谢
+
+本实验作业参考并借鉴了清华大学 Rust 程序设计训练 OJ 大作业的设计思想与文档结构，特此致谢韩文弢老师、陈嘉杰同学等贡献者。
