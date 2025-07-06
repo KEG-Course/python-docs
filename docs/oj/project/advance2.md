@@ -1,6 +1,6 @@
-## Advance 2：前端交互
+<!-- ## Advance 2：前端交互
 
----
+--- -->
 
 > 在本实验中，你不需要掌握 javascript, html, css 网页三件套，仅需使用封装过的 python `streamlit` 库即可
 

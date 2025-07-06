@@ -1,6 +1,6 @@
-## Advance 3：安全机制
+<!-- ## Advance 3：安全机制
 
----
+--- -->
 
 > 本模块要求：**所有评测任务必须在 Docker 容器中运行**，利用 Docker 实现沙箱隔离和安全机制。不得使用其他沙箱技术（如 seccomp、resource、cgroups 等）替代 Docker。所有安全隔离、资源限制、命令校验等均需依托 Docker 实现。
 
