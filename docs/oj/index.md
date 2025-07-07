@@ -27,7 +27,7 @@
 | Step3 | 用户系统     | 用户注册/更新、权限管理、人工判题接口          | [step3.md](project/step3.md) |
 | Step4 | 任务状态管理 | 评测任务流转、调度、API                       | [step4.md](project/step4.md) |
 | Step5 | 评测日志     | 日志结构化记录、日志接口、权限                 | [step5.md](project/step5.md) |
-| Step6 | 高级安全     | 沙箱隔离、命令过滤、资源限制                   | [step6.md](project/step6.md) |
+| Step6 | 数据持久化   | 数据存储、备份恢复、持久化结构与接口           | [step6.md](project/step6.md) |
 
 ---
 

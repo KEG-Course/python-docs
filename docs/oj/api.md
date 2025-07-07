@@ -6,10 +6,11 @@
 1. 题目管理相关接口（Step 1）
 2. 评测相关接口（Step 2 & 4）
 3. 用户管理相关接口（Step 3）
-4. 日志与权限管理相关接口（Step 6）
-5. 高级功能接口 (Advance)
-6. 状态码与异常
-7. 安全性说明
+4. 评测日志相关接口（Step 5）
+5. 数据持久化相关接口（Step 6）
+6. 高级功能接口 (Advance)
+7. 状态码与异常
+8. 安全性说明
 
 ---
 
@@ -287,14 +288,14 @@
 
 ---
 
-## 4. 日志与权限管理相关接口（Step 6）
+## 4. 评测日志相关接口（Step 5）
 
 ### 查询评测日志
 - 路径：`GET /api/submissions/{submission_id}/log`
 - 权限：仅本人或管理员
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": [{"test_id": 1, ...}]}
+{"code": 200, "msg": "success", "data": [{"test_id": 1, "status": "Accepted", "time": 0.23, "memory": 128}]}
 ```
 - 异常：404/403
 
@@ -335,7 +336,40 @@
 
 ---
 
-## 5. 高级功能接口 (Advance)
+## 5. 数据持久化相关接口（Step 6）
+
+### 系统重置
+- 路径：`POST /api/reset/`
+- 权限：仅管理员（测试环境可不校验）
+- 参数：无
+- 响应：
+```json
+{"code": 200, "msg": "system reset successfully", "data": null}
+```
+- 异常：403 权限不足
+- 说明：清空所有数据，重置系统到初始状态。在测试环境中可能不需要管理员权限。
+
+### 数据导出
+- 路径：`GET /api/export/`，参数：`format` (str, 可选)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
+```
+- 异常：403/500
+
+### 数据导入
+- 路径：`POST /api/import/`，参数：`file` (上传)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "import success", "data": null}
+```
+- 异常：400/403/500
+
+---
+
+## 6. 高级功能接口 (Advance)
 
 ### Advance 1: Special Judge
 - 上传 SPJ 脚本：`POST /api/problems/{problem_id}/spj`
@@ -356,7 +390,7 @@
 
 ---
 
-## 6. 状态码与异常
+## 7. 状态码与异常
 
 | HTTP 状态码 | 说明           | 示例场景           |
 |-------------|----------------|--------------------|
