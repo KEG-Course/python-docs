@@ -8,6 +8,14 @@
 
 > 快速入门可参考[快速入门文档](https://lab.cs.tsinghua.edu.cn/rust/projects/oj/quick-start/)。
 
+## 技术要求
+
+**异步编程实践**：本次作业要求使用 FastAPI 的异步接口（`async def`）完成所有 API 开发，目的是让大家初步体验异步编程的概念和用法。异步编程是现代 Web 开发的重要技术，有助于提高应用程序的并发性能。**不使用异步编程接口将拿不到本次作业分数，请同学们务必注意。**
+
+**项目规模**：为了让大家初步体验较大项目的开发，本次作业代码行数预计在两千行左右，请同学们合理规划时间，做好进度管理。
+
+**提交规范**：要求按照 [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) 规范编写 Git 提交信息，不符合规范的提交将酌情扣分。
+
 ---
 
 ## 基础模块（必做，共30分）
@@ -50,7 +58,7 @@
 
 - **技术教程**:
   - [系统设计基础](https://github.com/donnemartin/system-design-primer)
-  - [Python 并发编程](https://docs.python.org/3/library/concurrent.futures.html)
+  - [Python 异步编程](https://docs.python.org/3/library/asyncio.html)
   - [Docker 容器技术](https://docs.docker.com/)
 
 - **参考项目**:
