@@ -13,6 +13,10 @@
 
 ---
 
+**系统初始化说明**：系统启动时会自动创建初始管理员账户，用户名和密码均为 `admin`。
+
+---
+
 ## 1. 题目管理相关接口（Step 1）
 
 ### 查看题目列表
@@ -211,6 +215,36 @@
 ---
 
 ## 3. 用户管理相关接口（Step 3）
+
+### 用户登录
+- 路径：`POST /api/auth/login`
+- 参数：`username` (str, 必填), `password` (str, 必填)
+- 权限：公开
+- 响应：
+```json
+{"code": 200, "msg": "login success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
+```
+- 异常：400 参数错误 / 401 用户名或密码错误
+
+### 用户登出
+- 路径：`POST /api/auth/logout`
+- 参数：无
+- 权限：登录用户
+- 响应：
+```json
+{"code": 200, "msg": "logout success", "data": null}
+```
+- 异常：401 未登录
+
+### 创建管理员账户
+- 路径：`POST /api/users/admin`
+- 参数：`username` (str, 必填), `password` (str, 必填)
+- 权限：仅管理员
+- 响应：
+```json
+{"code": 200, "msg": "success", "data": {"user_id": 2, "username": "new_admin"}}
+```
+- 异常：400 用户名已存在/参数错误 / 403 权限不足
 
 ### 用户注册
 - 路径：`POST /api/users/`
