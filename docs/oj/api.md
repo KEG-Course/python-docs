@@ -50,8 +50,8 @@
   - `hint` (str, 可选): 额外提示
   - `source` (str, 可选): 题目来源
   - `tags` (list, 可选): 题目标签
-  - `time_limit` (str, 必填): 时间限制（如 "1s"）
-  - `memory_limit` (str, 必填): 内存限制（如 "128MB"）
+  - `time_limit` (float, 可选): 时间限制（如 "1s"）
+  - `memory_limit` (int, 可选): 内存限制（如 "128MB"）
   - `author` (str, 可选): 题目作者
   - `difficulty` (str, 可选): 难度等级
 - 响应：
