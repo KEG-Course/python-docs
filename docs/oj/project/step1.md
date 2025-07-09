@@ -99,8 +99,8 @@
   "hint": "有负数哦！",
   "source": "洛谷",
   "tags": ["基础题"],
-  "time_limit": "1",
-  "memory_limit": "128",
+  "time_limit": 1,
+  "memory_limit": 128,
   "author": "Luogu",
   "difficulty": "入门"
 }

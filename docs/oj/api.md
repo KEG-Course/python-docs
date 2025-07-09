@@ -100,8 +100,8 @@
     "hint": "有负数哦！",
     "source": "洛谷",
     "tags": ["基础题"],
-    "time_limit": "1.0",
-    "memory_limit": "128",
+    "time_limit": 1.0,
+    "memory_limit": 128,
     "author": "Luogu",
     "difficulty": "入门"
   }
@@ -139,7 +139,16 @@
 {
   "code": 200,
   "msg": "success",
-  "data": {"status": "Accepted", "score": 100, "time": 0.23, "memory": 128, "stderr": ""}
+  "data": {
+    "status": [
+    {"id": 1, "result": "AC"},
+    {"id": 2, "result": "TLE"},
+    {"id": 3, "result": "MLE"},
+    ],
+    "score": 10,
+    "time": 1.01,
+    "memory": 130
+  }
 }
 ```
 - 异常：404 评测不存在 / 403 权限不足
@@ -280,7 +289,7 @@
 - 异常：404/403
 
 ### 用户列表查询
-- 路径：`GET /api/users/`，参数：`username`、`role`、`page`、`page_size`（可选）
+- 路径：`GET /api/users/`，参数：`page`、`page_size`（可选）
 - 权限：仅管理员
 - 响应：
 ```json
@@ -296,7 +305,20 @@
 - 权限：仅本人或管理员
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": [{"test_id": 1, "status": "Accepted", "time": 0.23, "memory": 128}]}
+{
+  "code": 200, 
+  "msg": "success", 
+  "data": {
+    "status": [
+    {"id": 1, "result": "AC"},
+    {"id": 2, "result": "TLE"},
+    {"id": 3, "result": "MLE"},
+    ],
+    "score": 10,
+    "time": 1.01,
+    "memory": 130
+  }
+}
 ```
 - 异常：404/403
 
