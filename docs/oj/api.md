@@ -140,12 +140,8 @@
   "code": 200,
   "msg": "success",
   "data": {
-    "status": [
-    {"id": 1, "result": "AC"},
-    {"id": 2, "result": "TLE"},
-    {"id": 3, "result": "MLE"},
-    ],
     "score": 10,
+    "counts": 30, // 总分数
     "time": 1.01,
     "memory": 130
   }
@@ -315,6 +311,7 @@
     {"id": 3, "result": "MLE"},
     ],
     "score": 10,
+    "counts": 30, // 总分数
     "time": 1.01,
     "memory": 130
   }
