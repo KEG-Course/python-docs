@@ -1315,6 +1315,53 @@
 <li>实现评测流程：自动读取题库中的样例输入输出，将输入传递给用户提交的 Python 代码，捕获输出并与标准答案比对。</li>
 <li>返回结构化评测结果（如 AC/WA/RE/TLE），并保证评测过程安全、资源受控。</li>
 </ul>
+<p>你只需要考虑如下状态，如果非 <code>AC</code> ~ <code>CE</code> 状态全部归位 <code>UNK</code> 即可。</p>
+<table>
+<thead>
+<tr>
+<th>状态缩写</th>
+<th>全称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AC</strong></td>
+<td>Accepted Answer</td>
+<td>输出正确，程序运行无异常且输出结果与标准答案一致。</td>
+</tr>
+<tr>
+<td><strong>WA</strong></td>
+<td>Wrong Answer</td>
+<td>输出错误，程序运行无异常但输出结果与标准答案不一致。</td>
+</tr>
+<tr>
+<td><strong>TLE</strong></td>
+<td>Time Limit Exceeded</td>
+<td>超时，程序运行超过了题目规定的时间限制。</td>
+</tr>
+<tr>
+<td><strong>MLE</strong></td>
+<td>Memory Limit Exceeded</td>
+<td>内存超限，程序使用内存超过了题目限制。</td>
+</tr>
+<tr>
+<td><strong>RE</strong></td>
+<td>Runtime Error</td>
+<td>运行时错误，如除零、数组越界、段错误等。</td>
+</tr>
+<tr>
+<td><strong>CE</strong></td>
+<td>Compilation Error</td>
+<td>编译错误，代码无法通过编译。</td>
+</tr>
+<tr>
+<td><strong>UNK</strong></td>
+<td>Unknown Error</td>
+<td>未知错误，程序运行过程中发生了未被捕获的异常。</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p><strong>如何评测一个任务？</strong></p>
 <p>设想一下你在运行一段 python 代码，你需要先将代码保存至一个文件（如 <code>test.py</code>），然后调用 <code>python test.py</code>，在命令行阅读代码输出结果。现在同理，你只需要调用 <code>subprocess</code> 模块，将本该输出到命令行的结果捕获到变量中，与预期输出比对即可。</p>
