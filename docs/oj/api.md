@@ -37,7 +37,7 @@
 
 ### 添加题目
 - 路径：`POST /api/problems/`
-- 权限：仅管理员
+- 权限：所有用户
 - 参数（JSON，参考 Step1 文档）：
   - `id` (str, 必填): 题目唯一标识
   - `title` (str, 必填): 题目标题
@@ -226,7 +226,7 @@
 ```json
 {"code": 200, "msg": "login success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
 ```
-- 异常：400 参数错误 / 401 用户名或密码错误
+- 异常：400 参数错误 / 401 用户名或密码错误 / 403 用户被禁用（Step 4）
 
 ### 用户登出
 - 路径：`POST /api/auth/logout`
