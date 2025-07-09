@@ -66,9 +66,9 @@
 3. **tags**  
    题目标签，便于分类检索（如"基础题"、"模拟"）。
 4. **time_limit**  
-   时间限制（如 1s），用于评测。
+   时间限制，默认单位为 "s"，用于评测。
 5. **memory_limit**  
-   内存限制（如 128MB），用于评测。
+   内存限制，默认单位为 "MB"，用于评测。
 6. **author**  
    题目作者。
 7. **difficulty**  
@@ -99,8 +99,8 @@
   "hint": "有负数哦！",
   "source": "洛谷",
   "tags": ["基础题"],
-  "time_limit": "1s",
-  "memory_limit": "128MB",
+  "time_limit": "1",
+  "memory_limit": "128",
   "author": "Luogu",
   "difficulty": "入门"
 }

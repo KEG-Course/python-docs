@@ -50,8 +50,8 @@
   - `hint` (str, 可选): 额外提示
   - `source` (str, 可选): 题目来源
   - `tags` (list, 可选): 题目标签
-  - `time_limit` (float, 可选): 时间限制（如 "1s"）
-  - `memory_limit` (int, 可选): 内存限制（如 "128MB"）
+  - `time_limit` (float, 可选): 时间限制，默认单位为 "s"
+  - `memory_limit` (int, 可选): 内存限制，默认单位为 "MB"
   - `author` (str, 可选): 题目作者
   - `difficulty` (str, 可选): 难度等级
 - 响应：
@@ -100,8 +100,8 @@
     "hint": "有负数哦！",
     "source": "洛谷",
     "tags": ["基础题"],
-    "time_limit": "1s",
-    "memory_limit": "128MB",
+    "time_limit": "1.0",
+    "memory_limit": "128",
     "author": "Luogu",
     "difficulty": "入门"
   }
@@ -109,6 +109,7 @@
 ```
 - 异常：404 题目不存在
 
+> 默认字段需要返回本类型默认值，比如 `str` 类需返回 `""`，`list` 类需返回 `[]`
 ---
 
 ## 2. 评测相关接口（Step 2 & 3）
@@ -174,8 +175,8 @@
   - `compile_cmd` (str, 可选): 编译命令
   - `run_cmd` (str, 必填): 运行命令
   - `source_template` (str, 可选): 代码执行模板
-  - `time_limit` (float, 可选): 默认时间限制（秒）
-  - `memory_limit` (int, 可选): 默认内存限制（MB）
+  - `time_limit` (float, 可选): 默认单位为 "s"
+  - `memory_limit` (int, 可选): 默认单位为 "MB"
 - 权限：仅管理员
 - 响应：
 ```json
