@@ -35,6 +35,8 @@
 
 ## [其他] 常见问题与解答
 
+- Q: 有参考模板吗？
+  - A: 请见[仓库](https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template)，如权限问题请联系助教。
 - Q: 必须实现前端吗？
   - A: 仅 Advance2 需要前端，基础模块不强制。
 - Q: 评测/查重/日志等接口必须完全一致吗？
