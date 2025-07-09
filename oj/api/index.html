@@ -1848,8 +1848,8 @@
 <span class="w">    </span><span class="nt">&quot;hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;有负数哦！&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;洛谷&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;基础题&quot;</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;time_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;memory_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;128&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;time_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;memory_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Luogu&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;入门&quot;</span>
 <span class="w">  </span><span class="p">}</span>
@@ -1884,7 +1884,12 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.23</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;stderr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">}</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="c1">// 总分数</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
 <li>异常：404 评测不存在 / 403 权限不足</li>
@@ -2025,7 +2030,7 @@
 </ul>
 <h3 id="_16">用户列表查询<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
-<li>路径：<code>GET /api/users/</code>，参数：<code>username</code>、<code>role</code>、<code>page</code>、<code>page_size</code>（可选）</li>
+<li>路径：<code>GET /api/users/</code>，参数：<code>page</code>、<code>page_size</code>（可选）</li>
 <li>权限：仅管理员</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}]}}</span>
@@ -2038,7 +2043,21 @@
 <li>路径：<code>GET /api/submissions/{submission_id}/log</code></li>
 <li>权限：仅本人或管理员</li>
 <li>响应：
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;test_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.23</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">}]}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TLE&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MLE&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="c1">// 总分数</span>
+<span class="w">    </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></li>
 <li>异常：404/403</li>
 </ul>
@@ -2237,7 +2256,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (89.71%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (10.29%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (90.4%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (9.6%)</span>
       </small>
     </div>
   

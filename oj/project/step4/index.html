@@ -1366,17 +1366,15 @@
 5. 记录操作日志（谁在什么时候修改了谁的权限）</p>
 <div class="admonition danger">
 <p class="admonition-title">权限提示</p>
-<p>注意，在 step1 ~ step3 中，我们没有对题目上传 / 语言创建等进行权限控制。在添加用户权限后，我们需要更新之前的功能。为简化，我们规定为：题目上传 / 创建语言可以由任意用户执行，但是删除操作<strong>仅管理员可执行</strong></p>
+<p>注意，在 step1 ~ step3 中，我们没有对题目上传 / 语言创建等进行权限控制。在添加用户权限后，我们需要更新之前的功能。为简化，我们规定为：题目上传 / 创建语言可以由任意用户执行，但是删除操作<strong>仅管理员可执行</strong>。此外，你还需要修改之前的接口，在用户未登录时无法进行增删查改。</p>
 </div>
 <h4 id="4">任务 4：用户列表查询<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>目标：管理员可查询所有用户列表，支持分页、筛选。</li>
 </ul>
 <p><strong>分页与筛选</strong></p>
-<p>根据 API 文档，用户列表查询支持按用户名、角色筛选，以及分页参数。</p>
+<p>根据 API 文档，用户列表查询，支持分页参数。</p>
 <p><strong>API 参数：</strong>
-- <code>username</code>（可选）：按用户名筛选
-- <code>role</code>（可选）：按角色筛选
 - <code>page</code>（可选）：页码
 - <code>page_size</code>（可选）：每页大小</p>
 <p><strong>返回格式：</strong>
