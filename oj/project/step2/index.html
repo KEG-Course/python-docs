@@ -1336,7 +1336,8 @@
 <li>实现评测流程：自动读取题库中的样例输入输出，将输入传递给用户提交的 Python 代码，捕获输出并与标准答案比对。</li>
 <li>返回结构化评测结果（如 AC/WA/RE/TLE）。</li>
 </ul>
-<p>你只需要考虑如下状态，如果非 <code>AC</code> ~ <code>CE</code> 状态全部归为 <code>UNK</code> 即可。</p>
+<p><strong>测试点结果</strong></p>
+<p>你只需要考虑如下测试点结果，如果非 <code>AC</code> ~ <code>CE</code> 状态全部归为 <code>UNK</code> 即可。</p>
 <table>
 <thead>
 <tr>
@@ -1380,6 +1381,30 @@
 <td><strong>UNK</strong></td>
 <td>Unknown Error</td>
 <td>未知错误，程序运行过程中发生了未被捕获的异常。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评测状态</strong></p>
+<p>对于最终评测状态，你只需要考虑如下四种。</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>pending</strong></td>
+<td>评测正在进行中</td>
+</tr>
+<tr>
+<td><strong>success</strong></td>
+<td>评测正常返回结果</td>
+</tr>
+<tr>
+<td><strong>error</strong></td>
+<td>评测过程出现问题</td>
 </tr>
 </tbody>
 </table>
