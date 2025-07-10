@@ -414,11 +414,62 @@
 - 说明：清空所有数据，重置系统到初始状态。在测试环境中可能不需要管理员权限。
 
 ### 数据导出
-- 路径：`GET /api/export/`，参数：`format` (str, 可选)
+- 路径：`GET /api/export/`
 - 权限：仅管理员
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
+{
+  "code": 200, 
+  "msg": "success", 
+  "data": {
+    "users": [
+      {
+        "user_id": 1, 
+        "username": "admin", 
+        "role": "admin",
+        "join_time": "2024-01-01T00:00:00",
+        "submit_count": 100,
+        "resolve_count": 10
+      }
+    ],
+    "problems": [
+      {
+        "id": "sum_2",
+        "title": "两数之和",
+        "description": "输入两个整数a,b，输出它们的和",
+        "input_description": "输入两个整数a和b",
+        "output_description": "输出a+b的结果",
+        "samples": [{"input": "1 2", "output": "3"}],
+        "constraints": "|a|,|b| <= 10^9",
+        "testcases": [{"input": "1 2", "output": "3"}],
+        "hint": "",
+        "source": "",
+        "tags": [],
+        "time_limit": 1.0,
+        "memory_limit": 128,
+        "author": "",
+        "difficulty": ""
+      }
+    ],
+    "submissions": [
+      {
+        "submission_id": 1,
+        "user_id": 1,
+        "problem_id": "sum_2",
+        "language": "python",
+        "code": "a, b = map(int, input().split())\nprint(a + b)",
+        "status": [
+          {"id": 1, "result": "AC"},
+          {"id": 2, "result": "AC"}
+        ],
+        "score": 100,
+        "counts": 100,
+        "time": 0.5,
+        "memory": 64
+      }
+    ]
+  }
+}
 ```
 - 异常：403 用户无权限 / 500 服务器异常
 

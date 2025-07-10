@@ -14,9 +14,9 @@
 
 - **重置接口**：提供清空所有数据、重置系统到初始状态的功能。
 - **权限控制**：仅管理员可执行（测试环境可放宽权限要求）。
-- **安全考虑**：防止误操作，提供确认机制。
 
 **API 实现要求：**
+
 - `POST /api/reset/` - 系统重置
 - 清空所有用户、题目、提交等数据
 - 重新创建初始管理员账户（admin/admin）
@@ -25,14 +25,14 @@
 
 ### 任务 2：数据导出功能
 
-- **导出格式**：支持将系统数据导出为结构化格式（如 JSON）。
+- **导出格式**：导出为 JSON 格式。
 - **数据完整性**：包含用户、题目、提交等核心数据。
-- **格式支持**：可选择不同的导出格式。
 
 **API 实现要求：**
+
 - `GET /api/export/` - 数据导出
-- 支持 format 参数选择导出格式
-- 返回包含 users、problems、submissions 等数据的结构
+- 返回固定格式的 JSON 数据
+- 包含 users、problems、submissions 等数据的结构
 
 ---
 
@@ -43,10 +43,37 @@
 - **错误处理**：处理导入过程中的各种异常情况。
 
 **API 实现要求：**
+
 - `POST /api/import/` - 数据导入
 - 支持文件上传
 - 验证数据格式并导入到系统中
 - 处理重复数据和冲突情况
+
+**文件上传实现提示：**
+
+```python
+from fastapi import UploadFile, File, HTTPException
+import json
+
+@app.post("/api/import/")
+async def import_data(file: UploadFile = File(...)):
+    # 1. 检查文件类型
+    if not file.filename.endswith('.json'):
+        raise HTTPException(status_code=400, detail="Only JSON files supported")
+    
+    # 2. 读取并解析文件
+    content = await file.read()
+    data = json.loads(content.decode('utf-8'))
+    
+    # 3. 验证数据格式并导入
+    # validate_and_import(data)
+    
+    return {"code": 200, "msg": "import success", "data": None}
+```
+
+- 使用 `UploadFile` 和 `File(...)` 处理文件上传
+- 通过 `await file.read()` 读取文件内容
+- 注意异常处理：文件格式错误、JSON 解析错误等
 
 ---
 
