@@ -58,7 +58,7 @@
 
 ### 添加题目
 - 路径：`POST /api/problems/`
-- 权限：所有用户
+- 权限：所有已登录用户
 - 参数（参考 Step1 文档）：
   - `id` (str, 必填): 题目唯一标识
   - `title` (str, 必填): 题目标题
@@ -347,7 +347,7 @@
   "msg": "success", 
   "data": 
   {
-    "total": 2, 
+    "total": 3,
     "users": 
     [
       {"user_id": 1, "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
@@ -388,7 +388,7 @@
 - 路径：`PUT /api/problems/{problem_id}/log_visibility`
 - 权限：仅管理员
 - 参数：
-  - `public_cases` (bool, 必填): 是否允许所有用户查看测例详情
+  - `public_cases` (bool, 必填): 是否允许所有已登录用户查看测例详情
 - 响应：
 ```json
 {

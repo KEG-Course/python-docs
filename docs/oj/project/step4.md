@@ -107,7 +107,7 @@ async def login(request: Request):
 
 **权限控制基础**
 
-用户信息查询需要控制权限，确保用户只能查看自己的信息，管理员可以查看所有用户信息。
+用户信息查询需要控制权限，确保用户只能查看自己的信息，管理员可以查看所有已登录用户信息。
 
 **权限检查流程：**
 1. 从 session 中获取当前登录用户信息
@@ -124,7 +124,7 @@ async def login(request: Request):
   "msg": "success", 
   "data": 
   {
-    "total": 2, 
+    "total": 3, // 用户总数 
     "users": 
     [
       {"user_id": 1, "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
@@ -163,7 +163,7 @@ async def login(request: Request):
     注意，在 step1 ~ step3 中，我们没有对题目上传 / 语言创建等进行权限控制。在添加用户权限后，我们需要更新之前的功能。为简化，我们规定为：题目上传 / 创建语言可以由任意用户执行，但是删除操作**仅管理员可执行**。此外，你还需要修改之前的接口，在用户未登录时无法进行增删查改。
 
 #### 任务 4：用户列表查询
-- 目标：管理员可查询所有用户列表，支持分页、筛选。
+- 目标：管理员可查询所有已登录用户列表，支持分页、筛选。
 
 **分页与筛选**
 
@@ -180,7 +180,7 @@ async def login(request: Request):
   "msg": "success", 
   "data": 
   {
-    "total": 2, 
+    "total": 3, // 用户总数
     "users": 
     [
       {"user_id": 1, "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
