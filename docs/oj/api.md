@@ -147,7 +147,7 @@
 {
   "code": 200,
   "msg": "success",
-  "data": {"submission_id": 123, "status": "Pending"}
+  "data": {"submission_id": 123, "status": "pending"}
 }
 ```
 - 异常：400 参数错误 / 403 用户被禁用 / 404 题目不存在 / 429 提交频率超限
@@ -172,14 +172,24 @@
 
 ### 查询评测列表
 - 路径：`GET /api/submissions/`
-- 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`（均可选）
+- 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`
+> 这五个参数均可选，其中 `user_id`、`problem_id` 为一级条件，其余为二级条件。一级条件不可以全部为空。
 - 权限：本人/管理员
 - 响应：
 ```json
 {
   "code": 200,
   "msg": "success",
-  "data": {"total": 100, "submissions": [{"submission_id": 1, ...}]}
+  "data": 
+  {
+    "total": 100, 
+    "submissions": 
+    [
+      // 如果 status 是 error / pending，则只需要返回 submission_id 和 status
+      {"submission_id": 1, "status": "success", "score": 10, "counts": 30, "time": 1.01, "memory": 130},
+      {...}
+    ]
+  }
 }
 ```
 
@@ -237,7 +247,7 @@
 - 路径：`GET /api/languages/`
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": [{"name": "python", ...}]}
+{"code": 200, "msg": "success", "data": [{"name": "python", "name": "cpp"}]}
 ```
 
 ---
