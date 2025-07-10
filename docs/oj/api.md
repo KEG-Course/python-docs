@@ -317,15 +317,10 @@
   {
     "user_id": 1, 
     "username": "alice", 
+    "join_time": "2012-07-14", 
     "role": "user",
-    {
-      "user_id": 3, 
-      "username": "xiaogang", 
-      "join_time": "2012-07-14", 
-      "role": "user",
-      "submit_count": 80, 
-      "resolve_count": 7
-    },
+    "submit_count": 80, 
+    "resolve_count": 7
   }
 }
 ```
