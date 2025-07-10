@@ -1857,7 +1857,7 @@
 <h3 id="_4">添加题目<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>POST /api/problems/</code></li>
-<li>权限：所有用户</li>
+<li>权限：所有已登录用户</li>
 <li>参数（参考 Step1 文档）：</li>
 <li><code>id</code> (str, 必填): 题目唯一标识</li>
 <li><code>title</code> (str, 必填): 题目标题</li>
@@ -2144,7 +2144,7 @@
 <span class="w">  </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span>
 <span class="w">  </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xiaoming&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;join_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1924-08-17&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;submit_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;resolve_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">},</span>
@@ -2184,7 +2184,7 @@
 <li>路径：<code>PUT /api/problems/{problem_id}/log_visibility</code></li>
 <li>权限：仅管理员</li>
 <li>参数：</li>
-<li><code>public_cases</code> (bool, 必填): 是否允许所有用户查看测例详情</li>
+<li><code>public_cases</code> (bool, 必填): 是否允许所有已登录用户查看测例详情</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
