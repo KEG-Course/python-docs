@@ -291,7 +291,19 @@
   - `password` (str, 必填): 密码
 - 响应：
 ```json
-{"code": 200, "msg": "register success", "data": {"user_id": 1}}
+{
+  "code": 200, 
+  "msg": "register success", 
+  "data": 
+  {
+    "user_id": 1,
+    "username": "xiaogang",
+    "join_time": "2012-07-14", 
+    "role": "user",
+    "submit_count": 0, 
+    "resolve_count": 0
+  }
+}
 ```
 - 异常：400 用户名已存在 / 参数错误
 
@@ -300,7 +312,24 @@
 - 权限：仅本人或管理员
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
+{
+  "code": 200, 
+  "msg": "success", 
+  "data": 
+  {
+    "user_id": 1, 
+    "username": "alice", 
+    "role": "user",
+    {
+      "user_id": 3, 
+      "username": "xiaogang", 
+      "join_time": "2012-07-14", 
+      "role": "user",
+      "submit_count": 80, 
+      "resolve_count": 7
+    },
+  }
+}
 ```
 - 异常：404 用户不存在 / 403 用户无权限
 
@@ -328,9 +357,9 @@
     "total": 2, 
     "users": 
     [
-      {"user_id": 1, "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
-      {"user_id": 2, "join_time": "1911-04-05", "submit_count": 90, "resolve_count": 8},
-      {"user_id": 3, "join_time": "2012-07-14", "submit_count": 80, "resolve_count": 7},
+      {"user_id": 1, "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
+      {"user_id": 2, "username": "xiaohong", "join_time": "1911-04-05", "submit_count": 90, "resolve_count": 8},
+      {"user_id": 3, "username": "xiaogang", "join_time": "2012-07-14", "submit_count": 80, "resolve_count": 7},
     ]
   }
 }

@@ -176,8 +176,18 @@ async def login(request: Request):
 **返回格式：**
 ```json
 {
-  "total": 2,
-  "users": [{"user_id": 1, ...}]
+  "code": 200, 
+  "msg": "success", 
+  "data": 
+  {
+    "total": 2, 
+    "users": 
+    [
+      {"user_id": 1, "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
+      {"user_id": 2, "username": "xiaohong", "join_time": "1911-04-05", "submit_count": 90, "resolve_count": 8},
+      {"user_id": 3, "username": "xiaogang", "join_time": "2012-07-14", "submit_count": 80, "resolve_count": 7},
+    ]
+  }
 }
 ```
 
