@@ -163,8 +163,6 @@
   "data": {
     "score": 10,
     "counts": 30, // 总分数
-    "time": 1.01,
-    "memory": 130
   }
 }
 ```
@@ -186,7 +184,7 @@
     "submissions": 
     [
       // 如果 status 是 error / pending，则只需要返回 submission_id 和 status
-      {"submission_id": 1, "status": "success", "score": 10, "counts": 30, "time": 1.01, "memory": 130},
+      {"submission_id": 1, "status": "success", "score": 10, "counts": 30},
       {...}
     ]
   }
@@ -380,14 +378,12 @@
   "msg": "success", 
   "data": {
     "status": [
-    {"id": 1, "result": "AC"},
-    {"id": 2, "result": "TLE"},
-    {"id": 3, "result": "MLE"},
+    {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+    {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
+    {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
     ],
     "score": 10,
     "counts": 30, // 总分数
-    "time": 1.01,
-    "memory": 130
   }
 }
 ```
@@ -489,13 +485,11 @@
         "language": "python",
         "code": "a, b = map(int, input().split())\nprint(a + b)",
         "status": [
-          {"id": 1, "result": "AC"},
-          {"id": 2, "result": "AC"}
+          {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+          {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
         ],
         "score": 100,
         "counts": 100,
-        "time": 0.5,
-        "memory": 64
       }
     ]
   }

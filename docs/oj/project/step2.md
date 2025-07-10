@@ -123,13 +123,11 @@
      ```json
      {
        "status": [
-        {"id": 1, "result": "AC"},
-        {"id": 2, "result": "TLE"},
-        {"id": 3, "result": "MLE"},
+        {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+        {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
+        {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
        ],
        "score": 10,
-       "time": 1.01,
-       "memory": 130
      }
      ```
 
