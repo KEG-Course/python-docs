@@ -59,7 +59,7 @@
 ### 添加题目
 - 路径：`POST /api/problems/`
 - 权限：所有用户
-- 参数（JSON，参考 Step1 文档）：
+- 参数（参考 Step1 文档）：
   - `id` (str, 必填): 题目唯一标识
   - `title` (str, 必填): 题目标题
   - `description` (str, 必填): 题目描述
@@ -137,7 +137,7 @@
 
 ### 提交评测
 - 路径：`POST /api/submissions/`
-- 参数（JSON）：
+- 参数：
   - `problem_id` (str, 必填): 题目编号
   - `language` (str, 必填): 语言（如 "python", "cpp"）
   - `code` (str, 必填): 用户代码内容
@@ -201,11 +201,11 @@
 ```json
 {"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "Pending"}}
 ```
-- 异常：404/403
+- 异常：404 评测不存在 / 403 权限不足
 
 ### 动态注册新语言 (Step 2)
 - 路径：`POST /api/languages/`
-- 参数（JSON）：
+- 参数：
   - `name` (str, 必填): 语言名称
   - `file_ext` (str, 必填): 代码文件扩展名
   - `compile_cmd` (str, 可选): 编译命令
@@ -218,7 +218,7 @@
 ```json
 {"code": 200, "msg": "language registered", "data": {"name": "go"}}
 ```
-- 异常：400/403
+- 异常：400 参数错误 / 403 用户无权限
 
 - 示例：
 ```json
@@ -282,18 +282,18 @@
 ```json
 {"code": 200, "msg": "success", "data": {"user_id": 2, "username": "new_admin"}}
 ```
-- 异常：400 用户名已存在/参数错误 / 403 权限不足
+- 异常：400 用户名已存在/参数错误 / 403 用户无权限
 
 ### 用户注册
 - 路径：`POST /api/users/`
-- 参数（JSON）：
+- 参数：
   - `username` (str, 必填): 用户名
   - `password` (str, 必填): 密码
 - 响应：
 ```json
 {"code": 200, "msg": "register success", "data": {"user_id": 1}}
 ```
-- 异常：400 用户名已存在/参数错误
+- 异常：400 用户名已存在 / 参数错误
 
 ### 查询用户信息
 - 路径：`GET /api/users/{user_id}`
@@ -302,18 +302,18 @@
 ```json
 {"code": 200, "msg": "success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
 ```
-- 异常：404/403
+- 异常：404 用户不存在 / 403 用户无权限
 
 ### 用户权限变更
 - 路径：`PUT /api/users/{user_id}/role`
-- 参数（JSON）：
+- 参数：
   - `role` (str, 必填): 新角色（如 "admin", "user", "banned"）
 - 权限：仅管理员
 - 响应：
 ```json
 {"code": 200, "msg": "role updated", "data": {"user_id": 1, "role": "admin"}}
 ```
-- 异常：404/403
+- 异常：404 用户不存在 / 403 用户无权限
 
 ### 用户列表查询
 - 路径：`GET /api/users/`，参数：`page`、`page_size`（可选）
@@ -361,12 +361,12 @@
   }
 }
 ```
-- 异常：404/403
+- 异常：404 评测不存在 / 403 用户无权限
 
 ### 配置日志/测例可见性
 - 路径：`PUT /api/problems/{problem_id}/log_visibility`
 - 权限：仅管理员
-- 参数（JSON）：
+- 参数：
   - `public_cases` (bool, 必填): 是否允许所有用户查看测例详情
 - 响应：
 ```json
@@ -420,7 +420,7 @@
 ```json
 {"code": 200, "msg": "success", "data": {"users": [...], "problems": [...], "submissions": [...]}}
 ```
-- 异常：403/500
+- 异常：403 用户无权限 / 500 服务器异常
 
 ### 数据导入
 - 路径：`POST /api/import/`，参数：`file` (上传)
@@ -429,7 +429,7 @@
 ```json
 {"code": 200, "msg": "import success", "data": null}
 ```
-- 异常：400/403/500
+- 异常：400 参数错误 / 403 用户无权限 / 500 服务器异常
 
 ---
 
@@ -445,7 +445,7 @@
 
 ### Advance 4: 代码查重
 - 发起查重检测：`POST /api/plagiarism/`
-  - 参数（JSON）：
+  - 参数：
     - `problem_id` (str, 必填): 题目编号
     - `threshold` (float, 可选): 相似度阈值（如 0.8）
     - 其他查重相关参数（如有）
