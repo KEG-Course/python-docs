@@ -197,7 +197,7 @@
 - 参数：无（URL 路径参数：`submission_id`）
 - 响应：
 ```json
-{"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "Pending"}}
+{"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "pending"}}
 ```
 - 异常：404 评测不存在 / 403 权限不足
 
