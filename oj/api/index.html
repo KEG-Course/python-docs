@@ -1876,7 +1876,7 @@
 <ul>
 <li>路径：<code>POST /api/problems/</code></li>
 <li>权限：所有用户</li>
-<li>参数（JSON，参考 Step1 文档）：</li>
+<li>参数（参考 Step1 文档）：</li>
 <li><code>id</code> (str, 必填): 题目唯一标识</li>
 <li><code>title</code> (str, 必填): 题目标题</li>
 <li><code>description</code> (str, 必填): 题目描述</li>
@@ -1951,7 +1951,7 @@
 <h3 id="_7">提交评测<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>POST /api/submissions/</code></li>
-<li>参数（JSON）：</li>
+<li>参数：</li>
 <li><code>problem_id</code> (str, 必填): 题目编号</li>
 <li><code>language</code> (str, 必填): 语言（如 "python", "cpp"）</li>
 <li><code>code</code> (str, 必填): 用户代码内容</li>
@@ -2016,12 +2016,12 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rejudge started&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pending&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：404/403</li>
+<li>异常：404 评测不存在 / 403 权限不足</li>
 </ul>
 <h3 id="step-2">动态注册新语言 (Step 2)<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>POST /api/languages/</code></li>
-<li>参数（JSON）：</li>
+<li>参数：</li>
 <li><code>name</code> (str, 必填): 语言名称</li>
 <li><code>file_ext</code> (str, 必填): 代码文件扩展名</li>
 <li><code>compile_cmd</code> (str, 可选): 编译命令</li>
@@ -2034,7 +2034,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language registered&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
 <li>
-<p>异常：400/403</p>
+<p>异常：400 参数错误 / 403 用户无权限</p>
 </li>
 <li>
 <p>示例：
@@ -2096,18 +2096,18 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_admin&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：400 用户名已存在/参数错误 / 403 权限不足</li>
+<li>异常：400 用户名已存在/参数错误 / 403 用户无权限</li>
 </ul>
 <h3 id="_14">用户注册<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>POST /api/users/</code></li>
-<li>参数（JSON）：</li>
+<li>参数：</li>
 <li><code>username</code> (str, 必填): 用户名</li>
 <li><code>password</code> (str, 必填): 密码</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;register success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：400 用户名已存在/参数错误</li>
+<li>异常：400 用户名已存在 / 参数错误</li>
 </ul>
 <h3 id="_15">查询用户信息<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2116,18 +2116,18 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：404/403</li>
+<li>异常：404 用户不存在 / 403 用户无权限</li>
 </ul>
 <h3 id="_16">用户权限变更<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>PUT /api/users/{user_id}/role</code></li>
-<li>参数（JSON）：</li>
+<li>参数：</li>
 <li><code>role</code> (str, 必填): 新角色（如 "admin", "user", "banned"）</li>
 <li>权限：仅管理员</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role updated&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：404/403</li>
+<li>异常：404 用户不存在 / 403 用户无权限</li>
 </ul>
 <h3 id="_17">用户列表查询<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2173,13 +2173,13 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：404/403</li>
+<li>异常：404 评测不存在 / 403 用户无权限</li>
 </ul>
 <h3 id="_19">配置日志/测例可见性<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>PUT /api/problems/{problem_id}/log_visibility</code></li>
 <li>权限：仅管理员</li>
-<li>参数（JSON）：</li>
+<li>参数：</li>
 <li><code>public_cases</code> (bool, 必填): 是否允许所有用户查看测例详情</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2230,7 +2230,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;problems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;submissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]}}</span>
 </code></pre></div></li>
-<li>异常：403/500</li>
+<li>异常：403 用户无权限 / 500 服务器异常</li>
 </ul>
 <h3 id="_23">数据导入<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2239,7 +2239,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;import success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400/403/500</li>
+<li>异常：400 参数错误 / 403 用户无权限 / 500 服务器异常</li>
 </ul>
 <hr />
 <h2 id="6-advance">6. 高级功能接口 (Advance)<a class="headerlink" href="#6-advance" title="Permanent link">&para;</a></h2>
@@ -2257,7 +2257,7 @@
 <h3 id="advance-4">Advance 4: 代码查重<a class="headerlink" href="#advance-4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>发起查重检测：<code>POST /api/plagiarism/</code></li>
-<li>参数（JSON）：<ul>
+<li>参数：<ul>
 <li><code>problem_id</code> (str, 必填): 题目编号</li>
 <li><code>threshold</code> (float, 可选): 相似度阈值（如 0.8）</li>
 <li>其他查重相关参数（如有）</li>
@@ -2325,7 +2325,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (86.27%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (13.73%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (86.71%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (13.29%)</span>
       </small>
     </div>
   
