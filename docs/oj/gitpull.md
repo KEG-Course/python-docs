@@ -1,30 +1,30 @@
-# �ֿ���ȡ�̳�
+# 仓库拉取教程
 
-������֮ǰ��ѧϰ�У�����Ѿ������˽������Լ��ֿ��н��� git ���������� `git add`��`git clone`��`git commit`��`git push`��
+相信在之前的学习中，大家已经初步了解了在自己仓库中进行 git 操作，比如 `git add`、`git clone`、`git commit`、`git push`。
 
-�����������ڸ��������ʹ�� git ��Ϊ�������˺�������ô��ν��Լ����������˴����Բ���ͻ�ķ�ʽ�ϲ��أ�
-
----
-
-## ǰ��֪ʶ�ع�
-
-�����Ѿ�������һЩ������ Git ���
-
-* `git clone`����¡Զ�ֿ̲⵽����
-* `git add`�����޸����ӵ��ݴ���
-* `git commit`���ύ�޸�
-* `git push`�����ʹ��뵽Զ�ֿ̲�
-
-������Э��ʱ�����ǻ���ѧ�᣺
-
-* ���Ӷ��Զ�ֿ̲�
-* ������Զ�ֿ̲���ȡ����
-* �ϲ����طţ�rebase���Ķ�
-* �����ͻ
+不过，我们在更多情况下使用 git 是为了与他人合作，那么如何将自己代码与他人代码以不冲突的方式合并呢？
 
 ---
 
-## ��¡�����ҵ�ֿ�
+## 前置知识回顾
+
+我们已经掌握了一些基础的 Git 命令：
+
+* `git clone`：克隆远程仓库到本地
+* `git add`：将修改添加到暂存区
+* `git commit`：提交修改
+* `git push`：推送代码到远程仓库
+
+但多人协作时，我们还需学会：
+
+* 添加多个远程仓库
+* 从其他远程仓库拉取代码
+* 合并或重放（rebase）改动
+* 解决冲突
+
+---
+
+## 克隆你的作业仓库
 
 ```bash
 git clone https://git.tsinghua.edu.cn/<git-space>/<repo-name>.git
@@ -43,24 +43,24 @@ Receiving objects: 100% (3/3), done.
 
 ---
 
-## ����ģ��ֿ�ΪԶ��
+## 添加模板仓库为远程
 
-���γ��ṩ��ģ��ֿ�����Ϊ `template`��
+将课程提供的模板仓库命名为 `template`：
 
 ```bash
 git remote add template https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template.git
 ```
 
-���������������鿴����Զ�ֿ̲⣺
+你可以用以下命令查看所有远程仓库：
 
 ```bash
 git remote -v
 ```
 
 ??? info
-    git Ĭ�ϻὫֱ�� clone �����Ĳֿ�Դ������Ϊ `origin`
+    git 默认会将直接 clone 下来的仓库源名设置为 `origin`
 
-��Ӧ�ÿ����������
+你应该看到类似输出
 
 ```shell
 origin	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-2025123456.git (fetch)
@@ -71,15 +71,15 @@ template	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template.git (pus
 
 ---
 
-## ��ȡģ��ֿ�ĸ���
+## 拉取模板仓库的更新
 
-ִ�У�
+执行：
 
 ```bash
 git pull template main
 ```
 
-������״���ȡ��Git ���ܻ���������Ҫָ���ϲ����ԣ�
+如果是首次拉取，Git 可能会提醒你需要指定合并策略：
 
 ```
 From https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template
@@ -99,13 +99,13 @@ hint: invocation.
 fatal: Need to specify how to reconcile divergent branches.
 ```
 
-������ʾѡ��һ�ַ�ʽ���Ƽ�ʹ�� rebase ��ʽ�����ύ��ʷ���ࣩ��
+根据提示选择一种方式（推荐使用 rebase 方式保持提交历史整洁）：
 
 ```bash
 git config pull.rebase true
 ```
 
-Ȼ���ٴ���ȡ��
+然后再次拉取：
 
 ```bash
 git pull template main
@@ -113,9 +113,9 @@ git pull template main
 
 ---
 
-## �����ͻ������У�
+## 解决冲突（如果有）
 
-��ȡģ�����ʱ����������ģ���ж�ͬһ�ļ����� `README.md`���в�ͬ�޸ģ�Git ����ʾ���г�ͻ��
+拉取模板代码时，若本地与模板中对同一文件（如 `README.md`）有不同修改，Git 会提示你有冲突：
 
 ```
 From https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template
@@ -131,23 +131,23 @@ hint: Disable this message with "git config advice.mergeConflict false"
 Could not apply fc763b1... Initial commit
 ```
 
-��ʱ��
+此时：
 
-1. ����ʾ��ͻ���ļ������� `README.md`�����ֶ��޸ĳ�ͻ���ݣ�
-2. �޸����ִ�У�
+1. 打开提示冲突的文件（例如 `README.md`），手动修改冲突内容；
+2. 修改完后执行：
 
 ```bash
 git add README.md
 git rebase --continue
 ```
 
-�����������ϲ��˴��ύ��Ҳ����������
+如果你决定不合并此次提交，也可以跳过：
 
 ```bash
 git rebase --skip
 ```
 
-��������ϲ��������ص�ԭ����״̬��
+如需放弃合并操作，回到原来的状态：
 
 ```bash
 git rebase --abort
@@ -155,32 +155,32 @@ git rebase --abort
 
 ---
 
-## ����Ч��
+## 最终效果
 
-������ϲ������Ĵ���ֿ⽫����ģ����������ݣ������㱾�ش���ϲ����Ժ�ֻ�趨�����У�
+完成以上步骤后，你的代码仓库将包含模板的最新内容，并与你本地代码合并。以后只需定期运行：
 
 ```bash
 git pull template main
 ```
 
-���ܱ���ģ�����ݵ�����״̬��
+就能保持模板内容的最新状态。
 
 ---
 
-## �Զ������ã���ѡ��
+## 自动化配置（可选）
 
-��Ҳ��������Ĭ����ȡ��Ϊ������ÿ�ζ���ʾ����
+你也可以设置默认拉取行为（避免每次都提示）：
 
 ```bash
-# ֻ�Ե�ǰ�ֿ�����
+# 只对当前仓库设置
 git config pull.rebase true
 
-# ���ȫ�����ã����вֿ���Ч��
+# 或对全局设置（所有仓库生效）
 git config --global pull.rebase true
 ```
 
-## ��������
+## 常见问题
 
-- ����㷢���Ѿ���� `Already up to date`�����Լ����Ŀǰ pull ��Դ���Ƿ����Ԥ�ڲֿ⡣����˴� personal �����Լ��ĸ��˲ֿ⡣
+- 如果你发现已经输出 `Already up to date`，可以检查下目前 pull 的源名是否绑定了预期仓库。比如此处 personal 绑定了自己的个人仓库。
 
 ![alt text](assets/pull-error.png)
