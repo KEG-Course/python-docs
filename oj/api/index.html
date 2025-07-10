@@ -2128,7 +2128,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：404 用户不存在 / 403 用户无权限</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 用户不存在</li>
 </ul>
 <h3 id="_16">用户权限变更<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2139,7 +2139,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role updated&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：400 参数错误 / 404 用户不存在 / 403 用户无权限</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 用户不存在 </li>
 </ul>
 <h3 id="_17">用户列表查询<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2161,7 +2161,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400 参数错误 / 404 用户不存在 / 403 用户无权限</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 用户不存在</li>
 </ul>
 <hr />
 <h2 id="4-step-5">4. 评测日志相关接口（Step 5）<a class="headerlink" href="#4-step-5" title="Permanent link">&para;</a></h2>
@@ -2186,7 +2186,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：404 评测不存在 / 403 用户无权限</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 题目不存在</li>
 </ul>
 <h3 id="_19">配置日志/测例可见性<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2201,7 +2201,7 @@
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;problem_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;public_cases&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：404 题目不存在 / 403 权限不足</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 题目不存在</li>
 </ul>
 <h3 id="_20">日志访问审计<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2221,7 +2221,7 @@
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：403 权限不足</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限</li>
 </ul>
 <hr />
 <h2 id="5-step-6">5. 数据持久化相关接口（Step 6）<a class="headerlink" href="#5-step-6" title="Permanent link">&para;</a></h2>
