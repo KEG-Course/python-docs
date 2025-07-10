@@ -2208,10 +2208,61 @@
 </ul>
 <h3 id="_22">数据导出<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <ul>
-<li>路径：<code>GET /api/export/</code>，参数：<code>format</code> (str, 可选)</li>
+<li>路径：<code>GET /api/export/</code></li>
 <li>权限：仅管理员</li>
 <li>响应：
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;problems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;submissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]}}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;join_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-01T00:00:00&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;submit_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;resolve_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;problems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;两数之和&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;输入两个整数a,b，输出它们的和&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;输入两个整数a和b&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;output_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;输出a+b的结果&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;samples&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">}],</span>
+<span class="w">        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;|a|,|b| &lt;= 10^9&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;testcases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;input&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1 2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">}],</span>
+<span class="w">        </span><span class="nt">&quot;hint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;time_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;memory_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;submissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;problem_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a, b = map(int, input().split())\nprint(a + b)&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">},</span>
+<span class="w">          </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></li>
 <li>异常：403 用户无权限 / 500 服务器异常</li>
 </ul>
@@ -2308,7 +2359,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (86.71%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (13.29%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (78.04%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (21.96%)</span>
       </small>
     </div>
   
