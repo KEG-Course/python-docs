@@ -1,0 +1,2044 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Crawler Programming Assignment of Programming and Training (Python) Course">
+      
+      
+        <meta name="author" content="程序设计训练 Python 教学组">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>Advance3 - 程序设计训练（Python）</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-69YPS2LP7R"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-69YPS2LP7R",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-69YPS2LP7R",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advance-3" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="程序设计训练（Python）" class="md-header__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            程序设计训练（Python）
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advance3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.tsinghua.edu.cn/python-course/python-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-course/python-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="程序设计训练（Python）" class="md-nav__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    程序设计训练（Python）
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.tsinghua.edu.cn/python-course/python-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-course/python-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课程概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验一：爬虫与信息系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            实验一：爬虫与信息系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验内容
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            实验内容
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/project/crawler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    爬虫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/project/web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web系统设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/project/analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验指导
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            实验指导
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/ref/crawler/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    爬虫
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/ref/django/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web系统设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/ref/analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自然语言处理与信息检索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/ref/visualize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据可视化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    评分标准
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验二：在线评测系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            实验二：在线评测系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验内容
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            实验内容
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step1：题目管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step2：题目评测
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step3：评测列表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step4：用户管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step5：日志与权限
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/step6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Step6：持久化存储
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/advance1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adv1：特殊题目评测
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/advance2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adv2：前端交互
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/advance3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adv3：安全机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/advance4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adv4：代码查重
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API 文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    评分标准
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gitpull/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    仓库拉取教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../crawler/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    附录：本地 Git 安装与配置指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#advance-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advance 3：分布式评测系统与高级安全
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advance 3：分布式评测系统与高级安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      模块目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      前置知识要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务拆解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="任务拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 1：分布式任务队列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 2：评测节点管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 3：高级安全沙箱
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 4：智能负载均衡
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 5：实时监控与告警
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API接口设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API接口设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-clusterstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /cluster/status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-clusterscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST /cluster/scale
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-clustermetrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET /cluster/metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试建议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      模块结构建议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      能力小结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  <h1>Advance3</h1>
+
+<h2 id="advance-3">Advance 3：分布式评测系统与高级安全<a class="headerlink" href="#advance-3" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="_1">模块目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>本模块旨在构建一个可扩展的分布式评测系统，实现：</p>
+<ul>
+<li>多机器并行评测，支持动态扩缩容；</li>
+<li>使用Redis作为分布式任务队列和锁机制；</li>
+<li>智能负载均衡和故障转移；</li>
+<li>高级安全沙箱和反作弊机制；</li>
+<li>实时监控和性能分析。</li>
+</ul>
+<hr />
+<h3 id="_2">前置知识要求<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>技术点</th>
+<th>推荐学习内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分布式系统</td>
+<td>Redis、消息队列、分布式锁</td>
+</tr>
+<tr>
+<td>容器技术</td>
+<td>Docker、Kubernetes、容器编排</td>
+</tr>
+<tr>
+<td>网络编程</td>
+<td><code>asyncio</code>、<code>aiohttp</code>、WebSocket</td>
+</tr>
+<tr>
+<td>系统编程</td>
+<td><code>subprocess</code>、<code>resource</code>、<code>signal</code></td>
+</tr>
+<tr>
+<td>监控与日志</td>
+<td>Prometheus、Grafana、ELK Stack</td>
+</tr>
+<tr>
+<td>安全技术</td>
+<td>seccomp、cgroup、namespace隔离</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_3">任务拆解<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="1">任务 1：分布式任务队列<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p><strong>功能描述：</strong>
+使用Redis实现分布式任务队列，支持多评测节点并行处理。</p>
+<p><strong>实现方案：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">redis</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">DistributedJobQueue</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">redis_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_name</span> <span class="o">=</span> <span class="s2">&quot;oj_job_queue&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processing_key</span> <span class="o">=</span> <span class="s2">&quot;oj_processing_jobs&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_status_key</span> <span class="o">=</span> <span class="s2">&quot;oj_node_status&quot;</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">enqueue_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;将任务加入队列&quot;&quot;&quot;</span>
+        <span class="n">job_id</span> <span class="o">=</span> <span class="n">job</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">job_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;job&quot;</span><span class="p">:</span> <span class="n">job</span><span class="p">,</span>
+            <span class="s2">&quot;enqueue_time&quot;</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;priority&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1"># 使用Redis Sorted Set实现优先级队列</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">zadd</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">queue_name</span><span class="p">,</span>
+            <span class="p">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">job_data</span><span class="p">):</span> <span class="o">-</span><span class="n">job_data</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">]}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">job_id</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">dequeue_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;从队列中取出任务&quot;&quot;&quot;</span>
+        <span class="c1"># 原子操作：取出最高优先级任务</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">zpopmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">job_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">job</span> <span class="o">=</span> <span class="n">job_data</span><span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">]</span>
+
+        <span class="c1"># 记录正在处理的任务</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hset</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">processing_key</span><span class="p">,</span>
+            <span class="n">job</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s2">&quot;node_id&quot;</span><span class="p">:</span> <span class="n">node_id</span><span class="p">,</span>
+                <span class="s2">&quot;start_time&quot;</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                <span class="s2">&quot;job&quot;</span><span class="p">:</span> <span class="n">job</span>
+            <span class="p">})</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">job</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">mark_job_completed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;标记任务完成&quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hdel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processing_key</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+        <span class="c1"># 更新任务结果到Redis</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">setex</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;job_result:</span><span class="si">{</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="mi">3600</span><span class="p">,</span>  <span class="c1"># 1小时过期</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">get_queue_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取队列统计信息&quot;&quot;&quot;</span>
+        <span class="n">queue_size</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">zcard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queue_name</span><span class="p">)</span>
+        <span class="n">processing_count</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hlen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processing_key</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;queue_size&quot;</span><span class="p">:</span> <span class="n">queue_size</span><span class="p">,</span>
+            <span class="s2">&quot;processing_count&quot;</span><span class="p">:</span> <span class="n">processing_count</span><span class="p">,</span>
+            <span class="s2">&quot;node_count&quot;</span><span class="p">:</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">scard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_status_key</span><span class="p">)</span>
+        <span class="p">}</span>
+</code></pre></div>
+<h4 id="2">任务 2：评测节点管理<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p><strong>功能描述：</strong>
+实现评测节点的注册、发现、健康检查和负载均衡。</p>
+<p><strong>实现方案：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">JudgeNode</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">redis_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">capabilities</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">redis_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capabilities</span> <span class="o">=</span> <span class="n">capabilities</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_interval</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># 30秒心跳</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_concurrent</span> <span class="o">=</span> <span class="n">capabilities</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_concurrent&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_load</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;启动评测节点&quot;&quot;&quot;</span>
+        <span class="c1"># 注册节点</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_register_node</span><span class="p">()</span>
+
+        <span class="c1"># 启动心跳</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_heartbeat_loop</span><span class="p">())</span>
+
+        <span class="c1"># 启动任务处理循环</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_job_processing_loop</span><span class="p">())</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_register_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;注册节点到Redis&quot;&quot;&quot;</span>
+        <span class="n">node_info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;node_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="s2">&quot;capabilities&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">capabilities</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;register_time&quot;</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="s2">&quot;current_load&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hset</span><span class="p">(</span>
+            <span class="s2">&quot;oj_nodes&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">node_info</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">sadd</span><span class="p">(</span><span class="s2">&quot;oj_online_nodes&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_heartbeat_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;心跳循环&quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># 更新节点状态</span>
+                <span class="n">node_info</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;node_id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="s2">&quot;current_load&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_load</span><span class="p">,</span>
+                    <span class="s2">&quot;last_heartbeat&quot;</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+                    <span class="s2">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cpu_usage</span><span class="p">(),</span>
+                    <span class="s2">&quot;memory_usage&quot;</span><span class="p">:</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_memory_usage</span><span class="p">()</span>
+                <span class="p">}</span>
+
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hset</span><span class="p">(</span>
+                    <span class="s2">&quot;oj_nodes&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">,</span>
+                    <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">node_info</span><span class="p">)</span>
+                <span class="p">)</span>
+
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">heartbeat_interval</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> heartbeat error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_job_processing_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;任务处理循环&quot;&quot;&quot;</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">DistributedJobQueue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">connection_pool</span><span class="o">.</span><span class="n">connection_kwargs</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_load</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_concurrent</span><span class="p">:</span>
+                    <span class="n">job</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">dequeue_job</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">job</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">current_load</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process_job</span><span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="n">queue</span><span class="p">))</span>
+
+                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Job processing error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_process_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">queue</span><span class="p">:</span> <span class="n">DistributedJobQueue</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;处理单个任务&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># 创建安全沙箱</span>
+            <span class="n">sandbox</span> <span class="o">=</span> <span class="n">SecuritySandbox</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+
+            <span class="c1"># 执行评测</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sandbox</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+            <span class="c1"># 标记任务完成</span>
+            <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">mark_job_completed</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;System Error&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+                <span class="s2">&quot;job_id&quot;</span><span class="p">:</span> <span class="n">job</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+            <span class="k">await</span> <span class="n">queue</span><span class="o">.</span><span class="n">mark_job_completed</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_load</span> <span class="o">-=</span> <span class="mi">1</span>
+</code></pre></div>
+<h4 id="3">任务 3：高级安全沙箱<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p><strong>功能描述：</strong>
+实现多层安全隔离，防止恶意代码攻击。</p>
+<p><strong>实现方案：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">signal</span>
+<span class="kn">import</span> <span class="nn">resource</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">class</span> <span class="nc">SecuritySandbox</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job</span> <span class="o">=</span> <span class="n">job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;time_limit&quot;</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory_limit</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_limit&quot;</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>  <span class="c1"># MB</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network_allowed</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;network_allowed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;在安全沙箱中执行代码&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># 创建隔离工作目录</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;oj_sandbox_&quot;</span><span class="p">)</span>
+
+            <span class="c1"># 设置资源限制</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_resource_limits</span><span class="p">()</span>
+
+            <span class="c1"># 创建seccomp过滤器</span>
+            <span class="n">seccomp_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_seccomp_filter</span><span class="p">()</span>
+
+            <span class="c1"># 执行代码</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_code</span><span class="p">(</span><span class="n">seccomp_filter</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># 清理工作目录</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_set_resource_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;设置资源限制&quot;&quot;&quot;</span>
+        <span class="c1"># CPU时间限制</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_CPU</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)))</span>
+
+        <span class="c1"># 内存限制</span>
+        <span class="n">memory_bytes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_limit</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_AS</span><span class="p">,</span> <span class="p">(</span><span class="n">memory_bytes</span><span class="p">,</span> <span class="n">memory_bytes</span><span class="p">))</span>
+
+        <span class="c1"># 文件大小限制</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_FSIZE</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">))</span>
+
+        <span class="c1"># 进程数限制</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_NPROC</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># 文件描述符限制</span>
+        <span class="n">resource</span><span class="o">.</span><span class="n">setrlimit</span><span class="p">(</span><span class="n">resource</span><span class="o">.</span><span class="n">RLIMIT_NOFILE</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_create_seccomp_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;创建seccomp过滤器&quot;&quot;&quot;</span>
+        <span class="c1"># 基础允许的系统调用</span>
+        <span class="n">allowed_syscalls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;read&quot;</span><span class="p">,</span> <span class="s2">&quot;write&quot;</span><span class="p">,</span> <span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="s2">&quot;close&quot;</span><span class="p">,</span> <span class="s2">&quot;exit&quot;</span><span class="p">,</span> <span class="s2">&quot;exit_group&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;brk&quot;</span><span class="p">,</span> <span class="s2">&quot;mmap&quot;</span><span class="p">,</span> <span class="s2">&quot;munmap&quot;</span><span class="p">,</span> <span class="s2">&quot;mprotect&quot;</span><span class="p">,</span> <span class="s2">&quot;fstat&quot;</span><span class="p">,</span> <span class="s2">&quot;lstat&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;stat&quot;</span><span class="p">,</span> <span class="s2">&quot;lseek&quot;</span><span class="p">,</span> <span class="s2">&quot;getcwd&quot;</span><span class="p">,</span> <span class="s2">&quot;chdir&quot;</span><span class="p">,</span> <span class="s2">&quot;fchdir&quot;</span><span class="p">,</span> <span class="s2">&quot;getuid&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;getgid&quot;</span><span class="p">,</span> <span class="s2">&quot;geteuid&quot;</span><span class="p">,</span> <span class="s2">&quot;getegid&quot;</span><span class="p">,</span> <span class="s2">&quot;getpid&quot;</span><span class="p">,</span> <span class="s2">&quot;getppid&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;clock_gettime&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;nanosleep&quot;</span><span class="p">,</span> <span class="s2">&quot;rt_sigreturn&quot;</span>
+        <span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_allowed</span><span class="p">:</span>
+            <span class="c1"># 禁止网络相关系统调用</span>
+            <span class="n">blocked_syscalls</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;socket&quot;</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">,</span> <span class="s2">&quot;bind&quot;</span><span class="p">,</span> <span class="s2">&quot;listen&quot;</span><span class="p">,</span> <span class="s2">&quot;accept&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;sendto&quot;</span><span class="p">,</span> <span class="s2">&quot;recvfrom&quot;</span><span class="p">,</span> <span class="s2">&quot;sendmsg&quot;</span><span class="p">,</span> <span class="s2">&quot;recvmsg&quot;</span>
+            <span class="p">]</span>
+
+        <span class="c1"># 生成seccomp BPF过滤器</span>
+        <span class="n">filter_code</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_seccomp_bpf</span><span class="p">(</span><span class="n">allowed_syscalls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">filter_code</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_run_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seccomp_filter</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;运行代码&quot;&quot;&quot;</span>
+        <span class="c1"># 写入源代码</span>
+        <span class="n">source_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;main.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">source_file</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="p">[</span><span class="s1">&#39;source_code&#39;</span><span class="p">])</span>
+
+        <span class="c1"># 构建执行命令</span>
+        <span class="n">commands</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_execution_commands</span><span class="p">(</span><span class="n">source_file</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;System Error&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">cmd_type</span><span class="p">,</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">commands</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># 使用seccomp过滤器执行</span>
+                <span class="n">process</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_subprocess_exec</span><span class="p">(</span>
+                    <span class="o">*</span><span class="n">command</span><span class="p">,</span>
+                    <span class="n">stdout</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                    <span class="n">stderr</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                    <span class="n">cwd</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">work_dir</span><span class="p">,</span>
+                    <span class="n">preexec_fn</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_apply_seccomp</span><span class="p">(</span><span class="n">seccomp_filter</span><span class="p">)</span>
+                <span class="p">)</span>
+
+                <span class="n">start_time</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span>
+                        <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(),</span>
+                        <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+                    <span class="p">)</span>
+
+                    <span class="n">end_time</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+                    <span class="n">execution_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+
+                    <span class="k">if</span> <span class="n">process</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Accepted&quot;</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">execution_time</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Runtime Error&quot;</span>
+                        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stderr</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+                <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
+                    <span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Time Limit Exceeded&quot;</span>
+                    <span class="n">result</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;System Error&quot;</span>
+                <span class="n">result</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+<h4 id="4">任务 4：智能负载均衡<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<p><strong>功能描述：</strong>
+实现基于节点负载和能力的智能任务分发。</p>
+<p><strong>实现方案：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">LoadBalancer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">redis_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">redis</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">redis_url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_ttl</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># 5秒缓存</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">select_best_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;选择最佳节点执行任务&quot;&quot;&quot;</span>
+        <span class="c1"># 获取在线节点</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_online_nodes</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">nodes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No available nodes&quot;</span><span class="p">)</span>
+
+        <span class="c1"># 计算节点评分</span>
+        <span class="n">node_scores</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">node_info</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_node_score</span><span class="p">(</span><span class="n">node_info</span><span class="p">,</span> <span class="n">job</span><span class="p">)</span>
+            <span class="n">node_scores</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">node_id</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+
+        <span class="c1"># 选择评分最高的节点</span>
+        <span class="n">best_node</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">node_scores</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">best_node</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_calculate_node_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;计算节点评分&quot;&quot;&quot;</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="c1"># 负载评分（负载越低分数越高）</span>
+        <span class="n">current_load</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_load&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">max_concurrent</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;capabilities&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_concurrent&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">load_ratio</span> <span class="o">=</span> <span class="n">current_load</span> <span class="o">/</span> <span class="n">max_concurrent</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">load_ratio</span><span class="p">)</span> <span class="o">*</span> <span class="mi">40</span>  <span class="c1"># 负载权重40%</span>
+
+        <span class="c1"># 能力匹配评分</span>
+        <span class="n">required_language</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">)</span>
+        <span class="n">supported_languages</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;capabilities&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;languages&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">if</span> <span class="n">required_language</span> <span class="ow">in</span> <span class="n">supported_languages</span><span class="p">:</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="mi">30</span>  <span class="c1"># 语言匹配权重30%</span>
+
+        <span class="c1"># 性能评分</span>
+        <span class="n">cpu_usage</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cpu_usage&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">memory_usage</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_usage&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">performance_score</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">cpu_usage</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">memory_usage</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.4</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">performance_score</span> <span class="o">*</span> <span class="mi">20</span>  <span class="c1"># 性能权重20%</span>
+
+        <span class="c1"># 历史成功率评分</span>
+        <span class="n">success_rate</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_node_success_rate</span><span class="p">(</span><span class="n">node_info</span><span class="p">[</span><span class="s2">&quot;node_id&quot;</span><span class="p">])</span>
+        <span class="n">score</span> <span class="o">+=</span> <span class="n">success_rate</span> <span class="o">*</span> <span class="mi">10</span>  <span class="c1"># 成功率权重10%</span>
+
+        <span class="k">return</span> <span class="n">score</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_get_online_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;获取在线节点信息&quot;&quot;&quot;</span>
+        <span class="c1"># 检查缓存</span>
+        <span class="n">cache_key</span> <span class="o">=</span> <span class="s2">&quot;online_nodes_cache&quot;</span>
+        <span class="n">cached</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cached</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">cached</span><span class="p">)</span>
+
+        <span class="c1"># 从Redis获取在线节点</span>
+        <span class="n">online_node_ids</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">smembers</span><span class="p">(</span><span class="s2">&quot;oj_online_nodes&quot;</span><span class="p">)</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">node_id</span> <span class="ow">in</span> <span class="n">online_node_ids</span><span class="p">:</span>
+            <span class="n">node_info</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">hget</span><span class="p">(</span><span class="s2">&quot;oj_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node_info</span><span class="p">:</span>
+                <span class="n">nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">node_info</span><span class="p">)</span>
+
+        <span class="c1"># 更新缓存</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">setex</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_ttl</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">nodes</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">nodes</span>
+</code></pre></div>
+<h4 id="5">任务 5：实时监控与告警<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<p><strong>功能描述：</strong>
+实现系统监控、性能分析和异常告警。</p>
+<p><strong>实现方案：</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">prometheus_client</span>
+<span class="kn">from</span> <span class="nn">prometheus_client</span> <span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">Gauge</span><span class="p">,</span> <span class="n">Histogram</span><span class="p">,</span> <span class="n">Summary</span>
+
+<span class="k">class</span> <span class="nc">MonitoringSystem</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 定义监控指标</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="s1">&#39;oj_jobs_total&#39;</span><span class="p">,</span> <span class="s1">&#39;Total jobs processed&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_duration</span> <span class="o">=</span> <span class="n">Histogram</span><span class="p">(</span><span class="s1">&#39;oj_job_duration_seconds&#39;</span><span class="p">,</span> <span class="s1">&#39;Job execution time&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_size</span> <span class="o">=</span> <span class="n">Gauge</span><span class="p">(</span><span class="s1">&#39;oj_queue_size&#39;</span><span class="p">,</span> <span class="s1">&#39;Current queue size&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_count</span> <span class="o">=</span> <span class="n">Gauge</span><span class="p">(</span><span class="s1">&#39;oj_online_nodes&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of online nodes&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_load</span> <span class="o">=</span> <span class="n">Gauge</span><span class="p">(</span><span class="s1">&#39;oj_node_load&#39;</span><span class="p">,</span> <span class="s1">&#39;Node load&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;node_id&#39;</span><span class="p">])</span>
+
+        <span class="c1"># 启动Prometheus指标服务器</span>
+        <span class="n">prometheus_client</span><span class="o">.</span><span class="n">start_http_server</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">record_job_completion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;记录任务完成指标&quot;&quot;&quot;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
+        <span class="n">language</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_counter</span><span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="n">language</span><span class="p">)</span><span class="o">.</span><span class="n">inc</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_duration</span><span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="n">language</span><span class="o">=</span><span class="n">language</span><span class="p">)</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">duration</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">update_system_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;更新系统指标&quot;&quot;&quot;</span>
+        <span class="c1"># 更新队列大小</span>
+        <span class="n">queue_size</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">zcard</span><span class="p">(</span><span class="s2">&quot;oj_job_queue&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue_size</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">queue_size</span><span class="p">)</span>
+
+        <span class="c1"># 更新节点数量</span>
+        <span class="n">node_count</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">scard</span><span class="p">(</span><span class="s2">&quot;oj_online_nodes&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_count</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">node_count</span><span class="p">)</span>
+
+        <span class="c1"># 更新节点负载</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_online_nodes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">node_info</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">load</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;current_load&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">node_load</span><span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">load</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">check_alerts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;检查告警条件&quot;&quot;&quot;</span>
+        <span class="n">alerts</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 检查队列积压</span>
+        <span class="n">queue_size</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">redis</span><span class="o">.</span><span class="n">zcard</span><span class="p">(</span><span class="s2">&quot;oj_job_queue&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">queue_size</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">alerts</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;warning&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Queue backlog detected: </span><span class="si">{</span><span class="n">queue_size</span><span class="si">}</span><span class="s2"> jobs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="p">})</span>
+
+        <span class="c1"># 检查节点健康状态</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_online_nodes</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">node_info</span> <span class="ow">in</span> <span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">last_heartbeat</span> <span class="o">=</span> <span class="n">node_info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;last_heartbeat&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">current_time</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">current_time</span> <span class="o">-</span> <span class="n">last_heartbeat</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>  <span class="c1"># 60秒无心跳</span>
+                <span class="n">alerts</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;critical&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> appears to be down&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">current_time</span>
+                <span class="p">})</span>
+
+        <span class="c1"># 发送告警</span>
+        <span class="k">if</span> <span class="n">alerts</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_alerts</span><span class="p">(</span><span class="n">alerts</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="api">API接口设计<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<h4 id="get-clusterstatus">GET /cluster/status<a class="headerlink" href="#get-clusterstatus" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;judge-1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;online&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;current_load&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max_concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cpu_usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.45</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;memory_usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;queue_stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;queue_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;processing_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;node_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="post-clusterscale">POST /cluster/scale<a class="headerlink" href="#post-clusterscale" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scale_up&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;node_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="get-clustermetrics">GET /cluster/metrics<a class="headerlink" href="#get-clustermetrics" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;prometheus_endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8000/metrics&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;grafana_dashboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/d/oj-cluster&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="_4">测试建议<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>测试项</th>
+<th>期望行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>节点注册与发现</td>
+<td>新节点能正确注册并被调度器发现</td>
+</tr>
+<tr>
+<td>任务分发负载均衡</td>
+<td>任务能根据节点负载智能分发</td>
+</tr>
+<tr>
+<td>故障转移机制</td>
+<td>节点宕机时任务能自动迁移到其他节点</td>
+</tr>
+<tr>
+<td>安全沙箱隔离</td>
+<td>恶意代码无法突破安全限制</td>
+</tr>
+<tr>
+<td>性能监控准确性</td>
+<td>监控指标能准确反映系统状态</td>
+</tr>
+<tr>
+<td>高并发处理能力</td>
+<td>支持100+并发任务同时处理</td>
+</tr>
+<tr>
+<td>资源限制有效性</td>
+<td>内存、CPU限制能正确生效</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_5">模块结构建议<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>distributed/
+├── queue/
+│   ├── redis_queue.py
+│   └── priority_queue.py
+├── nodes/
+│   ├── judge_node.py
+│   ├── node_manager.py
+│   └── load_balancer.py
+├── security/
+│   ├── sandbox.py
+│   ├── seccomp_filter.py
+│   └── resource_limits.py
+├── monitoring/
+│   ├── metrics.py
+│   ├── alerts.py
+│   └── dashboard.py
+└── api/
+    ├── cluster.py
+    └── health.py
+</code></pre></div>
+<hr />
+<h3 id="_6">能力小结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>支持说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分布式队列</td>
+<td>Redis实现，支持优先级和持久化</td>
+</tr>
+<tr>
+<td>节点管理</td>
+<td>自动注册发现，健康检查，负载均衡</td>
+</tr>
+<tr>
+<td>安全沙箱</td>
+<td>多层隔离，资源限制，系统调用过滤</td>
+</tr>
+<tr>
+<td>智能调度</td>
+<td>基于负载和能力的任务分发</td>
+</tr>
+<tr>
+<td>实时监控</td>
+<td>Prometheus指标，Grafana可视化</td>
+</tr>
+<tr>
+<td>故障恢复</td>
+<td>自动故障检测，任务重调度，节点恢复</td>
+</tr>
+<tr>
+<td>弹性伸缩</td>
+<td>支持动态添加移除评测节点</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月1日</span>
+  </span>
+
+    
+    
+    
+      
+  
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="贡献者">
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+      
+    </span>
+    <nav>
+      
+        <a href="mailto:364504829@qq.com">Haoran Wang</a>
+    </nav>
+  </span>
+
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+
+  
+    <div class="md-source-date">
+      <small>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a></span>
+      </small>
+    </div>
+  
+
+  <script>
+    var current_edition = "detailed";
+    var saved_edition = localStorage.getItem("rust-docs-edition");
+    if (saved_edition === "concise" || saved_edition === "detailed") {
+      current_edition = saved_edition;
+    }
+
+    var apply_edition = function () {
+      var elements = Array.from(document.getElementsByTagName("div"));
+      for(var i = 0;i < elements.length;i++) {
+        if (elements[i].getAttribute("edition") !== null) {
+          if (elements[i].getAttribute("edition") === current_edition) {
+            elements[i].classList.remove("hidden");
+          } else {
+            elements[i].classList.add("hidden");
+          }
+        }
+
+        if (elements[i].classList.contains("admonition") && elements[i].classList.contains("tip")) {
+          if (current_edition === "concise") {
+            elements[i].classList.add("hidden");
+          } else {
+            elements[i].classList.remove("hidden");
+          }
+        }
+      }
+    };
+    var change_edition = function () {
+      if (current_edition === "concise") {
+        current_edition = "detailed";
+        alert$.next("已切换到详细版本");
+      } else {
+        current_edition = "concise";
+        alert$.next("已切换到简洁版本");
+      }
+      apply_edition();
+      localStorage.setItem("rust-docs-edition", current_edition);
+    };
+    apply_edition();
+  </script>
+  <style>
+    .hidden {
+      display: none !important;
+    }
+  </style>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 清华大学程序设计训练 Python 教学组。All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://fastly.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/wavedrom@2.1.2/wavedrom.unpkg.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

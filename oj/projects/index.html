@@ -13,22 +13,18 @@
       
       
       
-        <link rel="prev" href="../../">
       
       
-        <link rel="next" href="../web/">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
-        <title>爬虫 - 程序设计训练（Python）</title>
+        <title>PA2: Online Judge 系统设计与实现 - 程序设计训练（Python）</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
       
       
 
@@ -47,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -64,7 +60,7 @@
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -73,7 +69,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -85,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#pa2-online-judge" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +97,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="程序设计训练（Python）" class="md-header__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+    <a href="../.." title="程序设计训练（Python）" class="md-header__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -121,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              爬虫
+              PA2: Online Judge 系统设计与实现
             
           </span>
         </div>
@@ -215,7 +211,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="程序设计训练（Python）" class="md-nav__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
+    <a href="../.." title="程序设计训练（Python）" class="md-nav__button md-logo" aria-label="程序设计训练（Python）" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -245,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -262,19 +258,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -288,7 +284,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             实验一：爬虫与信息系统
@@ -302,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../../crawler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -320,19 +316,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -346,7 +342,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             实验内容
@@ -357,30 +353,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    爬虫
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../crawler/project/crawler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,53 +365,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      数据爬取
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      相关要求
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      注意事项
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -448,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../web/" class="md-nav__link">
+      <a href="../../crawler/project/web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -469,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../analysis/" class="md-nav__link">
+      <a href="../../crawler/project/analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -535,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/crawler/" class="md-nav__link">
+      <a href="../../crawler/ref/crawler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -556,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/django/" class="md-nav__link">
+      <a href="../../crawler/ref/django/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -577,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/analysis/" class="md-nav__link">
+      <a href="../../crawler/ref/analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -598,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ref/visualize/" class="md-nav__link">
+      <a href="../../crawler/ref/visualize/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../requirements/" class="md-nav__link">
+      <a href="../../crawler/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -648,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../crawler/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -713,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step1/" class="md-nav__link">
+      <a href="../project/step1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step2/" class="md-nav__link">
+      <a href="../project/step2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step3/" class="md-nav__link">
+      <a href="../project/step3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step4/" class="md-nav__link">
+      <a href="../project/step4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step5/" class="md-nav__link">
+      <a href="../project/step5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/step6/" class="md-nav__link">
+      <a href="../project/step6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/advance1/" class="md-nav__link">
+      <a href="../project/advance1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/advance2/" class="md-nav__link">
+      <a href="../project/advance2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/advance3/" class="md-nav__link">
+      <a href="../project/advance3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/project/advance4/" class="md-nav__link">
+      <a href="../project/advance4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/api/" class="md-nav__link">
+      <a href="../api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/requirements/" class="md-nav__link">
+      <a href="../requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1031,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../oj/gitpull/" class="md-nav__link">
+      <a href="../gitpull/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../git/" class="md-nav__link">
+      <a href="../../crawler/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1121,18 +1050,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      数据爬取
+      项目概述
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="项目概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目目标
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      相关要求
+      学习目标
     </span>
   </a>
   
@@ -1141,7 +1085,346 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      注意事项
+      项目模块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="项目模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础模块 (必做)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      进阶模块 (选做)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      技术栈
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="技术栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      后端技术
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统编程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      机器学习与AI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      监控与可视化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目特色
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="项目特色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 渐进式学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 工业级实践
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. AI技术集成
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 分布式架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 安全与监控
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估标准
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="评估标准">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#60" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础模块 (60分)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#40" class="md-nav__link">
+    <span class="md-ellipsis">
+      进阶模块 (40分)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      加分项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      提交要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提交要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码提交
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      文档提交
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      演示要求
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      学习资源
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="学习资源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      官方文档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      技术教程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考项目
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      常见问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 如何选择进阶模块？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 项目难度如何？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 需要什么开发环境？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q: 如何获得帮助？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目时间安排
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      联系方式
     </span>
   </a>
   
@@ -1163,52 +1446,319 @@
                   
 
 
-<h1 id="_1">爬虫<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">数据爬取<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="pa2-online-judge">PA2: Online Judge 系统设计与实现<a class="headerlink" href="#pa2-online-judge" title="Permanent link">&para;</a></h1>
+<h2 id="_1">项目概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本项目旨在构建一个功能完整的 Online Judge (OJ) 系统，为学生提供在线编程评测平台。通过分阶段实现，学生将掌握系统设计、API开发、并发处理、安全控制等核心技能。</p>
+<h3 id="_2">项目目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>构建一个小型但功能完整的 Online Judge 评测服务 (OJ Server)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>      +-----------+          +------------+         +--------------+
+用户   | 提交代码  |  POST →  | OJ 服务器   |  → Run →| 评测结果     |
+      +-----------+          |            |         +--------------+
+                                  ↓
+                             任务队列
+                                  ↓
+                           任务状态管理
+                                  ↓
+                        用户查询任务状态 / 排行榜
+</code></pre></div>
+<h2 id="_3">学习目标<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>通过本项目的学习，学生将能够：</p>
+<ol>
+<li><strong>掌握系统架构设计</strong>：理解分布式系统的基本概念和设计原则</li>
+<li><strong>熟练API开发</strong>：使用FastAPI/Flask构建RESTful API</li>
+<li><strong>理解并发编程</strong>：掌握多线程、异步编程和任务调度</li>
+<li><strong>学会安全控制</strong>：实现用户权限管理和代码安全沙箱</li>
+<li><strong>掌握数据处理</strong>：使用数据库进行数据持久化和查询优化</li>
+<li><strong>理解监控调试</strong>：实现系统监控、日志记录和性能分析</li>
+<li><strong>学会代码质量</strong>：实现代码查重、质量评估和智能分析</li>
+</ol>
+<h2 id="_4">项目模块<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">基础模块 (必做)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>名称</th>
+<th>主要功能</th>
+<th>技术要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1</td>
+<td>配置解析 + 语言支持</td>
+<td>构建通用语言运行环境</td>
+<td>配置文件解析、命令生成、语言自动识别</td>
+</tr>
+<tr>
+<td>Step 2</td>
+<td>评测执行 + 正确判断</td>
+<td>实现评测核心模块</td>
+<td>子进程控制、资源限制、结果比对</td>
+</tr>
+<tr>
+<td>Step 3</td>
+<td>用户系统 + 提交频控</td>
+<td>多用户管理与权限控制</td>
+<td>用户注册、角色权限、频率限制</td>
+</tr>
+<tr>
+<td>Step 4</td>
+<td>任务管理与状态流转</td>
+<td>完整的任务生命周期管理</td>
+<td>状态机、任务调度、队列管理</td>
+</tr>
+<tr>
+<td>Step 5</td>
+<td>排行榜机制</td>
+<td>用户得分统计与排序</td>
+<td>数据聚合、排序算法、分页查询</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">进阶模块 (选做)<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>名称</th>
+<th>主要功能</th>
+<th>技术要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advance 1</td>
+<td>智能代码分析与LLM辅助评测</td>
+<td>LLM驱动的代码质量评估</td>
+<td>LLM API集成、代码分析、智能诊断</td>
+</tr>
+<tr>
+<td>Advance 2</td>
+<td>分布式评测系统与高级安全</td>
+<td>可扩展的分布式架构</td>
+<td>分布式队列、安全沙箱、负载均衡</td>
+</tr>
+<tr>
+<td>Advance 3</td>
+<td>高级调试工具与性能分析</td>
+<td>强大的调试和分析能力</td>
+<td>远程调试、性能监控、可视化分析</td>
+</tr>
+<tr>
+<td>Advance 4</td>
+<td>智能题目管理与自动生成</td>
+<td>智能化的题目管理</td>
+<td>机器学习、知识图谱、自动生成</td>
+</tr>
+<tr>
+<td>Advance 5</td>
+<td>智能代码查重系统</td>
+<td>全面的代码查重检测</td>
+<td>多维度分析、相似度计算、可视化报告</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">技术栈<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">后端技术<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
-<li>从任意音乐网站中爬取歌曲和歌手信息。<ul>
-<li>例如：网易云音乐、QQ音乐、酷我音乐等。</li>
+<li><strong>Web框架</strong>: FastAPI / Flask</li>
+<li><strong>异步编程</strong>: asyncio, aiohttp</li>
+<li><strong>数据库</strong>: SQLite / PostgreSQL</li>
+<li><strong>缓存</strong>: Redis</li>
+<li><strong>任务队列</strong>: Celery / Redis Queue</li>
 </ul>
-</li>
-<li>歌曲需爬取以下信息：<ul>
-<li>歌曲名</li>
-<li>歌手名</li>
-<li>歌词（去除时间轴，仅保留歌词文本）</li>
-<li>歌曲图片（如专辑封面）</li>
-<li>歌曲原始网站URL</li>
-<li>可选但不要求：评论（每首歌曲约3条评论，包含文本、评论时间）</li>
-<li>其它可能需要的信息</li>
-</ul>
-</li>
-<li>歌手需爬取以下信息：<ul>
-<li>歌手名</li>
-<li>歌手图片</li>
-<li>歌手简介</li>
-<li>歌手原始网站URL</li>
-<li>其他可能需要的信息</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">相关要求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_9">系统编程<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li>爬取的歌曲数量不少于2000，歌手数量不少于100，每位歌手至少需爬取一首歌曲。</li>
-<li>请勿爬取音视频内容！</li>
+<li><strong>进程管理</strong>: subprocess, multiprocessing</li>
+<li><strong>资源控制</strong>: resource, cgroups</li>
+<li><strong>安全沙箱</strong>: seccomp, namespaces</li>
+<li><strong>容器技术</strong>: Docker</li>
 </ul>
-<h2 id="_4">注意事项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="ai">机器学习与AI<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
 <ul>
-<li>注意网站可能存在的反爬机制，并调整爬虫策略<ul>
-<li>不要野蛮抓取、两次爬取中间建议停顿一定时间（建议两次爬取之间设置一定时间间隔，如1秒）</li>
-<li>设置与常规访问一致的 HTTP 头</li>
-<li>使用动态 User-Agent</li>
-<li>更换不同的 Cookie</li>
-<li>更换不同的 IP 地址</li>
-<li>（有条件）使用代理池进行请求</li>
+<li><strong>LLM集成</strong>: OpenAI API, Claude API</li>
+<li><strong>代码分析</strong>: ast, tree-sitter</li>
+<li><strong>向量数据库</strong>: FAISS, ChromaDB</li>
+<li><strong>机器学习</strong>: scikit-learn, numpy</li>
 </ul>
-</li>
-<li>提示：建议在本地存储已爬到的页面URL和HTML文件，防止爬虫程序意外崩溃或被反爬激活后损失数据，并能有效地继续爬取。</li>
-<li>如被反爬机制封禁，允许保留已有数据，换其他网站继续爬取。</li>
-<li>不限制爬虫所使用的Python第三方库(bs4、Scrapy等)</li>
+<h3 id="_10">监控与可视化<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>性能监控</strong>: Prometheus, Grafana</li>
+<li><strong>日志系统</strong>: ELK Stack</li>
+<li><strong>数据可视化</strong>: matplotlib, plotly</li>
+<li><strong>调试工具</strong>: DAP, pdb</li>
 </ul>
+<h2 id="_11">项目特色<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 渐进式学习<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>从基础功能开始，逐步增加复杂度</li>
+<li>每个模块都有明确的学习目标和验收标准</li>
+<li>支持选择性实现，适应不同学习进度</li>
+</ul>
+<h3 id="2">2. 工业级实践<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>采用真实项目中的技术栈和架构模式</li>
+<li>重视代码质量、性能优化和系统可靠性</li>
+<li>包含完整的测试、监控和部署方案</li>
+</ul>
+<h3 id="3-ai">3. AI技术集成<a class="headerlink" href="#3-ai" title="Permanent link">&para;</a></h3>
+<ul>
+<li>集成大语言模型进行智能代码分析</li>
+<li>使用机器学习进行题目难度评估</li>
+<li>实现智能推荐和个性化学习路径</li>
+</ul>
+<h3 id="4">4. 分布式架构<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>支持多机器并行评测</li>
+<li>实现负载均衡和故障转移</li>
+<li>具备良好的可扩展性和容错能力</li>
+</ul>
+<h3 id="5">5. 安全与监控<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>多层安全防护机制</li>
+<li>实时性能监控和告警</li>
+<li>完整的审计日志和追踪系统</li>
+</ul>
+<h2 id="_12">项目结构<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>python-pa2/
+├── step1.md          # 配置解析与语言支持
+├── step2.md          # 评测控制
+├── step3.md          # 用户系统
+├── step4.md          # 任务状态管理
+├── step5.md          # 排行榜机制
+├── advance1.md       # 智能代码分析
+├── advance2.md       # 分布式评测系统
+├── advance3.md       # 高级调试工具
+├── advance4.md       # 智能题目管理
+├── advance5.md       # 智能代码查重
+├── examples/         # 示例代码
+├── tests/           # 测试用例
+└── docs/            # 项目文档
+</code></pre></div>
+<h2 id="_13">评估标准<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="60">基础模块 (60分)<a class="headerlink" href="#60" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Step 1-5</strong>: 每个模块12分</li>
+<li>功能完整性、代码质量、测试覆盖</li>
+<li>文档完整性和API设计合理性</li>
+</ul>
+<h3 id="40">进阶模块 (40分)<a class="headerlink" href="#40" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Advance 1-5</strong>: 每个模块8分</li>
+<li>技术难度、创新性、实用性</li>
+<li>系统设计和架构合理性</li>
+</ul>
+<h3 id="_14">加分项<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>性能优化 (5分)</li>
+<li>用户体验 (5分)</li>
+<li>创新功能 (5分)</li>
+<li>项目展示 (5分)</li>
+</ul>
+<h2 id="_15">提交要求<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">代码提交<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>完整的源代码和配置文件</li>
+<li>清晰的代码注释和文档</li>
+<li>单元测试和集成测试</li>
+<li>性能测试报告</li>
+</ul>
+<h3 id="_17">文档提交<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>系统设计文档</li>
+<li>API接口文档</li>
+<li>部署和运维文档</li>
+<li>用户使用手册</li>
+</ul>
+<h3 id="_18">演示要求<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>功能演示视频</li>
+<li>系统架构展示</li>
+<li>性能测试演示</li>
+<li>问题解答</li>
+</ul>
+<h2 id="_19">学习资源<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h3 id="_20">官方文档<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://fastapi.tiangolo.com/">FastAPI 官方文档</a></li>
+<li><a href="https://docs.python.org/3/library/asyncio.html">Python asyncio 文档</a></li>
+<li><a href="https://redis.io/documentation">Redis 官方文档</a></li>
+</ul>
+<h3 id="_21">技术教程<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/donnemartin/system-design-primer">系统设计基础</a></li>
+<li><a href="https://docs.python.org/3/library/concurrent.futures.html">Python 并发编程</a></li>
+<li><a href="https://docs.docker.com/">Docker 容器技术</a></li>
+</ul>
+<h3 id="_22">参考项目<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://codeforces.com/">Codeforces</a> - 知名OJ平台</li>
+<li><a href="https://leetcode.com/">LeetCode</a> - 编程练习平台</li>
+<li><a href="https://www.hackerrank.com/">HackerRank</a> - 技术评测平台</li>
+</ul>
+<h2 id="_23">常见问题<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="q">Q: 如何选择进阶模块？<a class="headerlink" href="#q" title="Permanent link">&para;</a></h3>
+<p>A: 建议根据自己的兴趣和技术基础选择1-2个进阶模块。如果对AI感兴趣，可以选择Advance 1；如果对系统架构感兴趣，可以选择Advance 2。</p>
+<h3 id="q_1">Q: 项目难度如何？<a class="headerlink" href="#q_1" title="Permanent link">&para;</a></h3>
+<p>A: 基础模块适合所有学生，进阶模块有一定挑战性。建议先完成基础模块，再尝试进阶功能。</p>
+<h3 id="q_2">Q: 需要什么开发环境？<a class="headerlink" href="#q_2" title="Permanent link">&para;</a></h3>
+<p>A: 需要Python 3.8+、Docker、Redis等。详细环境配置请参考各模块文档。</p>
+<h3 id="q_3">Q: 如何获得帮助？<a class="headerlink" href="#q_3" title="Permanent link">&para;</a></h3>
+<p>A: 可以查看模块文档、参考示例代码、参与讨论。遇到技术问题可以查阅官方文档或寻求助教帮助。</p>
+<h2 id="_24">项目时间安排<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>主要任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第1周</td>
+<td>环境搭建</td>
+<td>开发环境配置、基础模块学习</td>
+</tr>
+<tr>
+<td>第2-3周</td>
+<td>基础开发</td>
+<td>Step 1-3 实现</td>
+</tr>
+<tr>
+<td>第4-5周</td>
+<td>核心功能</td>
+<td>Step 4-5 实现</td>
+</tr>
+<tr>
+<td>第6-7周</td>
+<td>进阶功能</td>
+<td>Advance 模块选做</td>
+</tr>
+<tr>
+<td>第8周</td>
+<td>测试优化</td>
+<td>系统测试、性能优化</td>
+</tr>
+<tr>
+<td>第9周</td>
+<td>文档完善</td>
+<td>文档编写、项目展示</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_25">联系方式<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>项目负责人</strong>: [助教姓名]</li>
+<li><strong>技术支持</strong>: [技术助教]</li>
+<li><strong>讨论群</strong>: [QQ群/微信群]</li>
+<li><strong>项目仓库</strong>: [GitHub链接]</li>
+</ul>
+<hr />
+<p><strong>祝大家学习愉快，项目顺利！</strong> 🚀</p>
 
 
 
@@ -1229,7 +1779,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年7月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月1日</span>
   </span>
 
     
@@ -1240,14 +1790,12 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="贡献者">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:2574396167@qq.com">xujz18</a>, 
-        <a href="mailto:1378663164@qq.com">Rishubi</a>, 
-        <a href="mailto:joshua720117@hotmail.com">lambda</a>
+        <a href="mailto:364504829@qq.com">Haoran Wang</a>
     </nav>
   </span>
 
@@ -1266,7 +1814,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (34.21%), <a href='mailto:1378663164@qq.com'>Rishubi</a> (13.16%), <a href='mailto:joshua720117@hotmail.com'>lambda</a> (52.63%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a></span>
       </small>
     </div>
   
@@ -1354,12 +1902,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

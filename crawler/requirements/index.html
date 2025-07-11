@@ -1090,6 +1090,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    附录：本地 Git 安装与配置指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1227,14 +1248,20 @@
 <li>提交为一个 PDF 文件</li>
 </ul>
 <h2 id="_4">代码规范<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>本页面列举了一些适合 Python 开发的常见代码规范要求。</p>
+<p>本节列举了作业中应遵循的代码规范。作业考察代码规范的目的是帮助大家养成良好的开发习惯。</p>
 <h3 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<div class="admonition git入门">
+<p class="admonition-title">Git入门</p>
+<p>如果你还没有使用过 Git，可以参阅 <a href="../git/">本地 Git 安装与配置指南</a> 及其包含的链接内容，了解 Git 的基本使用方法。</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">提交历史</label><label for="__tabbed_1_2">提交说明（commit message）</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
+<li>使用 Git 进行版本控制。</li>
 <li>每个提交都应具有具体意义，例如实现新功能、修复问题、编写新函数等；</li>
 <li>对于较复杂的项目，应边开发边提交，避免将大量更改一次性提交；</li>
+<li>配置合理的 <code>.gitignore</code> 文件，避免提交不必要的文件（如二进制文件、IDE 配置文件等）；</li>
 </ul>
 </div>
 <div class="tabbed-block">
@@ -1257,8 +1284,8 @@
 <p>保持代码简洁、清晰：</p>
 <ul>
 <li>保持整齐的缩进，推荐使用<strong>4 个空格</strong>作为一级缩进（遵循 <a href="https://peps.python.org/pep-0008/">PEP8</a>）；</li>
-<li>每行字符不应过多，建议不超过 79/88 个字符（PEP8 标准为79，black 默认 88 个字符）；</li>
-<li>减少硬编码和魔法数字（magic number）：如多处出现 <code>3.14</code>，应定义 <code>PI = 3.14</code> 在顶部，后续均使用 <code>PI</code>。</li>
+<li>每行字符不应过多，建议不超过 79/88/120 个字符（PEP8 标准为79，<code>black</code> 默认 88 个字符，PyCharm 默认 120个字符）；</li>
+<li>减少硬编码和 magic number：例如，若多处出现 <code>3.14</code>，应定义 <code>PI = 3.14</code> 在顶部，后续均使用 <code>PI</code>。</li>
 </ul>
 </div>
 <div class="tabbed-block">
@@ -1266,16 +1293,16 @@
 <ul>
 <li>复杂代码块前应对其功能、逻辑简要说明；</li>
 <li>对过于简单的代码可不写注释，避免冗余；</li>
-<li>所有函数/类建议编写文档字符串（docstring），描述其功能、参数类型和返回值；</li>
+<li>所有函数/类建议编写文档字符串（docstring），描述其功能、参数类型和返回值，推荐加以类型标注；</li>
 <li>推荐使用英文，中文亦可（但是注意要用 UTF-8 编码）；</li>
-<li>遵循 <a href="https://peps.python.org/pep-0257/">PEP257</a> Python docstring 规范。</li>
+<li>参考阅读：<a href="https://peps.python.org/pep-0257/">PEP257</a> Python docstring 规范。</li>
 </ul>
 </div>
 <div class="tabbed-block">
 <p>代码应合理使用空格和空行：</p>
 <ul>
 <li>功能分段之间增加空行，提升可读性；</li>
-<li>操作符前后、逗号后等规范加空格（如 <code>c = a + b</code>、<code>print(a, b)</code>）；</li>
+<li>操作符前后、逗号后等规范加空格（如 <code>result = a + b</code>、<code>print(a, b)</code>）；</li>
 <li>保持前后风格一致，如统一的缩进风格和空行数量。</li>
 </ul>
 </div>
@@ -1286,29 +1313,37 @@
 <li>尽量使用有意义的英文单词命名，避免中文、拼音及无意义短名（如 <code>a, b, c</code> 等）；</li>
 <li>尽量用英文单词，而不是中文拼音首字母；</li>
 <li>命名应与实际用途及上下文相关联；</li>
-<li>遵循 <a href="https://peps.python.org/pep-0008/#naming-conventions">PEP8 命名推荐</a>。</li>
+<li>参考阅读：<a href="https://peps.python.org/pep-0008/#naming-conventions">PEP8 命名推荐</a>。</li>
 </ul>
 </div>
 <div class="tabbed-block">
 <p>对于较复杂的项目，不应将所有代码写在同一文件中：</p>
 <ul>
 <li>应按功能将代码拆分到多个 <code>.py</code> 模块，并合理组织到包结构中；</li>
-<li>建议阅读 <a href="https://docs.python.org/3/tutorial/modules.html">Python 官方模块和包说明</a>。</li>
+<li>参考阅读： <a href="https://docs.python.org/3/tutorial/modules.html">Python 官方模块和包说明</a>。</li>
 </ul>
 </div>
 <div class="tabbed-block">
-<p>为实现上述规范，可利用以下自动化工具：</p>
+<p>为实现上述规范，可考虑利用以下自动化工具：</p>
 <ul>
 <li>大多数现代编辑器（如 VSCode、PyCharm 等）都集成了格式化与静态检查工具</li>
-<li>可以使用 [<code>black</code>] 进行代码自动格式化：</li>
+<li>可以使用 <code>black</code> 进行代码自动格式化：<ul>
 <li>命令行用法：<code>black .</code></li>
 <li>编辑器用法：在 VSCode 或 PyCharm 设置中启用 black，保存文件时会自动格式化。</li>
-<li>可以使用 [<code>pylint</code>] 或 [<code>flake8</code>] 进行代码静态检查：</li>
-<li>命令行用法：<code>pylint your_code.py</code> 或 <code>flake8 your_code.py</code></li>
+</ul>
+</li>
+<li>可以使用 <code>pylint</code> 进行代码静态检查：<ul>
+<li>命令行用法：<code>pylint your_code.py</code></li>
 <li>编辑器用法：在编辑器安装相关插件或启用检查功能，保存或编辑时自动显示代码警告和建议。</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonition 致谢">
+<p class="admonition-title">致谢</p>
+<p>“代码规范”一节的内容参考了韩文弢老师开设的的程序设计训练（Rust）<a href="https://lab.cs.tsinghua.edu.cn/rust/projects/coding_convention/">课程文档中的对应章节</a>。转载前已获得授课教师授权。在此对原作者表示感谢。</p>
 </div>
 
 
@@ -1368,7 +1403,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (13.76%), <a href='mailto:1378663164@qq.com'>Rishubi</a> (8.26%), <a href='mailto:joshua720117@hotmail.com'>lambda</a> (9.17%), <a href='mailto:lyj@lyjdemacbook-pro.local'>lyj</a> (68.81%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:2574396167@qq.com'>xujz18</a> (12.82%), <a href='mailto:1378663164@qq.com'>Rishubi</a> (7.69%), <a href='mailto:joshua720117@hotmail.com'>lambda</a> (28.21%), <a href='mailto:lyj@lyjdemacbook-pro.local'>lyj</a> (51.28%)</span>
       </small>
     </div>
   
