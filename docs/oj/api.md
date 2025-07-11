@@ -79,7 +79,7 @@
 ```json
 {"code": 200, "msg": "add success", "data": {"id": "sum_2"}}
 ```
-- 异常：400 字段缺失/格式错误 / 409 id 已存在
+- 异常：400 字段缺失/格式错误 / 401 未登录 (Step 4) / 409 id 已存在
 
 ### 删除题目
 - 路径：`DELETE /api/problems/{problem_id}`
@@ -89,7 +89,7 @@
 ```json
 {"code": 200, "msg": "delete success", "data": {"id": "sum_2"}}
 ```
-- 异常：404 题目不存在
+- 异常：401 未登录 (Step 4) / 404 题目不存在
 
 ### 查看题目信息
 - 路径：`GET /api/problems/{problem_id}`
@@ -128,12 +128,14 @@
   }
 }
 ```
-- 异常：404 题目不存在
+- 异常：401 未登录 (Step4) / 404 题目不存在
 -  默认字段需要返回本类型默认值，比如 `str` 类需返回 `""`，`list` 类需返回 `[]`
 
 ---
 
 ## 2. 评测相关接口（Step 2 & 3）
+
+> 请注意，Step 2 & 3 的查询评测结果 / 评测列表接口仅返回最终总分，单个测试点状态需要在评测日志中查询
 
 ### 提交评测
 - 路径：`POST /api/submissions/`
@@ -245,7 +247,7 @@
 - 路径：`GET /api/languages/`
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": [{"name": "python", "name": "cpp"}]}
+{"code": 200, "msg": "success", "data": {"name": ["python", "cpp"]}}
 ```
 
 ---
