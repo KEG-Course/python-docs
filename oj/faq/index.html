@@ -1010,6 +1010,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#linux-macos-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      同学们的操作系统有 linux, macos, windows，最终评测应该如何进行呢？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pending-success-error-ac-wa" class="md-nav__link">
     <span class="md-ellipsis">
       如何理解评测状态的 [pending, success, error] 与测试点结果的 [AC, WA, ...] 之间关系？
@@ -1166,6 +1175,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#linux-macos-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      同学们的操作系统有 linux, macos, windows，最终评测应该如何进行呢？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pending-success-error-ac-wa" class="md-nav__link">
     <span class="md-ellipsis">
       如何理解评测状态的 [pending, success, error] 与测试点结果的 [AC, WA, ...] 之间关系？
@@ -1257,6 +1275,8 @@
 <blockquote>
 <p>此处收集 OJ 系统实验常见问题，持续补充中</p>
 </blockquote>
+<h2 id="linux-macos-windows">同学们的操作系统有 <code>linux</code>, <code>macos</code>, <code>windows</code>，最终评测应该如何进行呢？<a class="headerlink" href="#linux-macos-windows" title="Permanent link">&para;</a></h2>
+<p>最终评分会结合 <code>linux</code> 自动评测及线下人工评测，因此需要大家适配 <code>linux</code> 风格指令。使用 <code>macos</code> 的同学可以兼容所有评测会用到的 <code>linux</code> 指令，使用 windows 的同学建议使用 <code>WSL</code> 虚拟化容器。安装请参考 <a href="https://docs.eesast.com/docs/tools/wsl">WSL 安装文档</a>，使用请参考 <a href="https://www.runoob.com/linux/linux-command-manual.html">RUNOOB Linux 教程</a>。<strong>也推荐大家使用生成式人工智能查询 Linux 操作，本次大作业基本只会用到 <code>g++</code>, <code>python</code> 等常用指令</strong></p>
 <h2 id="pending-success-error-ac-wa">如何理解评测状态的 [pending, success, error] 与测试点结果的 [AC, WA, ...] 之间关系？<a class="headerlink" href="#pending-success-error-ac-wa" title="Permanent link">&para;</a></h2>
 <p>请区分两种状态，一种是一个 submission 的状态，一种是评测点结果的状态。提交的时刻，评测并未完成，返回一定是 <code>pending</code>；一个用户提交了评测，然后这个时候用户立刻查询评测列表，这时可能评测完成或者未完成，所以在查询评测列表的时候会有多种评测状态。</p>
 <h2 id="_1">[仓库] 如何将自己的仓库与助教提供的示例仓库关联，及时拉取最新更新？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
