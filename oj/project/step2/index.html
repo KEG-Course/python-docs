@@ -1452,7 +1452,7 @@
 <h4 id="_6">具体要求<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <ol>
 <li>题目配置</li>
-<li>在题目 JSON 或数据库结构中，必须包含 <code>time_limit</code> 和 <code>memory_limit</code> 字段。</li>
+<li>在题目 JSON 或数据库结构中，<code>time_limit</code> 和 <code>memory_limit</code> 字段可选，如果未设置的话，按照添加语言时的 <code>time_limit</code> 和 <code>memory_limit</code> 配置。</li>
 <li>示例：
      <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1001&quot;</span><span class="p">,</span>
@@ -1468,18 +1468,7 @@
 <li>若用户代码超时或超内存，应立即终止进程，并返回对应的评测状态（TLE/MLE）。</li>
 <li>评测结果</li>
 <li>评测接口的响应中，需包含实际用时、内存消耗，以及是否超限的状态。</li>
-<li>可以认为一个测试点 10 分</li>
-<li>由于每个测试点的状态不同，<code>status</code> 应该返回每个测试点的结果，包含 <code>id</code> 和 <code>result</code> 字段</li>
-<li>示例响应字段：
-     <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">   </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">},</span>
-<span class="w">   </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TLE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">},</span>
-<span class="w">   </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MLE&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">},</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div></li>
+<li>认为一个测试点 10 分</li>
 </ol>
 <hr />
 <h3 id="_7">评分细则<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
