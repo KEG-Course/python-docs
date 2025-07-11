@@ -405,8 +405,8 @@
 - 路径：`GET /api/logs/access/`
 - 权限：仅管理员
 - 参数：
-  - `user_id` (int, 可选)：按用户筛选
-  - `problem_id` (int, 可选)：按题目筛选
+  - `user_id` (str, 可选)：按用户筛选
+  - `problem_id` (str, 可选)：按题目筛选
   - `page` (int, 可选)：页码
   - `page_size` (int, 可选)：每页数量
 - 响应：
