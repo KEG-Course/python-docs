@@ -71,8 +71,8 @@
   - `hint` (str, 可选): 额外提示
   - `source` (str, 可选): 题目来源
   - `tags` (list, 可选): 题目标签
-  - `time_limit` (float, 可选): 时间限制，默认单位为 "s"
-  - `memory_limit` (int, 可选): 内存限制，默认单位为 "MB"
+  - `time_limit` (float, 可选): 时间限制，默认单位为 "s"，默认值为 "3"
+  - `memory_limit` (int, 可选): 内存限制，默认单位为 "MB"，默认值为 "128"
   - `author` (str, 可选): 题目作者
   - `difficulty` (str, 可选): 难度等级
 - 响应：
