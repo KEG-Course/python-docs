@@ -149,7 +149,7 @@
 {
   "code": 200,
   "msg": "success",
-  "data": {"submission_id": 123, "status": "pending"}
+  "data": {"submission_id": "123", "status": "pending"}
 }
 ```
 - 异常：400 参数错误 / 403 用户被禁用 / 404 题目不存在 / 429 提交频率超限
@@ -186,7 +186,7 @@
     "submissions": 
     [
       // 如果 status 是 error / pending，则只需要返回 submission_id 和 status
-      {"submission_id": 1, "status": "success", "score": 10, "counts": 30},
+      {"submission_id": "1", "status": "success", "score": 10, "counts": 30},
       {...}
     ]
   }
@@ -199,7 +199,7 @@
 - 参数：无（URL 路径参数：`submission_id`）
 - 响应：
 ```json
-{"code": 200, "msg": "rejudge started", "data": {"submission_id": 1, "status": "pending"}}
+{"code": 200, "msg": "rejudge started", "data": {"submission_id": "1", "status": "pending"}}
 ```
 - 异常：404 评测不存在 / 403 权限不足
 
@@ -260,7 +260,7 @@
 - 权限：公开
 - 响应：
 ```json
-{"code": 200, "msg": "login success", "data": {"user_id": 1, "username": "alice", "role": "user"}}
+{"code": 200, "msg": "login success", "data": {"user_id": "1", "username": "alice", "role": "user"}}
 ```
 - 异常：400 参数错误 / 401 用户名或密码错误 / 403 用户被禁用（Step 4）
 
@@ -280,7 +280,7 @@
 - 权限：仅管理员
 - 响应：
 ```json
-{"code": 200, "msg": "success", "data": {"user_id": 2, "username": "new_admin"}}
+{"code": 200, "msg": "success", "data": {"user_id": "2", "username": "new_admin"}}
 ```
 - 异常：400 用户名已存在/参数错误 / 403 用户无权限
 
@@ -296,7 +296,7 @@
   "msg": "register success", 
   "data": 
   {
-    "user_id": 1,
+    "user_id": "1",
     "username": "xiaogang",
     "join_time": "2012-07-14", 
     "role": "user",
@@ -317,7 +317,7 @@
   "msg": "success", 
   "data": 
   {
-    "user_id": 1, 
+    "user_id": "1",
     "username": "alice", 
     "join_time": "2012-07-14", 
     "role": "user",
@@ -335,7 +335,7 @@
 - 权限：仅管理员
 - 响应：
 ```json
-{"code": 200, "msg": "role updated", "data": {"user_id": 1, "role": "admin"}}
+{"code": 200, "msg": "role updated", "data": {"user_id": "1", "role": "admin"}}
 ```
 - 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 用户不存在 
 
@@ -352,9 +352,9 @@
     "total": 3,
     "users": 
     [
-      {"user_id": 1, "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
-      {"user_id": 2, "username": "xiaohong", "join_time": "1911-04-05", "submit_count": 90, "resolve_count": 8},
-      {"user_id": 3, "username": "xiaogang", "join_time": "2012-07-14", "submit_count": 80, "resolve_count": 7},
+      {"user_id": "1", "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
+      {"user_id": "2", "username": "xiaohong", "join_time": "1911-04-05", "submit_count": 90, "resolve_count": 8},
+      {"user_id": "3", "username": "xiaogang", "join_time": "2012-07-14", "submit_count": 80, "resolve_count": 7},
     ]
   }
 }
@@ -415,7 +415,7 @@
   "code": 200,
   "msg": "success",
   "data": [
-    {"user_id": 1, "problem_id": 1001, "action": "view_log", "time": "2024-06-01T12:00:00"}
+    {"user_id": "1", "problem_id": 1001, "action": "view_log", "time": "2024-06-01T12:00:00"}
   ]
 }
 ```
@@ -447,7 +447,7 @@
   "data": {
     "users": [
       {
-        "user_id": 1, 
+        "user_id": "1", 
         "username": "admin", 
         "role": "admin",
         "join_time": "2024-01-01",
@@ -476,8 +476,8 @@
     ],
     "submissions": [
       {
-        "submission_id": 1,
-        "user_id": 1,
+        "submission_id": "1",
+        "user_id": "1",
         "problem_id": "sum_2",
         "language": "python",
         "code": "a, b = map(int, input().split())\nprint(a + b)",
