@@ -450,7 +450,7 @@
         "user_id": 1, 
         "username": "admin", 
         "role": "admin",
-        "join_time": "2024-01-01T00:00:00",
+        "join_time": "2024-01-01",
         "submit_count": 100,
         "resolve_count": 10
       }
