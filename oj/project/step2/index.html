@@ -1338,6 +1338,7 @@
 <h4 id="1-python">任务 1：支持 Python 评测<a class="headerlink" href="#1-python" title="Permanent link">&para;</a></h4>
 <ul>
 <li>实现评测流程：自动读取题库中的样例输入输出，将输入传递给用户提交的 Python 代码，捕获输出并与标准答案比对。</li>
+<li>需要实现异步评测，但仅需支持单用户提交任务即可，不要求支持多用户同时提交代码。关于异步实现，你可以参考 <code>asyncio.create_task</code> 这个接口。</li>
 <li>返回结构化评测结果（如 AC/WA/RE/TLE）。</li>
 </ul>
 <p><strong>测试点结果</strong></p>
