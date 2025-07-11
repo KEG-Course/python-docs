@@ -40,6 +40,7 @@ nav:
     - FAQ: oj/faq.md
     - 仓库拉取教程: oj/gitpull.md
 
+    - "附录：本地 Git 安装与配置指南": crawler/git.md
   # - 实验二：MiniGPT:
   #   - 实验概述: MiniGPT/index.md
   #   - 实验内容:
