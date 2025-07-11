@@ -390,7 +390,7 @@
 - 路径：`PUT /api/problems/{problem_id}/log_visibility`
 - 权限：仅管理员
 - 参数：
-  - `public_cases` (bool, 必填): 是否允许所有已登录用户查看测例详情
+  - `public_cases` (bool, 必填): 是否允许所有用户查看测例详情
 - 响应：
 ```json
 {
