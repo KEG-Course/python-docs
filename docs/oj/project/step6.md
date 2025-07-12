@@ -19,7 +19,7 @@
 
 - `POST /api/reset/` - 系统重置
 - 清空所有用户、题目、提交等数据
-- 重新创建初始管理员账户（admin/admin）
+- 重新创建初始管理员账户（`admin` / `admintestpassword`）
 
 ---
 
