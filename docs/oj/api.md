@@ -404,12 +404,12 @@
 ### 日志访问审计
 - 路径：`GET /api/logs/access/`
 - 权限：仅管理员
+- 其中 `status` 作为返回值，记录这次访问状态
 - 参数：
   - `user_id` (str, 可选)：按用户筛选
   - `problem_id` (str, 可选)：按题目筛选
   - `page` (int, 可选)：页码
   - `page_size` (int, 可选)：每页数量
-- `status` 记录这次访问状态
 - 响应：
 ```json
 {
