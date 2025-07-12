@@ -1841,7 +1841,7 @@
 <tr>
 <td>429</td>
 <td>频率超限</td>
-<td>提交过于频繁</td>
+<td>1min 内提交超过 3 次</td>
 </tr>
 <tr>
 <td>500</td>
@@ -1992,7 +1992,8 @@
 <ul>
 <li>路径：<code>GET /api/submissions/</code></li>
 <li>参数：<code>user_id</code>、<code>problem_id</code>、<code>status</code>、<code>page</code>、<code>page_size</code><blockquote>
-<p>这五个参数均可选，其中 <code>user_id</code>、<code>problem_id</code> 为一级条件，其余为二级条件。一级条件不可以全部为空。</p>
+<p>这五个参数均可选，其中 <code>user_id</code>、<code>problem_id</code> 为一级条件，其余为二级条件。一级条件不可以全部为空。
+如果 <code>page</code> 和 <code>page_size</code> 全为空，表明查询所有数据；<code>page</code> 为空但 <code>page_size</code> 不为空表明选择第一页数据。</p>
 </blockquote>
 </li>
 <li>权限：本人/管理员</li>
@@ -2161,6 +2162,7 @@
 <h3 id="_17">用户列表查询<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <ul>
 <li>路径：<code>GET /api/users/</code>，参数：<code>page</code>、<code>page_size</code>（可选）</li>
+<li>参数意义与 <code>GET /api/submissions/</code> 一致</li>
 <li>权限：仅管理员</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -2228,6 +2230,7 @@
 <li><code>problem_id</code> (str, 可选)：按题目筛选</li>
 <li><code>page</code> (int, 可选)：页码</li>
 <li><code>page_size</code> (int, 可选)：每页数量</li>
+<li>参数意义与 <code>GET /api/submissions/</code> 一致</li>
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
@@ -2403,7 +2406,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.45%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.55%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.75%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.25%)</span>
       </small>
     </div>
   
