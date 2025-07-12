@@ -396,7 +396,7 @@
 {
   "code": 200,
   "msg": "log visibility updated",
-  "data": {"problem_id": "sum_3_numbers", "public_cases": true}
+  "data": {"problem_id": "sum_3_numbers", "public_cases": True}
 }
 ```
 - 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 题目不存在
