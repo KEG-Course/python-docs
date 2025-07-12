@@ -174,6 +174,7 @@
 - 路径：`GET /api/submissions/`
 - 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`
 > 这五个参数均可选，其中 `user_id`、`problem_id` 为一级条件，其余为二级条件。一级条件不可以全部为空。
+> 如果 `page` 和 `page_size` 全为空，表明查询所有数据；`page` 为空但 `page_size` 不为空表明选择第一页数据。
 - 权限：本人/管理员
 - 响应：
 ```json
@@ -341,6 +342,7 @@
 
 ### 用户列表查询
 - 路径：`GET /api/users/`，参数：`page`、`page_size`（可选）
+- 参数意义与 `GET /api/submissions/` 一致
 - 权限：仅管理员
 - 响应：
 ```json
@@ -410,6 +412,7 @@
   - `problem_id` (str, 可选)：按题目筛选
   - `page` (int, 可选)：页码
   - `page_size` (int, 可选)：每页数量
+- 参数意义与 `GET /api/submissions/` 一致
 - 响应：
 ```json
 {
