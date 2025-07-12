@@ -396,7 +396,7 @@
 {
   "code": 200,
   "msg": "log visibility updated",
-  "data": {"problem_id": 1001, "public_cases": true}
+  "data": {"problem_id": "sum_3_numbers", "public_cases": true}
 }
 ```
 - 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 题目不存在
@@ -409,13 +409,14 @@
   - `problem_id` (str, 可选)：按题目筛选
   - `page` (int, 可选)：页码
   - `page_size` (int, 可选)：每页数量
+- `status` 记录这次访问状态
 - 响应：
 ```json
 {
   "code": 200,
   "msg": "success",
   "data": [
-    {"user_id": "1", "problem_id": 1001, "action": "view_log", "time": "2024-06-01T12:00:00"}
+    {"user_id": "test", "problem_id": "sum_3_numbers", "action": "view_log", "time": "2024-06-01", "status": "403"} // 这次访问用户无权限
   ]
 }
 ```
