@@ -93,7 +93,7 @@
 
 ### 查看题目信息
 - 路径：`GET /api/problems/{problem_id}`
-- 权限：公开
+- 权限：所有已登录用户
 - 响应：
 ```json
 {
@@ -214,7 +214,7 @@
   - `source_template` (str, 可选): 代码执行模板
   - `time_limit` (float, 可选): 默认单位为 "s"
   - `memory_limit` (int, 可选): 默认单位为 "MB"
-- 权限：仅管理员
+- 权限：所有已登录用户
 - 响应：
 ```json
 {"code": 200, "msg": "language registered", "data": {"name": "go"}}
@@ -258,7 +258,6 @@
 ### 用户登录
 - 路径：`POST /api/auth/login`
 - 参数：`username` (str, 必填), `password` (str, 必填)
-- 权限：公开
 - 响应：
 ```json
 {"code": 200, "msg": "login success", "data": {"user_id": "1", "username": "alice", "role": "user"}}
