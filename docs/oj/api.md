@@ -182,7 +182,7 @@
   "msg": "success",
   "data": 
   {
-    "total": 100, 
+    "total": 100, // 查询到的评测总数
     "submissions": 
     [
       // 如果 status 是 error / pending，则只需要返回 submission_id 和 status
@@ -349,7 +349,7 @@
   "msg": "success", 
   "data": 
   {
-    "total": 3,
+    "total": 3, // 查询到的用户总数
     "users": 
     [
       {"user_id": "1", "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},

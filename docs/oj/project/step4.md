@@ -124,7 +124,7 @@ async def login(request: Request):
   "msg": "success", 
   "data": 
   {
-    "total": 3, // 用户总数 
+    "total": 3, // 查询到的用户总数
     "users": 
     [
       {"user_id": "1", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
@@ -180,7 +180,7 @@ async def login(request: Request):
   "msg": "success", 
   "data": 
   {
-    "total": 3, // 用户总数
+    "total": 3, // 查询到的用户总数
     "users": 
     [
       {"user_id": "1", "username": "xiaoming", "join_time": "1924-08-17", "submit_count": 100, "resolve_count": 9},
