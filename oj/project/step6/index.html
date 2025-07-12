@@ -1238,7 +1238,7 @@
 <li><code>POST /api/import/</code> - 数据导入</li>
 <li>支持文件上传</li>
 <li>验证数据格式并导入到系统中</li>
-<li>处理重复数据和冲突情况</li>
+<li>处理重复数据和冲突情况（对于冲突数据，以新导入的为准）</li>
 </ul>
 <p><strong>文件上传实现提示：</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">UploadFile</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">HTTPException</span>
