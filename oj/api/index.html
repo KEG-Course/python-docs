@@ -1993,7 +1993,7 @@
 <li>路径：<code>GET /api/submissions/</code></li>
 <li>参数：<code>user_id</code>、<code>problem_id</code>、<code>status</code>、<code>page</code>、<code>page_size</code><blockquote>
 <p>这五个参数均可选，其中 <code>user_id</code>、<code>problem_id</code> 为一级条件，其余为二级条件。一级条件不可以全部为空。
-如果 <code>page</code> 和 <code>page_size</code> 全为空，表明查询所有数据；<code>page</code> 为空但 <code>page_size</code> 不为空表明选择第一页数据。</p>
+如果 <code>page</code> 和 <code>page_size</code> 全为空，表明查询所有数据；<code>page</code> 为空但 <code>page_size</code> 不为空表明选择第一页数据；需要认为 <code>page</code> 非空但 <code>page_size</code> 为空的情况属于参数错误。</p>
 </blockquote>
 </li>
 <li>权限：本人/管理员</li>
