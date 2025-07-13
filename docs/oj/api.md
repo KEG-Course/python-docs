@@ -450,6 +450,7 @@
       {
         "user_id": "1", 
         "username": "admin", 
+        "password": "hash of the password here, cannot be plaintext, should be able to be imported back.",
         "role": "admin",
         "join_time": "2024-01-01",
         "submit_count": 100,
@@ -496,7 +497,7 @@
 - 异常：403 用户无权限 / 500 服务器异常
 
 ### 数据导入
-- 路径：`POST /api/import/`，参数：`file` (上传)
+- 路径：`POST /api/import/`，参数：`file` (上传)，内容就是`/api/export`导出的格式。
 - 权限：仅管理员
 - 响应：
 ```json
