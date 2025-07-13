@@ -1211,6 +1211,7 @@
 <p><strong>API 实现要求：</strong></p>
 <ul>
 <li><code>POST /api/reset/</code> - 系统重置</li>
+<li>注意，<code>Step 6</code> 中，题目可见性属于题目的属性</li>
 <li>清空所有用户、题目、提交等数据，以及退出当前登录状态</li>
 <li>重新创建初始管理员账户（<code>admin</code> / <code>admintestpassword</code>）</li>
 </ul>
@@ -1218,11 +1219,12 @@
 <h3 id="2">任务 2：数据导出功能<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>导出格式</strong>：导出为 JSON 格式。</li>
-<li><strong>数据完整性</strong>：包含用户、题目、提交等核心数据。</li>
+<li><strong>数据完整性</strong>：包含用户、题目、提交。</li>
 </ul>
 <p><strong>API 实现要求：</strong></p>
 <ul>
 <li><code>GET /api/export/</code> - 数据导出</li>
+<li>注意，<code>Step 6</code> 中，题目可见性属于题目的属性</li>
 <li>返回固定格式的 JSON 数据</li>
 <li>包含 users、problems、submissions 等数据的结构</li>
 <li>用户导出的时候包含密码的哈希，这一步不允许明文存储密码。建议使用加盐哈希，详见step4的要求。</li>
@@ -1354,7 +1356,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (23.86%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (76.14%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (26.67%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (73.33%)</span>
       </small>
     </div>
   
