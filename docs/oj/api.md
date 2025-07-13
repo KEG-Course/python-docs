@@ -373,7 +373,7 @@
   "code": 200, 
   "msg": "success", 
   "data": {
-    "status": [
+    "result": [
     {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
     {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
     {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
@@ -383,7 +383,7 @@
   }
 }
 ```
-- 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 题目不存在
+- 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 评测不存在
 
 ### 配置日志/测例可见性
 - 路径：`PUT /api/problems/{problem_id}/log_visibility`
@@ -483,7 +483,7 @@
         "problem_id": "sum_2",
         "language": "python",
         "code": "a, b = map(int, input().split())\nprint(a + b)",
-        "status": [
+        "result": [
           {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
           {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
         ],
