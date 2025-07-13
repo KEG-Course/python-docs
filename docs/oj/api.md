@@ -373,7 +373,7 @@
   "code": 200, 
   "msg": "success", 
   "data": {
-    "result": [
+    "details": [
     {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
     {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
     {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
@@ -483,7 +483,7 @@
         "problem_id": "sum_2",
         "language": "python",
         "code": "a, b = map(int, input().split())\nprint(a + b)",
-        "result": [
+        "details": [
           {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
           {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
         ],
