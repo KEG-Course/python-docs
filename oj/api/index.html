@@ -1908,7 +1908,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;delete success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_2&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：401 未登录 (Step 4) / 404 题目不存在</li>
+<li>异常：401 未登录 (Step 4) / 403 权限不足 / 404 题目不存在</li>
 </ul>
 <h3 id="_6">查看题目信息<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1947,7 +1947,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：401 未登录 (Step4) / 404 题目不存在</li>
+<li>异常：401 未登录 (Step4) / 403 权限不足 / 404 题目不存在</li>
 <li>默认字段需要返回本类型默认值，比如 <code>str</code> 类需返回 <code>""</code>，<code>list</code> 类需返回 <code>[]</code></li>
 </ul>
 <hr />
@@ -1970,7 +1970,7 @@
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400 参数错误 / 403 用户被禁用 / 404 题目不存在 / 429 提交频率超限</li>
+<li>异常：400 参数错误 / 403 权限不足 / 404 题目不存在 / 429 提交频率超限</li>
 </ul>
 <h3 id="_8">查询评测结果<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1986,7 +1986,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：404 评测不存在 / 403 权限不足</li>
+<li>异常：403 权限不足 / 404 评测不存在</li>
 </ul>
 <h3 id="_9">查询评测列表<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2022,7 +2022,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rejudge started&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：404 评测不存在 / 403 权限不足</li>
+<li>异常：403 权限不足 / 404 评测不存在</li>
 </ul>
 <h3 id="step-2">动态注册新语言 (Step 2)<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2099,7 +2099,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_admin&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：400 用户名已存在/参数错误 / 403 用户无权限</li>
+<li>异常：400 用户名已存在 &amp; 参数错误 / 403 用户无权限</li>
 </ul>
 <h3 id="_14">用户注册<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <ul>
