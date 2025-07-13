@@ -1829,6 +1829,11 @@
 <td>缺少/错误参数</td>
 </tr>
 <tr>
+<td>401</td>
+<td>未登录</td>
+<td>窃取 API 参数</td>
+</tr>
+<tr>
 <td>403</td>
 <td>权限不足/禁用</td>
 <td>banned 用户/无权限</td>
@@ -1852,6 +1857,7 @@
 </table>
 <p>说明：</p>
 <ul>
+<li>API 异常处理顺序为 <strong>401 &gt; 403 &gt; 400 &gt; 429 &gt; 404 &gt; 500</strong></li>
 <li>所有 API 接口的 JSON 响应都必须包含 <code>code</code> 字段，该字段的值应与 HTTP 状态码保持一致</li>
 <li>服务器必须设置对应的 HTTP 状态码（不能全部返回 200）</li>
 <li>错误响应格式应该类似：
@@ -1970,7 +1976,7 @@
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400 参数错误 / 403 权限不足 / 404 题目不存在 / 429 提交频率超限</li>
+<li>异常：400 参数错误 / 401 未登录 (Step 4) / 403 权限不足 / 404 题目不存在 / 429 提交频率超限</li>
 </ul>
 <h3 id="_8">查询评测结果<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1986,7 +1992,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：403 权限不足 / 404 评测不存在</li>
+<li>异常：401 未登录 (Step 4) / 403 权限不足 / 404 评测不存在</li>
 </ul>
 <h3 id="_9">查询评测列表<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2022,7 +2028,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rejudge started&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pending&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：403 权限不足 / 404 评测不存在</li>
+<li>异常：401 未登录 (Step 4) / 403 权限不足 / 404 评测不存在</li>
 </ul>
 <h3 id="step-2">动态注册新语言 (Step 2)<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2040,7 +2046,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language registered&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;go&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
 <li>
-<p>异常：400 参数错误 / 403 用户无权限</p>
+<p>异常：400 参数错误 / 401 未登录 (Step 4) / 403 用户无权限</p>
 </li>
 <li>
 <p>示例：
@@ -2099,7 +2105,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_admin&quot;</span><span class="p">}}</span>
 </code></pre></div></li>
-<li>异常：400 用户名已存在 &amp; 参数错误 / 403 用户无权限</li>
+<li>异常：400 用户名已存在 &amp; 参数错误 / 401 未登录 (Step 4) / 403 用户无权限</li>
 </ul>
 <h3 id="_14">用户注册<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2122,7 +2128,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400 用户名已存在 / 参数错误</li>
+<li>异常：400 用户名已存在 &amp; 参数错误 / 401 未登录 (Step 4)</li>
 </ul>
 <h3 id="_15">查询用户信息<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2404,7 +2410,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.86%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.14%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.93%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.07%)</span>
       </small>
     </div>
   
