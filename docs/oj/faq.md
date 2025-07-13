@@ -2,6 +2,34 @@
 
 > 此处收集 OJ 系统实验常见问题，持续补充中
 
+## API 要求返回 `400`，但是 FastAPI 默认返回 `422`？
+
+可添加中间件解决~参考
+
+```
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class TestModel(BaseModel):
+    name: str
+    age: int
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=400,
+        content={"detail": "Request body has validation errors", "errors": exc.errors()},
+    )
+
+@app.post("/items/")
+async def create_item(item: TestModel):
+    return item
+```
+
 ## 评测日志中，测例详情是什么？
 
 请大家区分一次评测和一个测例。测例是指 `test case`，即评测时的一组输入输出。一次评测中，评测结果类似
