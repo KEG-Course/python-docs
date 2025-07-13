@@ -2249,7 +2249,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system reset successfully&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
 </code></pre></div></li>
-<li>异常：403 权限不足</li>
+<li>异常：401 用户未登录 / 403 权限不足</li>
 <li>说明：清空所有数据，重置系统到初始状态。在测试环境中可能不需要管理员权限。</li>
 </ul>
 <h3 id="_22">数据导出<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
@@ -2309,7 +2309,7 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
-<li>异常：403 用户无权限 / 500 服务器异常</li>
+<li>异常：401 用户未登录 / 403 用户无权限 / 500 服务器异常</li>
 </ul>
 <h3 id="_23">数据导入<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2318,7 +2318,7 @@
 <li>响应：
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;import success&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span>
 </code></pre></div></li>
-<li>异常：400 参数错误 / 403 用户无权限 / 500 服务器异常</li>
+<li>异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 500 服务器异常</li>
 </ul>
 <hr />
 <h2 id="6-advance">6. 高级功能接口 (Advance)<a class="headerlink" href="#6-advance" title="Permanent link">&para;</a></h2>
@@ -2404,7 +2404,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.68%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.32%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (80.86%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (19.14%)</span>
       </small>
     </div>
   

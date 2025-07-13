@@ -1010,6 +1010,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#api-400-fastapi-422" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 要求返回 400，但是 FastAPI 默认返回 422？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       评测日志中，测例详情是什么？
@@ -1184,6 +1193,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#api-400-fastapi-422" class="md-nav__link">
+    <span class="md-ellipsis">
+      API 要求返回 400，但是 FastAPI 默认返回 422？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       评测日志中，测例详情是什么？
@@ -1293,6 +1311,30 @@
 <blockquote>
 <p>此处收集 OJ 系统实验常见问题，持续补充中</p>
 </blockquote>
+<h2 id="api-400-fastapi-422">API 要求返回 <code>400</code>，但是 FastAPI 默认返回 <code>422</code>？<a class="headerlink" href="#api-400-fastapi-422" title="Permanent link">&para;</a></h2>
+<p>可添加中间件解决~参考</p>
+<div class="highlight"><pre><span></span><code>from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class TestModel(BaseModel):
+    name: str
+    age: int
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=400,
+        content={&quot;detail&quot;: &quot;Request body has validation errors&quot;, &quot;errors&quot;: exc.errors()},
+    )
+
+@app.post(&quot;/items/&quot;)
+async def create_item(item: TestModel):
+    return item
+</code></pre></div>
 <h2 id="_1">评测日志中，测例详情是什么？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>请大家区分一次评测和一个测例。测例是指 <code>test case</code>，即评测时的一组输入输出。一次评测中，评测结果类似</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;submissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
