@@ -1857,7 +1857,7 @@
 </table>
 <p>说明：</p>
 <ul>
-<li>API 异常处理顺序为 <strong>401 &gt; 403 &gt; 400 &gt; 429 &gt; 404 &gt; 500</strong></li>
+<li>API 异常处理顺序为 <strong>401 &gt; 403 &gt; 400 &gt; 429 &gt; 409 &gt; 404 &gt; 500</strong></li>
 <li>所有 API 接口的 JSON 响应都必须包含 <code>code</code> 字段，该字段的值应与 HTTP 状态码保持一致</li>
 <li>服务器必须设置对应的 HTTP 状态码（不能全部返回 200）</li>
 <li>错误响应格式应该类似：

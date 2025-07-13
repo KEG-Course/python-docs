@@ -1102,6 +1102,15 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
+      如何获取内存用量？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
       [其他] 常见问题与解答
     </span>
   </a>
@@ -1285,6 +1294,15 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
+      如何获取内存用量？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
       [其他] 常见问题与解答
     </span>
   </a>
@@ -1397,7 +1415,40 @@ async def create_item(item: TestModel):
 <li>报告建议为 PDF，结构清晰，图文并茂。</li>
 <li>需保证代码/报告/演示内容一致，严禁抄袭。</li>
 </ul>
-<h2 id="_6">[其他] 常见问题与解答<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">如何获取内存用量？<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>参考如下代码</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">monitor_memory</span><span class="p">(</span><span class="n">proc</span><span class="p">,</span> <span class="n">mem_limit_mb</span><span class="p">,</span> <span class="n">result_holder</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">proc</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mem_usage</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">memory_info</span><span class="p">()</span><span class="o">.</span><span class="n">rss</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># in MB</span>
+        <span class="k">if</span> <span class="n">mem_usage</span> <span class="o">&gt;</span> <span class="n">mem_limit_mb</span><span class="p">:</span>
+            <span class="n">proc</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+            <span class="n">result_holder</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;MLE&quot;</span>
+            <span class="k">return</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">result_holder</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+
+<span class="k">def</span> <span class="nf">run_user_code</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">mem_limit_mb</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">):</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">result_holder</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">}</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">monitor_memory</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">proc</span><span class="p">,</span> <span class="n">mem_limit_mb</span><span class="p">,</span> <span class="n">result_holder</span><span class="p">))</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">proc</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout_sec</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+        <span class="n">proc</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+        <span class="n">result_holder</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TLE&quot;</span>
+
+    <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">result_holder</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_7">[其他] 常见问题与解答<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Q: 有参考模板吗？</li>
 <li>A: 请见<a href="https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template">仓库</a>，如权限问题请联系助教。</li>
