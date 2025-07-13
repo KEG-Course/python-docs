@@ -376,7 +376,7 @@
   "code": 200, 
   "msg": "success", 
   "data": {
-    "details": [ // 管理员可见；仅当该评测对应问题 public_cases 设置为 True 时用户可见
+    "details": [
       {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
       {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
       {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
