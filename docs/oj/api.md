@@ -206,12 +206,12 @@
 
 ### 动态注册新语言 (Step 2)
 - 路径：`POST /api/languages/`
+- 请注意，语言的 `time_limit` 和 `memory_limit` 作为题目限制的默认值，如果题目未设限则使用语言限制。题目限制优先级大于语言。
 - 参数：
   - `name` (str, 必填): 语言名称
   - `file_ext` (str, 必填): 代码文件扩展名
   - `compile_cmd` (str, 可选): 编译命令
   - `run_cmd` (str, 必填): 运行命令
-  - `source_template` (str, 可选): 代码执行模板
   - `time_limit` (float, 可选): 默认单位为 "s"
   - `memory_limit` (int, 可选): 默认单位为 "MB"
 - 权限：所有已登录用户
@@ -228,7 +228,6 @@
   "file_ext": ".cpp",
   "compile_cmd": "g++ {src} -o {exe} -O2 -std=c++17",
   "run_cmd": "{exe}",
-  "source_template": "{code}",
   "time_limit": 1.0,
   "memory_limit": 128
 }
@@ -238,7 +237,6 @@
   "name": "python",
   "file_ext": ".py",
   "run_cmd": "python3 {src}",
-  "source_template": "{code}",
   "time_limit": 1.0,
   "memory_limit": 128
 }
