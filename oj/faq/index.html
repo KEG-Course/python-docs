@@ -1010,6 +1010,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      评测日志中，测例详情是什么？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux-macos-windows" class="md-nav__link">
     <span class="md-ellipsis">
       同学们的操作系统有 linux, macos, windows，最终评测应该如何进行呢？
@@ -1028,7 +1037,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       [仓库] 如何将自己的仓库与助教提供的示例仓库关联，及时拉取最新更新？
     </span>
@@ -1055,7 +1064,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       [评测] 评测流程和判题标准有哪些注意事项？
     </span>
@@ -1064,7 +1073,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       [权限] 用户权限和接口访问控制说明
     </span>
@@ -1073,7 +1082,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       [实验要求] 代码/报告/演示提交注意事项
     </span>
@@ -1082,7 +1091,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       [其他] 常见问题与解答
     </span>
@@ -1175,6 +1184,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      评测日志中，测例详情是什么？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux-macos-windows" class="md-nav__link">
     <span class="md-ellipsis">
       同学们的操作系统有 linux, macos, windows，最终评测应该如何进行呢？
@@ -1193,7 +1211,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       [仓库] 如何将自己的仓库与助教提供的示例仓库关联，及时拉取最新更新？
     </span>
@@ -1220,7 +1238,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       [评测] 评测流程和判题标准有哪些注意事项？
     </span>
@@ -1229,7 +1247,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       [权限] 用户权限和接口访问控制说明
     </span>
@@ -1238,7 +1256,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       [实验要求] 代码/报告/演示提交注意事项
     </span>
@@ -1247,7 +1265,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       [其他] 常见问题与解答
     </span>
@@ -1275,11 +1293,36 @@
 <blockquote>
 <p>此处收集 OJ 系统实验常见问题，持续补充中</p>
 </blockquote>
+<h2 id="_1">评测日志中，测例详情是什么？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>请大家区分一次评测和一个测例。测例是指 <code>test case</code>，即评测时的一组输入输出。一次评测中，评测结果类似</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;submissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;submission_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;problem_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sum_2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a, b = map(int, input().split())\nprint(a + b)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;counts&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>其中，一个测例是指 <code>{"id": 1, "result": "AC", "time": 1.01, "memory": 130}</code>，测例详情即为</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AC&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.01</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div>
+<p>如果用户不可见，评测时不返回此字段即可。</p>
 <h2 id="linux-macos-windows">同学们的操作系统有 <code>linux</code>, <code>macos</code>, <code>windows</code>，最终评测应该如何进行呢？<a class="headerlink" href="#linux-macos-windows" title="Permanent link">&para;</a></h2>
 <p>最终评分会结合 <code>linux</code> 自动评测及线下人工评测，因此需要大家适配 <code>linux</code> 风格指令。使用 <code>macos</code> 的同学可以兼容所有评测会用到的 <code>linux</code> 指令，使用 windows 的同学建议使用 <code>WSL</code> 虚拟化容器。安装请参考 <a href="https://docs.eesast.com/docs/tools/wsl">WSL 安装文档</a>，使用请参考 <a href="https://www.runoob.com/linux/linux-command-manual.html">RUNOOB Linux 教程</a>。<strong>也推荐大家使用生成式人工智能查询 Linux 操作，本次大作业基本只会用到 <code>g++</code>, <code>python</code> 等常用指令</strong></p>
 <h2 id="pending-success-error-ac-wa">如何理解评测状态的 [pending, success, error] 与测试点结果的 [AC, WA, ...] 之间关系？<a class="headerlink" href="#pending-success-error-ac-wa" title="Permanent link">&para;</a></h2>
 <p>请区分两种状态，一种是一个 submission 的状态，一种是评测点结果的状态。提交的时刻，评测并未完成，返回一定是 <code>pending</code>；一个用户提交了评测，然后这个时候用户立刻查询评测列表，这时可能评测完成或者未完成，所以在查询评测列表的时候会有多种评测状态。</p>
-<h2 id="_1">[仓库] 如何将自己的仓库与助教提供的示例仓库关联，及时拉取最新更新？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">[仓库] 如何将自己的仓库与助教提供的示例仓库关联，及时拉取最新更新？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>请参考 <a href="../gitpull/">仓库拉取教程</a></p>
 <h2 id="python">[环境] Python/依赖环境如何配置？<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1293,26 +1336,26 @@
 <li>推荐使用 Postman、curl 或 httpie 进行本地 API 测试。</li>
 <li>注意接口权限（如部分接口需登录/管理员权限）。</li>
 </ul>
-<h2 id="_2">[评测] 评测流程和判题标准有哪些注意事项？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">[评测] 评测流程和判题标准有哪些注意事项？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>评测需严格按照题目输入输出格式，不能有多余提示语。</li>
 <li>支持多语言评测，需动态注册语言时请参考 API 文档。</li>
 <li>评测时需限制运行时间、内存，超限应返回 TLE/MLE。</li>
 <li>日志接口可用于调试和查看评测详情。</li>
 </ul>
-<h2 id="_3">[权限] 用户权限和接口访问控制说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">[权限] 用户权限和接口访问控制说明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>普通用户仅能访问/操作自己的评测、信息、日志。</li>
 <li>管理员可管理所有用户、题目、评测、日志等。</li>
 <li>权限不足时接口会返回 403。</li>
 </ul>
-<h2 id="_4">[实验要求] 代码/报告/演示提交注意事项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">[实验要求] 代码/报告/演示提交注意事项<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>代码需结构清晰、注释规范，按要求提交至指定仓库。</li>
 <li>报告建议为 PDF，结构清晰，图文并茂。</li>
 <li>需保证代码/报告/演示内容一致，严禁抄袭。</li>
 </ul>
-<h2 id="_5">[其他] 常见问题与解答<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">[其他] 常见问题与解答<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Q: 有参考模板吗？</li>
 <li>A: 请见<a href="https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template">仓库</a>，如权限问题请联系助教。</li>
@@ -1348,7 +1391,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月11日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月13日</span>
   </span>
 
     
