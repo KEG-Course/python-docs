@@ -198,6 +198,7 @@
 
 ### 重新评测
 - 路径：`PUT /api/submissions/{submission_id}/rejudge`
+- 重新评测需覆盖原 `submission_id` 对应的内容
 - 权限：仅管理员
 - 参数：无（URL 路径参数：`submission_id`）
 - 响应：
