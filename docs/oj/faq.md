@@ -106,6 +106,43 @@ async def create_item(item: TestModel):
 - 报告建议为 PDF，结构清晰，图文并茂。
 - 需保证代码/报告/演示内容一致，严禁抄袭。
 
+## 如何获取内存用量？
+
+参考如下代码
+
+```python
+import subprocess
+import psutil
+import threading
+import time
+
+def monitor_memory(proc, mem_limit_mb, result_holder):
+    p = psutil.Process(proc.pid)
+    while proc.poll() is None:
+        mem_usage = p.memory_info().rss / (1024 ** 2)  # in MB
+        if mem_usage > mem_limit_mb:
+            proc.kill()
+            result_holder["status"] = "MLE"
+            return
+        time.sleep(0.05)
+    result_holder["status"] = "OK"
+
+def run_user_code(cmd, mem_limit_mb, timeout_sec):
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result_holder = {"status": "OK"}
+    t = threading.Thread(target=monitor_memory, args=(proc, mem_limit_mb, result_holder))
+    t.start()
+
+    try:
+        proc.wait(timeout=timeout_sec)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        result_holder["status"] = "TLE"
+
+    t.join()
+    return result_holder["status"]
+```
+
 ## [其他] 常见问题与解答
 
 - Q: 有参考模板吗？
