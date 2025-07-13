@@ -374,9 +374,9 @@
   "msg": "success", 
   "data": {
     "details": [
-    {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
-    {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
-    {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
+      {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+      {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
+      {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
     ],
     "score": 10,
     "counts": 30, // 总分数
