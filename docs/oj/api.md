@@ -388,11 +388,11 @@
 ```
 - 异常：400 参数错误 / 401 用户未登录 / 403 用户无权限 / 404 评测不存在
 
-### 配置日志/测例可见性
+### 配置日志可见性
 - 路径：`PUT /api/problems/{problem_id}/log_visibility`
 - 权限：仅管理员
 - 参数：
-  - `public_cases` (bool，选填，默认为 False): 是否允许有权限非管理员用户查看测例详情
+  - `public_cases` (bool，选填，默认为 False): 日志是否向所有人公开
 - 响应：
 ```json
 {
