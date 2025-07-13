@@ -33,6 +33,7 @@
 - `GET /api/export/` - 数据导出
 - 返回固定格式的 JSON 数据
 - 包含 users、problems、submissions 等数据的结构
+- 用户导出的时候包含密码的哈希，这一步不允许明文存储密码。建议使用加盐哈希，详见step4的要求。
 
 ---
 
