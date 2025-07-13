@@ -2,6 +2,39 @@
 
 > 此处收集 OJ 系统实验常见问题，持续补充中
 
+## 评测日志中，测例详情是什么？
+
+请大家区分一次评测和一个测例。测例是指 `test case`，即评测时的一组输入输出。一次评测中，评测结果类似
+
+```json
+"submissions": [
+  {
+    "submission_id": "1",
+    "user_id": "1",
+    "problem_id": "sum_2",
+    "language": "python",
+    "code": "a, b = map(int, input().split())\nprint(a + b)",
+    "details": [
+      {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+      {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
+    ],
+    "score": 100,
+    "counts": 100,
+  }
+]
+```
+
+其中，一个测例是指 `{"id": 1, "result": "AC", "time": 1.01, "memory": 130}`，测例详情即为
+
+```json
+"details": [
+  {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
+  {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
+],
+```
+
+如果用户不可见，评测时不返回此字段即可。
+
 ## 同学们的操作系统有 `linux`, `macos`, `windows`，最终评测应该如何进行呢？
 
 最终评分会结合 `linux` 自动评测及线下人工评测，因此需要大家适配 `linux` 风格指令。使用 `macos` 的同学可以兼容所有评测会用到的 `linux` 指令，使用 windows 的同学建议使用 `WSL` 虚拟化容器。安装请参考 [WSL 安装文档](https://docs.eesast.com/docs/tools/wsl)，使用请参考 [RUNOOB Linux 教程](https://www.runoob.com/linux/linux-command-manual.html)。**也推荐大家使用生成式人工智能查询 Linux 操作，本次大作业基本只会用到 `g++`, `python` 等常用指令**
