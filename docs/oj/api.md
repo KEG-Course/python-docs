@@ -369,14 +369,14 @@
 
 ### 查询评测日志
 - 路径：`GET /api/submissions/{submission_id}/log`
-- 权限：仅本人或管理员
+- 权限：仅本人（如果没有公开）或管理员
 - 响应：
 ```json
 {
   "code": 200, 
   "msg": "success", 
   "data": {
-    "details": [
+    "details": [ // 管理员可见 details；仅当该评测对应问题 public_cases 设置为 True 时用户可见
       {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
       {"id": 2, "result": "TLE", "time": 1.01, "memory": 130},
       {"id": 3, "result": "MLE", "time": 1.01, "memory": 130},
