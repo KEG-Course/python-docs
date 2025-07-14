@@ -1374,27 +1374,27 @@
 </code></pre></div>
 <h2 id="api-400-fastapi-422">API 要求返回 <code>400</code>，但是 FastAPI 默认返回 <code>422</code>？<a class="headerlink" href="#api-400-fastapi-422" title="Permanent link">&para;</a></h2>
 <p>可添加中间件解决~ 参考</p>
-<div class="highlight"><pre><span></span><code>from fastapi import FastAPI, Request
-from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
+<span class="kn">from</span> <span class="nn">fastapi.exceptions</span> <span class="kn">import</span> <span class="n">RequestValidationError</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">JSONResponse</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
-app = FastAPI()
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
-class TestModel(BaseModel):
-    name: str
-    age: int
+<span class="k">class</span> <span class="nc">TestModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
 
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    return JSONResponse(
-        status_code=400,
-        content={&quot;detail&quot;: &quot;Request body has validation errors&quot;, &quot;errors&quot;: exc.errors()},
-    )
+<span class="nd">@app</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">RequestValidationError</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">validation_exception_handler</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="n">RequestValidationError</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+        <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;Request body has validation errors&quot;</span><span class="p">,</span> <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="n">exc</span><span class="o">.</span><span class="n">errors</span><span class="p">()},</span>
+    <span class="p">)</span>
 
-@app.post(&quot;/items/&quot;)
-async def create_item(item: TestModel):
-    return item
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">TestModel</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
 <h2 id="_1">评测日志中，测例详情是什么？<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>请大家区分一次评测和一个测例。测例是指 <code>test case</code>，即评测时的一组输入输出。一次评测中，评测结果类似</p>
