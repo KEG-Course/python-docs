@@ -228,7 +228,7 @@
 {
   "name": "cpp",
   "file_ext": ".cpp",
-  "compile_cmd": "g++ {src} -o {exe} -O2 -std=c++17", // 请注意，这里的 src 和 exe 需要是路径（如 test.cpp 不是路径，但是 ./test.cpp 或 /root/test.cpp 是路径）
+  "compile_cmd": "g++ {src} -o {exe}", // 请注意，这里的 src 和 exe 需要是路径（如 test.cpp 不是路径，但是 ./test.cpp 或 /root/test.cpp 是路径）
   "run_cmd": "{exe}",
   "time_limit": 1.0,
   "memory_limit": 128
