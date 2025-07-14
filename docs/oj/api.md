@@ -209,7 +209,6 @@
 
 ### 动态注册新语言 (Step 2)
 - 路径：`POST /api/languages/`
-- 请注意，语言的 `time_limit` 和 `memory_limit` 作为题目限制的默认值，如果题目未设限则使用语言限制。题目限制优先级大于语言。
 - 参数：
   - `name` (str, 必填): 语言名称
   - `file_ext` (str, 必填): 代码文件扩展名
