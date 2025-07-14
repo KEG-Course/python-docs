@@ -1010,6 +1010,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fastapi-422" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastAPI 的参数校验在实际逻辑之前，导致 422 会比其他错误优先？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-400-fastapi-422" class="md-nav__link">
     <span class="md-ellipsis">
       API 要求返回 400，但是 FastAPI 默认返回 422？
@@ -1202,6 +1211,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fastapi-422" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastAPI 的参数校验在实际逻辑之前，导致 422 会比其他错误优先？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-400-fastapi-422" class="md-nav__link">
     <span class="md-ellipsis">
       API 要求返回 400，但是 FastAPI 默认返回 422？
@@ -1329,8 +1347,33 @@
 <blockquote>
 <p>此处收集 OJ 系统实验常见问题，持续补充中</p>
 </blockquote>
+<h2 id="fastapi-422">FastAPI 的参数校验在实际逻辑之前，导致 <code>422</code> 会比其他错误优先？<a class="headerlink" href="#fastapi-422" title="Permanent link">&para;</a></h2>
+<p>可使用 <code>Depends</code> 解决~ 参考</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Request</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.routing</span> <span class="kn">import</span> <span class="n">APIRouter</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">ProblemModel</span>
+<span class="kn">from</span> <span class="nn">services</span> <span class="kn">import</span> <span class="n">auth</span><span class="p">,</span> <span class="n">problem_ops</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">()</span>
+
+<span class="nd">@router</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/problems/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">router_add_problem</span><span class="p">(</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
+    <span class="n">current_user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">auth</span><span class="o">.</span><span class="n">get_current_user</span><span class="p">),</span> <span class="c1"># !!!!</span>
+<span class="p">):</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">body_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        <span class="n">problem</span> <span class="o">=</span> <span class="n">ProblemModel</span><span class="p">(</span><span class="o">**</span><span class="n">body_data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Invalid body: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">problem_ops</span><span class="o">.</span><span class="n">file_save_problem</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">problem</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;add success&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">problem</span><span class="o">.</span><span class="n">id</span><span class="p">}}</span>
+</code></pre></div>
 <h2 id="api-400-fastapi-422">API 要求返回 <code>400</code>，但是 FastAPI 默认返回 <code>422</code>？<a class="headerlink" href="#api-400-fastapi-422" title="Permanent link">&para;</a></h2>
-<p>可添加中间件解决~参考</p>
+<p>可添加中间件解决~ 参考</p>
 <div class="highlight"><pre><span></span><code>from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -1484,7 +1527,7 @@ async def create_item(item: TestModel):
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月13日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年7月14日</span>
   </span>
 
     
