@@ -2,9 +2,39 @@
 
 > 此处收集 OJ 系统实验常见问题，持续补充中
 
+## FastAPI 的参数校验在实际逻辑之前，导致 `422` 会比其他错误优先？
+
+可使用 `Depends` 解决~ 参考
+
+```python
+from fastapi import Request, Depends, HTTPException, status
+from fastapi.routing import APIRouter
+import json
+from models import ProblemModel
+from services import auth, problem_ops
+
+router = APIRouter()
+
+@router.post("/api/problems/")
+async def router_add_problem(
+    request: Request,
+    current_user=Depends(auth.get_current_user), # !!!!
+):
+    body = await request.body()
+    try:
+        body_data = json.loads(body)
+        problem = ProblemModel(**body_data)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid body: {e}")
+
+    await problem_ops.file_save_problem(problem.id, problem.model_dump())
+    return {"code": 200, "msg": "add success", "data": {"id": problem.id}}
+```
+
+
 ## API 要求返回 `400`，但是 FastAPI 默认返回 `422`？
 
-可添加中间件解决~参考
+可添加中间件解决~ 参考
 
 ```
 from fastapi import FastAPI, Request
