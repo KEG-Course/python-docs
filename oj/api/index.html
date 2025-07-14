@@ -1999,7 +1999,8 @@
 <li>路径：<code>GET /api/submissions/</code></li>
 <li>参数：<code>user_id</code>、<code>problem_id</code>、<code>status</code>、<code>page</code>、<code>page_size</code><blockquote>
 <p>这五个参数均可选，其中 <code>user_id</code>、<code>problem_id</code> 为一级条件，其余为二级条件。一级条件不可以全部为空。
-如果 <code>page</code> 和 <code>page_size</code> 全为空，表明查询所有数据；<code>page</code> 为空但 <code>page_size</code> 不为空表明选择第一页数据；需要认为 <code>page</code> 非空但 <code>page_size</code> 为空的情况属于参数错误。</p>
+如果 <code>page</code> 和 <code>page_size</code> 全为空，表明查询所有数据；<code>page</code> 为空但 <code>page_size</code> 不为空表明选择第一页数据；需要认为 <code>page</code> 非空但 <code>page_size</code> 为空的情况属于参数错误。
+如果未提供 <code>user_id</code>，那么管理员可查看此问题所有同学的记录，普通用户尽可查看此题自己的提交记录。</p>
 </blockquote>
 </li>
 <li>权限：本人/管理员</li>
@@ -2412,7 +2413,7 @@
   
     <div class="md-source-date">
       <small>
-          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (81.01%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (18.99%)</span>
+          作者：<span class='git-page-authors git-authors'><a href='mailto:364504829@qq.com'>Haoran Wang</a> (81.04%), <a href='mailto:bjhansen2012@outlook.com'>zhc7</a> (18.96%)</span>
       </small>
     </div>
   
