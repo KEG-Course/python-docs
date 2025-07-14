@@ -486,6 +486,7 @@
         "problem_id": "sum_2",
         "language": "python",
         "code": "a, b = map(int, input().split())\nprint(a + b)",
+        "status": "success",
         "details": [
           {"id": 1, "result": "AC", "time": 1.01, "memory": 130},
           {"id": 2, "result": "AC", "time": 1.01, "memory": 130}
