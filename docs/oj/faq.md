@@ -36,7 +36,7 @@ async def router_add_problem(
 
 可添加中间件解决~ 参考
 
-```
+```python
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
