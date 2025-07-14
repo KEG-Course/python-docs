@@ -177,6 +177,7 @@
 - 参数：`user_id`、`problem_id`、`status`、`page`、`page_size`
 > 这五个参数均可选，其中 `user_id`、`problem_id` 为一级条件，其余为二级条件。一级条件不可以全部为空。
 > 如果 `page` 和 `page_size` 全为空，表明查询所有数据；`page` 为空但 `page_size` 不为空表明选择第一页数据；需要认为 `page` 非空但 `page_size` 为空的情况属于参数错误。
+> 如果未提供 `user_id`，那么管理员可查看此问题所有同学的记录，普通用户尽可查看此题自己的提交记录。
 - 权限：本人/管理员
 - 响应：
 ```json
