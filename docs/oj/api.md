@@ -477,7 +477,8 @@
         "time_limit": 1.0,
         "memory_limit": 128,
         "author": "",
-        "difficulty": ""
+        "difficulty": "",
+        "public_cases": True // 注意 public_cases 是 problem 的属性
       }
     ],
     "submissions": [
