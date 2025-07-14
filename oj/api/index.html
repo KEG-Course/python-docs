@@ -2053,7 +2053,7 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cpp&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;file_ext&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;.cpp&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;compile_cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g++ {src} -o {exe} -O2 -std=c++17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;compile_cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;g++ {src} -o {exe} -O2 -std=c++17&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 请注意，这里的 src 和 exe 需要是路径（如 test.cpp 不是路径，但是 ./test.cpp 或 /root/test.cpp 是路径）</span>
 <span class="w">  </span><span class="nt">&quot;run_cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{exe}&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;time_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;memory_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span>
