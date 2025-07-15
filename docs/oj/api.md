@@ -414,6 +414,7 @@
   - `page` (int, 可选)：页码
   - `page_size` (int, 可选)：每页数量
 - 参数意义与 `GET /api/submissions/` 一致
+- 请注意，这里的 `action` 只有 `view_logs` 一个操作
 - 响应：
 ```json
 {
