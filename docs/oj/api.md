@@ -301,8 +301,8 @@
     "username": "xiaogang",
     "join_time": "2012-07-14", 
     "role": "user",
-    "submit_count": 0, 
-    "resolve_count": 0
+    "submit_count": 0,  // 用户提交数（按提交算，一个 problem 可贡献多次）
+    "resolve_count": 0 // 用户通过数（按题目算，一个 problem 最多贡献一次）
   }
 }
 ```
