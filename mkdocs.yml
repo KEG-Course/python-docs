@@ -22,23 +22,23 @@ nav:
     - 评分标准: crawler/requirements.md
     - FAQ: crawler/faq.md
 
- - 实验二：在线评测系统:
-   - 实验概述: oj/index.md
-   - 实验内容:
-     - Step1：题目管理: oj/project/step1.md
-     - Step2：题目评测: oj/project/step2.md
-     - Step3：评测列表: oj/project/step3.md
-     - Step4：用户管理: oj/project/step4.md
-     - Step5：日志与权限: oj/project/step5.md
-     - Step6：持久化存储: oj/project/step6.md
-     - Adv1：特殊题目评测: oj/project/advance1.md
-     - Adv2：前端交互: oj/project/advance2.md
-     - Adv3：安全机制: oj/project/advance3.md
-     - Adv4：代码查重: oj/project/advance4.md
-   - API 文档: oj/api.md
-   - 评分标准: oj/requirements.md
-   - FAQ: oj/faq.md
-   - 仓库拉取教程: oj/gitpull.md
+  - 实验二：在线评测系统:
+    - 实验概述: oj/index.md
+    - 实验内容:
+      - Step1：题目管理: oj/project/step1.md
+      - Step2：题目评测: oj/project/step2.md
+      - Step3：评测列表: oj/project/step3.md
+      - Step4：用户管理: oj/project/step4.md
+      - Step5：日志与权限: oj/project/step5.md
+      - Step6：持久化存储: oj/project/step6.md
+      - Adv1：特殊题目评测: oj/project/advance1.md
+      - Adv2：前端交互: oj/project/advance2.md
+      - Adv3：安全机制: oj/project/advance3.md
+      - Adv4：代码查重: oj/project/advance4.md
+    - API 文档: oj/api.md
+    - 评分标准: oj/requirements.md
+    - FAQ: oj/faq.md
+    - 仓库拉取教程: oj/gitpull.md
 
     - "附录：本地 Git 安装与配置指南": crawler/git.md
   # - 实验二：MiniGPT:
@@ -68,7 +68,6 @@ theme:
 
 exclude_docs: |
   site/
-  oj/
   MiniGPT/
 
 
