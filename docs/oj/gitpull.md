@@ -41,15 +41,9 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 Receiving objects: 100% (3/3), done.
 ```
 
----
+!!! warning
+    如果 clone 时提示需要登录，用户名（username）是你清华 GitLab 的 ID；密码则需要前往 GitLab 的 **User settings → Personal access tokens** 创建一个 access token 来填入（不是你的登录密码）。
 
-## 添加模板仓库为远程
-
-将课程提供的模板仓库命名为 `template`：
-
-```bash
-git remote add template https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template.git
-```
 
 你可以用以下命令查看所有远程仓库：
 
@@ -65,107 +59,7 @@ git remote -v
 ```shell
 origin	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-2025123456.git (fetch)
 origin	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-2025123456.git (push)
-template	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template.git (fetch)
-template	https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template.git (push)
 ```
-
----
-
-## 拉取模板仓库的更新
-
-执行：
-
-```bash
-git pull template main
-```
-
-如果是首次拉取，Git 可能会提醒你需要指定合并策略：
-
-```
-From https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template
- * branch            main       -> FETCH_HEAD
-hint: You have divergent branches and need to specify how to reconcile them.
-hint: You can do so by running one of the following commands sometime before
-hint: your next pull:
-hint:
-hint:   git config pull.rebase false  # merge
-hint:   git config pull.rebase true   # rebase
-hint:   git config pull.ff only       # fast-forward only
-hint:
-hint: You can replace "git config" with "git config --global" to set a default
-hint: preference for all repositories. You can also pass --rebase, --no-rebase,
-hint: or --ff-only on the command line to override the configured default per
-hint: invocation.
-fatal: Need to specify how to reconcile divergent branches.
-```
-
-根据提示选择一种方式（推荐使用 rebase 方式保持提交历史整洁）：
-
-```bash
-git config pull.rebase true
-```
-
-然后再次拉取：
-
-```bash
-git pull template main
-```
-
----
-
-## 解决冲突（如果有）
-
-拉取模板代码时，若本地与模板中对同一文件（如 `README.md`）有不同修改，Git 会提示你有冲突：
-
-```
-From https://git.tsinghua.edu.cn/python-course-2025/pa2-oj-template
- * branch            main       -> FETCH_HEAD
-Auto-merging README.md
-CONFLICT (add/add): Merge conflict in README.md
-error: could not apply fc763b1... Initial commit
-hint: Resolve all conflicts manually, mark them as resolved with
-hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
-hint: You can instead skip this commit: run "git rebase --skip".
-hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
-hint: Disable this message with "git config advice.mergeConflict false"
-Could not apply fc763b1... Initial commit
-```
-
-此时：
-
-1. 打开提示冲突的文件（例如 `README.md`），手动修改冲突内容；
-2. 修改完后执行：
-
-```bash
-git add README.md
-git rebase --continue
-```
-
-如果你决定不合并此次提交，也可以跳过：
-
-```bash
-git rebase --skip
-```
-
-如需放弃合并操作，回到原来的状态：
-
-```bash
-git rebase --abort
-```
-
----
-
-## 最终效果
-
-完成以上步骤后，你的代码仓库将包含模板的最新内容，并与你本地代码合并。以后只需定期运行：
-
-```bash
-git pull template main
-```
-
-就能保持模板内容的最新状态。
-
----
 
 ## 自动化配置（可选）
 
